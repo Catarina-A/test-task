@@ -1,15 +1,11 @@
-/*import '@babel/polyfill';
-import 'nodelist-foreach-polyfill';
-//import 'url-search-params-polyfill';
-import {polyfill} from 'es6-promise';
-polyfill();*/
+import barba from '@barba/core';
 
-//import IntersectionObserver from 'intersection-observer-polyfill';
+
 
 //import {ScrollToPlugin} from 'gsap/all';
-
 //const scrollToPlugin = ScrollToPlugin; // need to include to bundle on build
 //import scrollTo from './components/scroll-to';
+
 //import header from './components/header';
 
 import pageLoader from './page-loader';
@@ -19,6 +15,16 @@ window.addEventListener('load', () => {
   // scrollTo();
   // header();
 
-  const page = document.querySelector('.page-content-wrapper');
-  page.style.opacity = 1;
+  barba.init({
+    transitions: [{
+      leave({ current, next, trigger }) {
+        // do something with `current.container` for your leave transition
+        // then return a promise or use `this.async()`
+      },
+      enter({ current, next, trigger }) {
+        // do something with `next.container` for your enter transition
+        // then return a promise or use `this.async()`
+      }
+    }]
+  });
 });

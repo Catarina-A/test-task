@@ -1,9 +1,9 @@
-body {
+html, body {
   font-family: $font-1;
   font-weight: 300;
   letter-spacing: 0.02em;
+  line-height: 1.2em;
   color: $color-1;
-  background: $color-4;
 }
 
 img {
@@ -13,8 +13,4 @@ img {
 
 strong {
   font-weight: 800;
-}
-
-.page-content-wrapper {
-  //position: relative;
 }
