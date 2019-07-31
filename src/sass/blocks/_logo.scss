@@ -1,0 +1,12 @@
+.logo {
+  display: block;
+  pointer-events: none;
+
+  &--animated {
+    pointer-events: auto;
+
+    svg {
+      width: rem-calc(216);
+    }
+  }
+}

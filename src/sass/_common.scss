@@ -1,8 +1,8 @@
 html, body {
   font-family: $font-1;
-  font-weight: 300;
-  letter-spacing: 0.02em;
+  font-weight: 500;
   line-height: 1.2em;
+  letter-spacing: 0.02em;
   color: $color-1;
 }
 
@@ -13,4 +13,8 @@ img {
 
 strong {
   font-weight: 800;
+}
+
+button {
+  cursor: pointer;
 }

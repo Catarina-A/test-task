@@ -1,0 +1,47 @@
+.header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  padding: rem-calc(42 0);
+
+  &__inner {
+    position: relative;
+  }
+
+  &__logo {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &__nav-list {
+    display: flex;
+    margin: rem-calc(-2 -25 0);
+  }
+
+  &__nav-item {
+
+    &:nth-child(3) {
+      margin-left: auto;
+    }
+  }
+
+  &__nav-btn {
+    font-size: 14px;
+    line-height: 1.1;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: rem-calc(0 25);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+
+    svg {
+      width: 2.14em;
+      height: 2.14em;
+      margin-right: 0.2em;
+    }
+  }
+}
