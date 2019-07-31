@@ -1,0 +1,18 @@
+{% macro link(data) %}
+    <a
+            href="{{ data.link }}"
+            class="{{ data.class }}"
+            data-no-hover-on-touch
+            {% if data.id %}id="{{ data.id }}" {% endif %}
+            {% if data.scrollTo %}data-scroll-to="{{ data.scrollTo }}" {% endif %}
+            {% if data.target %}target="{{ data.target }}" {% endif %}
+            {% if data.onclick %} onclick="{{ data.onclick }}" {% endif %}
+    >
+        {% if data.textMobile %}
+            <span class="button__text button__text--desktop">{{ data.text }}</span><span
+                class="button__text button__text--mobile">{{ data.textMobile }}</span>
+        {% else %}
+            <span class="button__text">{{ data.text }}</span>
+        {% endif %}
+    </a>
+{% endmacro %}

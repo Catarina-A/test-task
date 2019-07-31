@@ -1,0 +1,141 @@
+.advisors {
+  padding: rem-calc(130 0 100);
+
+  @media (max-width: $md) {
+    padding: rem-calc(100 0 80);
+  }
+
+  &__bg {
+    background: $color-5;
+  }
+
+  &__bg--blue-light {
+    background: $color-4;
+  }
+
+  &__above {
+    display: flex;
+    margin-bottom: rem-calc(60);
+
+    @media (max-width: $sm) {
+      display: block;
+      position: relative;
+    }
+  }
+
+  &__title-col,
+  &__text-col {
+    width: 50%;
+
+    @media (max-width: $md) {
+      width: 100%;
+    }
+  }
+
+  &__text-col {
+    margin-top: 100px;
+    max-width: 490px;
+
+    @media (max-width: $md) {
+      margin-top: 0;
+    }
+  }
+
+  &__close {
+    text-align: right;
+
+    @media (max-width: $md) {
+      position: absolute;
+      top: rem-calc(-30);
+      right: 0;
+    }
+
+    button {
+      font-size: rem-calc(22);
+      text-transform: uppercase;
+      font-weight: 700;
+      color: $color-2;
+      transition: color $time-sm;
+      cursor: pointer;
+      position: relative;
+      padding-right: 1.5em;
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: 0;
+        width: 0.8em;
+        height: 3px;
+        background: $color-2;
+        transition: background $time-sm;
+      }
+
+      &::before {
+        transform: translateY(-0.15em) rotate(45deg);
+      }
+
+      &::after {
+        transform: translateY(-0.15em) rotate(-45deg);
+      }
+
+      &:hover {
+        color: $color-3;
+
+        &::before,
+        &::after {
+          background: $color-3;
+        }
+      }
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1070px;
+    margin: 0 auto;
+
+    @media (max-width: $xsm) {
+      margin: rem-calc(0 -30);
+    }
+  }
+
+  &__advisor {
+    width: 25%;
+    padding: rem-calc(40 30);
+
+    @media (max-width: $lg) {
+      width: 50%;
+    }
+  }
+
+  &__advisor-inner {
+    max-width: 170px;
+    margin: 0 auto;
+  }
+
+  &__advisor-img {
+    margin-bottom: rem-calc(40);
+  }
+
+  &__advisor-img-inner {
+    display: block;
+    position: relative;
+    padding-top: 100%;
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__advisor-info {
+    margin-right: rem-calc(-30);
+  }
+}

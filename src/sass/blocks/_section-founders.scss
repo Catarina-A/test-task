@@ -1,0 +1,57 @@
+.founders {
+  padding: rem-calc(130 0 150);
+
+  @media (max-width: $md) {
+    padding: rem-calc(100 0);
+  }
+
+  &__bg {
+    background: $color-4;
+  }
+
+  &__above,
+  &__below {
+    display: flex;
+
+    @media (max-width: $sm) {
+      display: block;
+    }
+  }
+
+  &__above {
+    margin-bottom: rem-calc(80);
+
+    @media (max-width: $lg) {
+      margin-bottom: rem-calc(50);
+    }
+  }
+
+  &__title-col,
+  &__text-col,
+  &__founder-col,
+  &__button-col {
+    width: 50%;
+
+    @media (max-width: $sm) {
+      width: 100%;
+    }
+  }
+
+  &__text-col {
+    margin-top: 100px;
+    max-width: 490px;
+
+    @media (max-width: $sm) {
+      margin-top: 0;
+    }
+  }
+
+  &__button-col {
+    margin-top: rem-calc(30);
+
+    @media (max-width: $sm) {
+      text-align: center;
+      margin-top: rem-calc(50);
+    }
+  }
+}

@@ -1,0 +1,20 @@
+body {
+  font-family: $font-1;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  color: $color-1;
+  background: $color-4;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+strong {
+  font-weight: 800;
+}
+
+.page-content-wrapper {
+  //position: relative;
+}

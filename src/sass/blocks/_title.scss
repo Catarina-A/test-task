@@ -1,0 +1,59 @@
+.title {
+  font-size: rem-calc(48);
+  line-height: 1.23em;
+  letter-spacing: 0.03em;
+  font-weight: 900;
+  margin-bottom: 0.75em;
+  text-transform: uppercase;
+
+  @media (max-width: $xsm) {
+    font-size: rem-calc(38);
+  }
+
+  &::before {
+    content: '';
+    display: block;
+    background: $color-2;
+    width: 0.58em;
+    height: 0.28em;
+    margin-bottom: 0.5em;
+    transform: skewY(-30deg);
+  }
+
+  &--white-text {
+    color: $color-5;
+  }
+
+  &--blue-icon {
+
+    &::before {
+      background: $color-2;
+    }
+  }
+
+  &--dark-icon {
+
+    &::before {
+      background: $color-1;
+    }
+  }
+
+  &--yellow-icon {
+
+    &::before {
+      background: $color-3;
+    }
+  }
+}
+
+.title-small {
+  text-transform: uppercase;
+  font-size: rem-calc(32);
+  line-height: 1.2em;
+  font-weight: 700;
+  letter-spacing: 0.028em;
+
+  @media (max-width: $xsm) {
+    font-size: rem-calc(28);
+  }
+}

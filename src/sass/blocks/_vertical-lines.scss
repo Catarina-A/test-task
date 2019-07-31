@@ -1,0 +1,32 @@
+.vertical-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  &--transparent {
+    opacity: 0.2;
+  }
+
+  .container {
+    height: 100%;
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+  }
+
+  i {
+    display: block;
+    height: 100%;
+    width: 1px;
+    background: rgb(209, 214, 221);
+    //transform: scaleX(1.5);
+  }
+}

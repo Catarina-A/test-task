@@ -1,0 +1,53 @@
+<head>
+  <meta charset="utf-8"/>
+  <title>{% if title %}{{ title }}{% else %}J. Marshall{% endif %}</title>
+  <meta name="description" content="{% if description %}{{ description }}{% else %}J. Marshall{% endif %}">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="format-detection" content="telephone=no"/>
+  
+  <meta property="og:title" content="{% if title %}{{ title }}{% else %}J. Marshall{% endif %}">
+  <meta property="og:description" content="{% if description %}{{ description }}{% else %}J. Marshall{% endif %}">
+  
+  
+  {#<meta property="og:url" content="https://www.archon.cloud">
+  <meta property="og:type" content="website"/>
+
+  <meta property="og:image" content="https://www.archon.cloud/img/og-image-wide.jpg">
+  <meta property="og:image:type" content="image/jpeg"/>
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta property="og:image" content="https://www.archon.cloud/img/og-image-square.jpg">
+  <meta property="og:image:type" content="image/jpeg"/>
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="1200">#}
+  
+ {# <link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="/favicon/favicon.ico">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-config" content="/favicon/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">#}
+  
+  <link rel="stylesheet" href="/css/app.css"/>
+  {#<link href="/js/app.js" rel="preload" as="script">#}
+  
+  <!-- Global Site Tag (gtag.js) - Google Analytics -->
+  {#<script async src="https://www.googletagmanager.com/gtag/js?id=UA-122343978-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'UA-122343978-1');
+  </script>#}
+
+</head>

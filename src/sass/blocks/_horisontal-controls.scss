@@ -1,0 +1,61 @@
+.horizontal-controls {
+  font-size: 0;
+  display: flex;
+  align-items: center;
+
+  @media (max-width: $xsm) {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  &__arrows {
+    padding: rem-calc(0 10);
+    margin-right: rem-calc(-26);
+  }
+
+  &__arrow {
+    cursor: pointer;
+    padding: rem-calc(20);
+
+    svg {
+      width: rem-calc(17);
+      height: rem-calc(25);
+      fill: $color-5;
+      transition: fill $time-sm;
+    }
+
+    &:hover {
+
+      svg {
+        fill: $color-3;
+      }
+    }
+
+    &--blue-hover {
+
+      &:hover {
+
+        svg {
+          fill: $color-2;
+        }
+      }
+    }
+
+    &.swiper-button-disabled {
+      opacity: 0.4;
+
+      svg {
+        fill: transparentize($color-5, 0.6);
+      }
+    }
+  }
+
+  &__prev {
+    transform: rotate(90deg)
+  }
+
+  &__next {
+    transform: rotate(-90deg)
+  }
+
+}

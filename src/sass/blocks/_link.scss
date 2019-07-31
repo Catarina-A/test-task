@@ -1,0 +1,88 @@
+.link {
+  font-size: rem-calc(22);
+  font-weight: 700;
+  text-transform: uppercase;
+  display: inline-flex;
+  white-space: nowrap;
+  transition: color $time-sm;
+  cursor: pointer;
+
+  a, button {
+    position: relative;
+    cursor: pointer;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: rem-calc(-50);
+      z-index: 2;
+    }
+  }
+
+  svg {
+    width: rem-calc(17);
+    height: rem-calc(25);
+    fill: $color-1;
+    transform: rotate(-90deg);
+    margin-left: rem-calc(27);
+    margin-top: rem-calc(-3);
+    transition: fill $time-sm;
+  }
+
+  &--no-text {
+    svg {
+      margin-left: rem-calc(4);
+      width: rem-calc(14);
+      height: rem-calc(20);
+    }
+  }
+
+  &--blue {
+    color: $color-2;
+
+    svg {
+      fill: $color-2;
+    }
+  }
+
+  &--yellow {
+    color: $color-3;
+
+    svg {
+      fill: $color-3;
+    }
+  }
+
+  &:hover {
+    color: $color-5;
+
+    svg {
+      fill: $color-5;
+    }
+  }
+
+  &--yellow-hover {
+
+    &:hover {
+      color: $color-3;
+
+      svg {
+        fill: $color-3;
+      }
+    }
+  }
+
+  &--blue-hover {
+
+    &:hover {
+      color: $color-2;
+
+      svg {
+        fill: $color-2;
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+.text-container {
+  line-height: 1.6em;
+  letter-spacing: 0.02em;
+
+  &--md {
+    font-size: rem-calc(22);
+    line-height: 1.55em;
+  }
+
+  p {
+    margin-bottom: 0.95em;
+  }
+}
+
+.bigger-text {
+  letter-spacing: 0.025em;
+  font-size: rem-calc(24);
+  font-weight: 400;
+  line-height: 1.45em;
+
+  @media (max-width: $xsm) {
+    font-size: rem-calc(18);
+  }
+}

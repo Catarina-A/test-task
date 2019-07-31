@@ -1,0 +1,15 @@
+.team-info {
+
+  &__name {
+    font-size: rem-calc(24);
+    letter-spacing: 0.03em;
+    font-weight: 700;
+    line-height: 1.2em;
+    margin-bottom: 0.85em;
+    text-transform: uppercase;
+  }
+
+  &__position {
+    margin-bottom: rem-calc(25);
+  }
+}
