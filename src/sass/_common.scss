@@ -18,3 +18,18 @@ strong {
 button {
   cursor: pointer;
 }
+
+.title {
+  font-size: rem-calc(32);
+  letter-spacing: 0.04em;
+  line-height: 1.8em;
+  margin-bottom: 0.45em;
+  text-transform: uppercase;
+}
+
+.text-container {
+  font-size: 14px;
+  line-height: 1.45em;
+  letter-spacing: 0.053em;
+  margin: 1em 0;
+}

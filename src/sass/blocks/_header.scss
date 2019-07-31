@@ -1,5 +1,6 @@
 .header {
   position: fixed;
+  z-index: 999;
   top: 0;
   right: 0;
   left: 0;
@@ -35,13 +36,36 @@
     align-items: center;
     height: 100%;
     padding: rem-calc(0 25);
+    transition: opacity $time-sm;
     letter-spacing: 0.05em;
     text-transform: uppercase;
+
+    &:hover {
+      opacity: 0.6;
+    }
 
     svg {
       width: 2.14em;
       height: 2.14em;
       margin-right: 0.2em;
+    }
+  }
+
+  &__nav-btn--underline {
+
+    span {
+      position: relative;
+      display: inline-block;
+
+      &::after {
+        position: absolute;
+        right: 1px;
+        bottom: -0.15em;
+        left: 0;
+        height: 1px;
+        content: '';
+        background: $color-1;
+      }
     }
   }
 }

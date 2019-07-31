@@ -3,7 +3,12 @@
   pointer-events: none;
 
   &--animated {
+    transition: opacity $time-sm;
     pointer-events: auto;
+
+    &:hover {
+      opacity: 0.6;
+    }
 
     svg {
       width: rem-calc(216);

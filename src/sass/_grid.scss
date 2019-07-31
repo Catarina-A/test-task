@@ -18,19 +18,40 @@
   }
 }
 
-.container--small-padding {
+.container-type-1 {
+  width: 100%;
   max-width: 1470px;
+  margin: 0 auto;
   padding: 0 50px;
 
   @media (max-width: $lg) {
-    //padding: 0 60px;
+    padding: 0 50px;
   }
 
   @media (max-width: $md) {
-    //padding: 0 45px;
+    padding: 0 50px;
   }
 
   @media (max-width: $sm) {
-    //padding: 0 30px;
+    padding: 0 50px;
+  }
+}
+
+.container-type-2 {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1470px;
+  padding: 0 100px;
+
+  @media (max-width: $lg) {
+    padding: 0 60px;
+  }
+
+  @media (max-width: $md) {
+    padding: 0 45px;
+  }
+
+  @media (max-width: $sm) {
+    padding: 0 30px;
   }
 }
