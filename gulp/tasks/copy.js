@@ -55,7 +55,7 @@ gulp.task('copy:favicon', function() {
 gulp.task('copy', [
   'copy:img',
   //'copy:assets',
-  //'copy:video',
+  'copy:video',
   'copy:favicon',
   //'copy:rootfiles',
   //'copy:libs',

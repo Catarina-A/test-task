@@ -9,7 +9,6 @@ export default class {
   }
 
   init() {
-    console.log('test');
     this.slider = new Swiper('#home-looks-slider', this.settings);
   }
 }
