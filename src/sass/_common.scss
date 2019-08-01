@@ -2,7 +2,7 @@ html, body {
   font-family: $font-1;
   font-weight: 500;
   line-height: 1.2em;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.035em;
   color: $color-1;
 }
 
@@ -32,4 +32,8 @@ button {
   line-height: 1.45em;
   letter-spacing: 0.053em;
   margin: 1em 0;
+}
+
+.text-container--lg {
+  font-size: 16px;
 }
