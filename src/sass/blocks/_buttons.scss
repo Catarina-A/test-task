@@ -1,0 +1,26 @@
+.button-now {
+  font-size: rem-calc(20);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.045em;
+
+
+  span {
+    display: inline-block;
+    margin-left: 0.15em;
+    opacity: 0.3;
+    animation-name: flashing;
+    animation-duration: 1500ms;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+
+  @keyframes flashing {
+    0% {
+      opacity: 0.2;
+    }
+    100% {
+      opacity: 0.8
+    }
+  }
+}

@@ -1,3 +1,48 @@
 .footer {
+  padding: rem-calc(50 0);
+  background: $color-4;
 
+  &__inner {
+    display: flex;
+    align-items: center;
+  }
+
+  &__email-col {
+    width: 50%;
+  }
+
+  &__nav-col {
+    font-size: 14px;
+    font-weight: 500;
+    width: 50%;
+    padding-left: 12px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  &__input {
+    font-size: rem-calc(32);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    opacity: 0.2;
+  }
+
+  &__nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: rem-calc(0 -30);
+  }
+
+  &__nav-item {
+    width: 33.3333%;
+    padding: rem-calc(8 30);
+
+    a {
+      transition: opacity $time-sm;
+
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+  }
 }

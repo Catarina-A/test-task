@@ -10,6 +10,7 @@
 
   &__heading-link {
     font-size: 14px;
+    font-weight: 500;
     margin-top: rem-calc(30);
     letter-spacing: 0.06em;
     text-transform: uppercase;
@@ -46,7 +47,7 @@
     li {
       font-size: 14px;
       display: flex;
-      padding: rem-calc(13 0);
+      padding: rem-calc(17 0);
       letter-spacing: 0.01em;
       border-bottom: 1px solid $color-2;
     }
@@ -54,11 +55,11 @@
     span {
       &:first-child {
         min-width: 2.5em;
+        font-weight: 500;
       }
 
       &:last-child {
-        font-weight: 300;
-        margin-left: rem-calc(23);
+        margin-left: rem-calc(20);
       }
     }
   }

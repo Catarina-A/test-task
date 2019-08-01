@@ -15,6 +15,12 @@
     margin-bottom: 0.9em;
   }
 
+  &__sub-title {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.3em;
+  }
+
   &__below {
     display: flex;
     margin: 0 -15px;
@@ -28,7 +34,6 @@
 
     span {
       display: block;
-      margin-top: -5px;
     }
 
     img {

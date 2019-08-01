@@ -1,3 +1,25 @@
 .satisfaction {
+  padding: rem-calc(100 0);
 
+  &__inner {
+    width: 360px;
+    margin: 0 auto;
+    text-align: center;
+
+    img {
+      margin: rem-calc(45 0 40);
+    }
+  }
+
+  &__title {
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+
+  figcaption {
+    max-width: 300px;
+    margin: 0 auto;
+  }
 }
