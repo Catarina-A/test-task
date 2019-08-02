@@ -1,17 +1,28 @@
 .logo {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   pointer-events: none;
+  position: relative;
 
-  &--animated {
-    transition: opacity $time-sm;
+  &.animated {
     pointer-events: auto;
 
     &:hover {
       opacity: 0.6;
     }
+  }
 
-    svg {
-      width: rem-calc(216);
-    }
+  #svg-logo {
+    width: rem-calc(216);
+    transform: translate3d(0, calc(50vh - 4rem), 0) scale(1.8);
+    opacity: 0;
+  }
+
+  #svg-vispring {
+    margin-top: rem-calc(50);
+    width: rem-calc(91);
+    transform: translate3d(0, calc(50vh - 4rem), 0);
+    opacity: 0;
   }
 }

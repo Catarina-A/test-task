@@ -6,13 +6,16 @@
 
 {% include "./_head.twig" %}
 
-<body data-barba="wrapper">
-
+<body data-barba="wrapper" style="overflow:hidden; background:#737373;">
 {% include "blocks/_header.twig" %}
-
-{% block content %}{% endblock %}
-
-{% include "blocks/_footer.twig" %}
+{% include "blocks/_cursor.twig" %}
+<div id="page-blur-filter" style="filter:blur(20px)brightness(80%);transition:filter 900ms;">
+  {% include "blocks/_mouse-back-follower.twig" %}
+  
+  {% block content %}{% endblock %}
+  
+  {% include "blocks/_footer.twig" %}
+</div>
 
 {#{% include "blocks/_svg-defs.twig" %}#}
 

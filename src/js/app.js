@@ -1,20 +1,34 @@
 import barba from '@barba/core';
 //import {ScrollToPlugin} from 'gsap/all';
+import TweenLite from 'gsap';
+//import TimelineLite from 'gsap';
 //const scrollToPlugin = ScrollToPlugin; // need to include to bundle on build
 //import scrollTo from './components/scroll-to';
 
+// blocks
 //import header from './components/header';
+import Cursor from './components/Cursor';
+import Preloader from './components/Preloader';
 
 // pages
-
 import HomePage from './pages/Home-page';
 
+// global objects
+let preloader = null;
 let homePage = null;
 
+window.addEventListener('DOMContentLoaded', () => {
+  const cursor = new Cursor({
+    el: '',
+    delay: 0,
+    time: 0,
+  });
+  //cursor.init()
+});
+
 window.addEventListener('load', () => {
-  //pageLoader(); // fire scripts for current page
-  // scrollTo();
-  // header();
+  preloader = new Preloader();
+  preloader.hide();
 
   barba.init({
     views: [
