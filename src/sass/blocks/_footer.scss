@@ -1,4 +1,5 @@
 .footer {
+  position: relative;
   padding: rem-calc(50 0);
   background: $color-4;
 
@@ -20,11 +21,38 @@
     text-transform: uppercase;
   }
 
-  &__input {
+  &__form {
+    position: relative;
+  }
+
+  &__input,
+  &__input-success {
     font-size: rem-calc(32);
     font-weight: 500;
     letter-spacing: 0.05em;
     opacity: 0.2;
+  }
+
+  &__input-error {
+    font-size: 11px;
+    font-weight: 500;
+    position: absolute;
+    bottom: -1.5em;
+    left: 0;
+    transition: opacity $time-sm;
+    opacity: 0;
+    color: $color-5;
+  }
+
+  &__input-success {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    display: block;
+    transition: opacity $time-sm;
+    transform: translateY(-50%);
+    pointer-events: none;
+    opacity: 0;
   }
 
   &__nav-list {
@@ -43,6 +71,87 @@
       &:hover {
         opacity: 0.6;
       }
+    }
+  }
+
+  &__rights {
+    font-size: 12px;
+    font-weight: 500;
+    position: absolute;
+    bottom: rem-calc(13);
+    left: rem-calc(23);
+    display: flex;
+    letter-spacing: 0.0em;
+    opacity: 0.3;
+  }
+
+  &__rights-animation-block {
+    position: relative;
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      content: "+";
+      transition: transform $time-md, opacity $time-md;
+      transform: translate3d(5px, -50%, 0);
+    }
+  }
+
+  &__rights-visible-part {
+    margin-right: 4px;
+  }
+
+  &__rights-curtain {
+    overflow: hidden;
+    transition: transform $time-md;
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  &__rights-text {
+    transition: transform $time-md;
+    transform: translate3d(100%, 0, 0);
+  }
+
+  //rights hover
+
+  &__rights:hover {
+
+    .footer__rights-animation-block {
+
+      &::after {
+        transform: translate3d(100%, -50%, 0);
+        opacity: 0;
+      }
+    }
+
+    .footer__rights-curtain {
+      transform: translate3d(0, 0, 0);
+    }
+
+    .footer__rights-text {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  // states of form
+  &__form.error {
+
+    .footer__input-error {
+      opacity: 1;
+    }
+  }
+
+  &__form.success {
+    pointer-events: none;
+
+    .footer__input {
+      opacity: 0;
+    }
+
+    .footer__input-success {
+      opacity: 0.2;
     }
   }
 }
