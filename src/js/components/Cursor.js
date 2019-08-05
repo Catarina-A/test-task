@@ -10,7 +10,7 @@ export default class {
   }
 
   handleMouseMove(e) {
-    console.log(e)
+    //console.log(e)
     if (this.hidden) {
       this.hidden = false;
       this.el.classList.add('visible');
