@@ -26,18 +26,23 @@
     max-width: 415px;
     margin: auto auto 0;
     padding-bottom: rem-calc(48);
+    transition: opacity $time-xl;
     text-align: center;
     opacity: 0;
-    transition: opacity $time-xl;
   }
 
   &__explore {
     font-size: 14px;
+    font-weight: 500;
     display: inline-block;
     margin-top: rem-calc(40);
+    transition: opacity $time-sm;
     letter-spacing: 0.02em;
     text-transform: uppercase;
-    font-weight: 500;
+
+    &:hover {
+      opacity: 0.6;
+    }
   }
 }
 

@@ -5,6 +5,8 @@ export default class {
     this.slider = null;
     this.settings = {
       slidesPerView: 'auto',
+      touchStartPreventDefault: false,
+      touchMoveStopPropagation: false,
     };
   }
 

@@ -3,6 +3,7 @@
   overflow: hidden;
   padding: rem-calc(100 0);
   background: $color-2;
+  user-select: none;
 
   &__section-title-wrapper {
     position: absolute;
@@ -37,6 +38,7 @@
     width: auto;
     height: auto;
     padding: rem-calc(0 15);
+    pointer-events: none;
   }
 
   &__image {
