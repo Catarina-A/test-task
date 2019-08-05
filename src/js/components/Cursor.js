@@ -5,7 +5,7 @@ export default class {
     this.delay = options.delay;
     this.watchTarget = options.watchTarget || false;
     this.LISTENER = 'mousemove';
-    this.clickHandler = null;
+    this.eventHandler = null;
     this.hidden = true;
     this.attrType = 'data-cursor-type';
     this.attrColor = 'data-cursor-color';
@@ -47,7 +47,6 @@ export default class {
   }
 
   handleMouseMove(e) {
-    console.log(e)
     if (this.hidden) {
       this.hidden = false;
       this.el.classList.add('visible');
@@ -60,11 +59,11 @@ export default class {
   }
 
   init() {
-    this.clickHandler = this.handleMouseMove.bind(this);
-    window.addEventListener(this.LISTENER, this.clickHandler);
+    this.eventHandler = this.handleMouseMove.bind(this);
+    window.addEventListener(this.LISTENER, this.eventHandler);
   }
 
   destroy() {
-    window.removeEventListener(this.LISTENER, this.clickHandler);
+    window.removeEventListener(this.LISTENER, this.eventHandler);
   }
 }
