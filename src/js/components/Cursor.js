@@ -5,7 +5,7 @@ export default class {
     this.delay = options.delay;
     this.watchTarget = options.watchTarget || false;
     this.LISTENER = 'mousemove';
-    this.eventHandler = null;
+    this.clickHandler = null;
     this.hidden = true;
     this.attrType = 'data-cursor-type';
     this.attrColor = 'data-cursor-color';
@@ -47,6 +47,9 @@ export default class {
   }
 
   handleMouseMove(e) {
+    if (this.watchTarget) {
+      this.checkTarget(e);
+    }
     if (this.hidden) {
       this.hidden = false;
       this.el.classList.add('visible');
@@ -59,11 +62,11 @@ export default class {
   }
 
   init() {
-    this.eventHandler = this.handleMouseMove.bind(this);
-    window.addEventListener(this.LISTENER, this.eventHandler);
+    this.clickHandler = this.handleMouseMove.bind(this);
+    window.addEventListener(this.LISTENER, this.clickHandler);
   }
 
   destroy() {
-    window.removeEventListener(this.LISTENER, this.eventHandler);
+    window.removeEventListener(this.LISTENER, this.clickHandler);
   }
 }
