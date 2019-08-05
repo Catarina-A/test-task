@@ -27,6 +27,8 @@
     margin: auto auto 0;
     padding-bottom: rem-calc(48);
     text-align: center;
+    opacity: 0;
+    transition: opacity $time-xl;
   }
 
   &__explore {
@@ -36,5 +38,12 @@
     letter-spacing: 0.02em;
     text-transform: uppercase;
     font-weight: 500;
+  }
+}
+
+// show items after preloader
+body.content-visible {
+  .intro__content {
+    opacity: 1;
   }
 }

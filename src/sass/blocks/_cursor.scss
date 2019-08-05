@@ -1,0 +1,25 @@
+.cursor {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none; // will show on mousemove event
+  pointer-events: none;
+
+  &.visible {
+    display: block;
+  }
+
+  &__pointer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #000;
+  }
+}

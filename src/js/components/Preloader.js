@@ -1,4 +1,5 @@
 import Cursor from './Cursor';
+import getScrollbarWidth from './get-scrollbar-width';
 
 export default class {
   constructor() {
@@ -17,10 +18,14 @@ export default class {
     this.cursor.destroy();
     this.cursor = null;
     const tl = new TimelineLite();
-    tl.set(this.domCursorFollower, {opacity: 0});
+    tl.to(this.domCursorFollower, this.blurTime, {
+      opacity: 0,
+      scale: 3,
+    });
     tl.to(this.domBlurFilter, this.blurTime, {
-          webkitFilter: `blur(${this.filterMedium})`,
-          filter: `blur(${this.filterMedium})`,
+          delay: -this.blurTime,
+          webkitFilter: `blur(${this.filterMedium}) brightness(100%)`,
+          filter: `blur(${this.filterMedium}) brightness(100%)`,
         },
     );
     tl.add(() => {
@@ -40,11 +45,13 @@ export default class {
             scale: 1,
           }).to(this.domBlurFilter, this.logoShowTime, {
                 delay: -this.logoShowTime,
-                webkitFilter: `blur(0)`,
-                filter: `blur(0)`,
+                webkitFilter: `blur(0) brightness(100%)`,
+                filter: `blur(0) brightness(100%)`,
               },
           ).add(() => {
-            //document.body.classList.add('content-visible')
+            document.body.removeAttribute('style');
+            document.body.style.marginRight = `-${getScrollbarWidth()}px`;
+            document.body.classList.add('content-visible');
           });
 
           vispTl.to(this.domVispring, this.logoShowTime, {
@@ -69,7 +76,7 @@ export default class {
       });
 
       this.cursor.init();
-      this.domCursorFollower.style.opacity = '1';
+      TweenLite.to(this.domCursorFollower, 1.4, {opacity: 1});
 
       const fireNextStage = () => {
         this.domBlurFilter.removeEventListener('click', fireNextStage);

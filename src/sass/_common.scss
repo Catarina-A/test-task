@@ -4,6 +4,12 @@ html, body {
   color: $color-1;
 }
 
+body {
+  transition: background $time-xl;
+  overflow-x: hidden;
+  cursor: none;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
 }
@@ -44,3 +50,26 @@ button {
 .text-container--lg {
   font-size: 16px;
 }
+
+//scroll-bar
+/*body {
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $color-4;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #737373;
+  }
+}
+
+.page-blur-filter {
+  height: 100vh;
+  overflow: scroll;
+  display: none;
+}*/

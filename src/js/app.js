@@ -1,9 +1,10 @@
 import barba from '@barba/core';
-//import {ScrollToPlugin} from 'gsap/all';
+import {ScrollToPlugin} from 'gsap/all';
 import TweenLite from 'gsap';
-//import TimelineLite from 'gsap';
-//const scrollToPlugin = ScrollToPlugin; // need to include to bundle on build
-//import scrollTo from './components/scroll-to';
+import TimelineLite from 'gsap';
+
+const scrollToPlugin = ScrollToPlugin; // need to include to bundle on build
+import scrollTo from './components/scroll-to';
 
 // blocks
 //import header from './components/header';
@@ -19,11 +20,12 @@ let homePage = null;
 
 window.addEventListener('DOMContentLoaded', () => {
   const cursor = new Cursor({
-    el: '',
+    el: document.getElementsByClassName('cursor')[0],
     delay: 0,
     time: 0,
+    watchTarget: true,
   });
-  //cursor.init()
+  cursor.init();
 });
 
 window.addEventListener('load', () => {
