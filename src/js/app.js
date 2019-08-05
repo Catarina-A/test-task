@@ -19,7 +19,6 @@ let preloader = null;
 let homePage = null;
 
 window.addEventListener('DOMContentLoaded', () => {
-  window.scrollTo(0, 0);
   const cursor = new Cursor({
     el: document.getElementsByClassName('cursor')[0],
     delay: 0,
@@ -30,17 +29,18 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 window.addEventListener('load', () => {
-  window.scrollTo(0, 0);
   preloader = new Preloader();
   preloader.hide();
 
   barba.init({
+    prevent: ({ el }) => el.classList && el.classList.contains('barba-prevent'),
     views: [
       {
         namespace: 'home-page',
         afterEnter() {
           homePage = new HomePage();
           homePage.init();
+          scrollTo();
         },
       }],
   });

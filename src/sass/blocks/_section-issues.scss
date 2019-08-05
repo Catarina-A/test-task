@@ -7,12 +7,15 @@
   }
 
   &__item {
+    text-transform: uppercase;
+    border-bottom: 1px solid $color-1;
+  }
+
+  &__link {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: rem-calc(8 70);
-    text-transform: uppercase;
-    border-bottom: 1px solid $color-1;
   }
 
   &__name {

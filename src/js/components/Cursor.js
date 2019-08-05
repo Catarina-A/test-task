@@ -22,30 +22,27 @@ export default class {
   checkTarget(e) {
     const path = e.path || e.composedPath();
     if (path) {
-      let isNoTypeSetted = true;
-      let isNoColorSetted = true;
+      let typeResult = '';
+      let colorResult = '';
       for (const el of path) {
         if (el.attributes) {
-          const type = el.getAttribute(this.attrType);
+          const tag = el.tagName;
+          const isLink = tag === 'A' || tag === 'BUTTON';
+          const type = el.getAttribute(this.attrType) || (isLink ? 'bigger' : null);
           const color = el.getAttribute(this.attrColor);
-          if (type && isNoTypeSetted) {
-            isNoTypeSetted = false;
-            this.setCursorType(type);
-          } else if (isNoTypeSetted) {
-            this.setCursorType('');
+          if (!typeResult && type) {
+            typeResult = type;
           }
-          if (color && isNoColorSetted) {
-            isNoColorSetted = false;
-            this.setCursorColor(color);
-          } else if (isNoColorSetted) {
-            this.setCursorColor('');
+          if (!colorResult && color) {
+            colorResult = color;
           }
-          if (!isNoTypeSetted && !isNoColorSetted) break;
-
+          if (typeResult && colorResult) break;
         } else {
           break;
         }
       }
+      this.setCursorType(typeResult);
+      this.setCursorColor(colorResult);
     }
   }
 
