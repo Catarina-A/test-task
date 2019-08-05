@@ -7,10 +7,52 @@ export default class {
     this.LISTENER = 'mousemove';
     this.clickHandler = null;
     this.hidden = true;
+    this.attrType = 'data-cursor-type';
+    this.attrColor = 'data-cursor-color';
+  }
+
+  setCursorType(type) {
+    this.el.setAttribute(this.attrType, type);
+  }
+
+  setCursorColor(color) {
+    this.el.setAttribute(this.attrColor, color);
+  }
+
+  checkTarget(e) {
+    const path = e.path || e.composedPath();
+    if (path) {
+      let isNoTypeSetted = true;
+      let isNoColorSetted = true;
+      for (const el of path) {
+        if (el.attributes) {
+          const type = el.getAttribute(this.attrType);
+          const color = el.getAttribute(this.attrColor);
+          if (type && isNoTypeSetted) {
+            isNoTypeSetted = false;
+            this.setCursorType(type);
+          } else if (isNoTypeSetted) {
+            this.setCursorType('');
+          }
+          if (color && isNoColorSetted) {
+            isNoColorSetted = false;
+            this.setCursorColor(color);
+          } else if (isNoColorSetted) {
+            this.setCursorColor('');
+          }
+          if (!isNoTypeSetted && !isNoColorSetted) break;
+
+        } else {
+          break;
+        }
+      }
+    }
   }
 
   handleMouseMove(e) {
-    console.log(e)
+    if (this.watchTarget) {
+      this.checkTarget(e);
+    }
     if (this.hidden) {
       this.hidden = false;
       this.el.classList.add('visible');
