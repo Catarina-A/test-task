@@ -90,9 +90,21 @@ export default class {
     this.data.video.currentTime = this.data.duration * pos;
   }
 
-  initProgressBarEvens() {
+  handleVideoClick() {
+    if (this.data.playing) {
+      this.data.video.pause();
+      this.data.playing = false;
+    } else {
+      this.data.video.play();
+      this.data.playing = true;
+    }
+  }
+
+  initEvensListeners() {
     const bar = this.data.progressBar;
+    const video = this.data.video;
     bar.addEventListener('click', this.handleBarClick.bind(this));
+    video.addEventListener('click', this.handleVideoClick.bind(this));
   }
 
   init() {
@@ -101,7 +113,7 @@ export default class {
       this.loadVideo().then(() => {
         this.createProgressBar();
         this.initPlayer();
-        this.initProgressBarEvens();
+        this.initEvensListeners();
         this.initObserver();
       });
     } catch (e) {
