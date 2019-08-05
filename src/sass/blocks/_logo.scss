@@ -26,3 +26,10 @@
     opacity: 0;
   }
 }
+
+// after preloader
+body.content-visible {
+  .logo {
+    pointer-events: auto;
+  }
+}
