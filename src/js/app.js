@@ -7,7 +7,7 @@ const scrollToPlugin = ScrollToPlugin; // need to include to bundle on build
 import scrollTo from './components/scroll-to';
 
 // blocks
-//import header from './components/header';
+import Header from './components/Header';
 import Cursor from './components/Cursor';
 import Preloader from './components/Preloader';
 
@@ -16,6 +16,7 @@ import HomePage from './pages/Home-page';
 
 // global objects
 let preloader = null;
+let header = null;
 let homePage = null;
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -30,10 +31,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
 window.addEventListener('load', () => {
   preloader = new Preloader();
+  header = new Header();
   preloader.hide();
 
   barba.init({
-    prevent: ({ el }) => el.classList && el.classList.contains('barba-prevent'),
+    prevent: ({el}) => el.classList && el.classList.contains('barba-prevent'),
     views: [
       {
         namespace: 'home-page',
@@ -41,6 +43,7 @@ window.addEventListener('load', () => {
           homePage = new HomePage();
           homePage.init();
           scrollTo();
+          header.initStyleTrigger();
         },
       }],
   });
