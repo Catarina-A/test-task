@@ -6,7 +6,12 @@
 
 {% include "./_head.twig" %}
 
-<body data-barba="wrapper" style="overflow: hidden; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background:#737373;">
+<body data-barba="wrapper" style="overflow: hidden; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+{% if homePage %}background:#737373;
+{% elseif contactPage %}background:#999999;
+{% else %}background:#fff;
+{% endif %}
+    ">
 {% include "blocks/_header.twig" %}
 {% include "blocks/_cursor.twig" %}
 <div id="page-blur-filter" style="filter: blur(20px) brightness(80%); -webkit-filter: blur(20px) brightness(80%);">

@@ -23,5 +23,3 @@ for dev usage example:
 		<li>{{test.title}}</li>
 		{% endfor %}
 	{# end of example #}
-
-`node create-buildings` - to recreate landmark-buildings.json

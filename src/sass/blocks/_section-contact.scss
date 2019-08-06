@@ -1,0 +1,32 @@
+.contact {
+  height: 100vh;
+  background: $color-2;
+
+  &__image {
+    position: absolute;
+    font-size: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 50%;
+    img {
+      width: 100%;
+      max-width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .container {
+    height: 100%;
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    max-width: 535px;
+    height: 100%;
+    margin-left: auto;
+    padding: rem-calc(120 0 120 85);
+  }
+}

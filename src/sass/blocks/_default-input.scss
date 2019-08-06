@@ -1,0 +1,36 @@
+.default-input {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin-bottom: rem-calc(31);
+
+  &__input,
+  &__textarea {
+    font-size: 14px;
+    font-weight: 300;
+    width: 100%;
+    padding: rem-calc(10 15 23);
+    transition: color $time-sm;
+    color: transparentize($color-1, 0.7);
+    border-bottom: 1px solid $color-1;
+
+    &:focus {
+      color: transparentize($color-1, 0);
+    }
+  }
+
+  &__textarea {
+    height: rem-calc(165);
+    resize: none;
+  }
+
+  &__error {
+    font-size: 11px;
+    position: absolute;
+    top: 100%;
+    font-weight: 500;
+    right: 0;
+    padding-top: 10px;
+    color: $color-5;
+  }
+}
