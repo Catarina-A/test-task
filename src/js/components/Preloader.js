@@ -52,6 +52,7 @@ export default class {
             document.body.removeAttribute('style');
             document.body.style.marginRight = `-${getScrollbarWidth()}px`;
             document.body.classList.add('content-visible');
+            this.domVispring.remove();
           });
 
           vispTl.to(this.domVispring, this.logoShowTime, {
