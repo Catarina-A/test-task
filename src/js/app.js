@@ -8,7 +8,7 @@ import scrollTo from './components/scroll-to';
 
 // blocks
 import Header from './components/Header';
-import languageMenu from './components/language-menu';
+import LanguageMenu from './components/Language-menu';
 import Cursor from './components/Cursor';
 import Preloader from './components/Preloader';
 
@@ -17,7 +17,9 @@ import HomePage from './pages/Home-page';
 
 // global objects
 let preloader = null;
+let animatedFirstTIme = false;
 let header = null;
+let languageMenu = null;
 let homePage = null;
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -33,8 +35,11 @@ window.addEventListener('DOMContentLoaded', () => {
 window.addEventListener('load', () => {
   preloader = new Preloader();
   header = new Header();
+  languageMenu = new LanguageMenu();
   preloader.hide();
-  languageMenu();
+  setTimeout(() => {
+    animatedFirstTIme = true;
+  }, 4000);
 
   barba.init({
     prevent: ({el}) => el.classList && el.classList.contains('barba-prevent'),
@@ -42,10 +47,41 @@ window.addEventListener('load', () => {
       {
         namespace: 'home-page',
         afterEnter() {
+          if (animatedFirstTIme) {
+            setTimeout(() => {
+              const blurContainer = document.getElementById('page-blur-filter');
+            TweenLite.set(blurContainer, {
+              webkitFilter: `blur(0) brightness(100%)`,
+              filter: `blur(0) brightness(100%)`,
+            });
+            }, 50)
+          }
           homePage = new HomePage();
           homePage.init();
           scrollTo();
+          languageMenu.init();
           header.initStyleTrigger();
+        },
+        beforeLeave() {
+          languageMenu.destroy();
+        },
+      },
+      {
+        namespace: 'contact-page',
+        afterEnter() {
+          if (animatedFirstTIme) {
+            setTimeout(() => {
+              const blurContainer = document.getElementById('page-blur-filter');
+            TweenLite.set(blurContainer, {
+              webkitFilter: `blur(0) brightness(100%)`,
+              filter: `blur(0) brightness(100%)`,
+            });
+            }, 50)
+          }
+          languageMenu.init();
+        },
+        beforeLeave() {
+          languageMenu.destroy();
         },
       }],
   });
