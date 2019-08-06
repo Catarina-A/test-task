@@ -8,6 +8,7 @@ import scrollTo from './components/scroll-to';
 
 // blocks
 import Header from './components/Header';
+import languageMenu from './components/language-menu';
 import Cursor from './components/Cursor';
 import Preloader from './components/Preloader';
 
@@ -33,6 +34,7 @@ window.addEventListener('load', () => {
   preloader = new Preloader();
   header = new Header();
   preloader.hide();
+  languageMenu();
 
   barba.init({
     prevent: ({el}) => el.classList && el.classList.contains('barba-prevent'),

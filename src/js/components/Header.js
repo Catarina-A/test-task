@@ -2,34 +2,42 @@ export default class {
   constructor() {
     this.header = document.getElementById('header');
     this.sections = null;
-    this.sectionsObserver = null;
-    this.sectionObserverOptions = {
-      threshold: 1,
-    };
+    this.CLASS_WHITE = 'white';
+    this.scrolHandler = null;
   }
 
-  calculateThreshold() {
-    this.sectionObserverOptions = {
-      threshold: this.header.clientHeight / 2 / window.innerHeight,
-    };
+  makeHeaderColorWhite() {
+    this.header.classList.add(this.CLASS_WHITE);
   }
 
-  handleObserver(e) {
-    console.log(e);
+  makeHeaderColorDefault() {
+    this.header.classList.remove(this.CLASS_WHITE);
+  }
+
+  handleScroll() {
+    const isHeaderOverBlack = this.sections.find(section => {
+      const sectionRect = section.getBoundingClientRect();
+      const halfHeaderHeight = this.header.clientHeight / 2;
+      return (sectionRect.top < halfHeaderHeight) &&
+          (sectionRect.top + section.clientHeight > halfHeaderHeight);
+    });
+    if (isHeaderOverBlack) {
+      this.makeHeaderColorWhite();
+    } else {
+      this.makeHeaderColorDefault();
+    }
   }
 
   initStyleTrigger() {
-    this.calculateThreshold();
-    this.sections = document.querySelectorAll('[data-header-style]');
-    if (this.sections.length) {
-      this.sectionsObserver = new IntersectionObserver(this.handleObserver, this.sectionObserverOptions);
-      this.sections.forEach(section => {
-        this.sectionsObserver.observe(section);
-      });
+    const nodeSections = document.querySelectorAll('.header-style-black');
+    if (nodeSections.length) {
+      this.sections = Array.from(nodeSections);
+      this.scrolHandler = this.handleScroll.bind(this);
+      window.addEventListener('scroll', this.scrolHandler);
     }
   }
 
   destroyStyleTrigger() {
-
+    window.removeEventListener('scroll', this.scrolHandler);
   }
 }

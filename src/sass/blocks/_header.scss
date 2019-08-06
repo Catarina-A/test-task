@@ -5,9 +5,26 @@
   right: 0;
   left: 0;
   padding: rem-calc(42 0);
+  pointer-events: none;
+
+  #header-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    transform: translateX(100%);
+    //background: #000;
+
+    &.active {
+      transform: translateX(0);
+      pointer-events: auto;
+    }
+  }
 
   &__inner {
     position: relative;
+    pointer-events: none;
   }
 
   &__logo {
@@ -48,13 +65,46 @@
     }
 
     svg {
+      fill: $color-1;
       width: 2.14em;
       height: 2.14em;
       margin-right: 0.2em;
+      //transition: fill $time-sm;
     }
   }
 
-  &__nav-btn--underline {
+  &__lang-list {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    color: $color-2;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-align: right;
+    padding-top: rem-calc(18);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1000ms;
+
+    a {
+      display: block;
+      padding: rem-calc(12 0);
+      transition: opacity $time-sm;
+      opacity: 0.5;
+
+      &.active {
+        opacity: 1;
+      }
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  &__nav-btn--lang {
+    position: relative;
 
     span {
       position: relative;
@@ -70,12 +120,52 @@
         background: $color-1;
       }
     }
+
+    &.active {
+
+      span {
+        color: $color-2;
+
+        &::after {
+          background: $color-2;
+        }
+      }
+
+      & + .header__lang-list {
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+  }
+
+  // style header
+  &.white {
+
+    .header__nav-list {
+      color: $color-2;
+    }
+
+    #svg-logo {
+      fill: $color-2;
+    }
+
+    .header__nav-btn svg {
+      fill: $color-2;
+    }
+
+    .header__nav-btn--lang span::after {
+      background: $color-2;
+    }
   }
 }
 
 // show items after preloader
 
 body.content-visible {
+
+  .header__inner {
+    pointer-events: auto;
+  }
 
   .header__nav-list {
     opacity: 1;

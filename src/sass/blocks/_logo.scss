@@ -15,6 +15,7 @@
 
   #svg-logo {
     width: rem-calc(216);
+    fill: $color-1;
     transform: translate3d(0, calc(50vh - 4rem), 0) scale(1.8);
     opacity: 0;
   }

@@ -1,9 +1,10 @@
 <header class="header" id="header">
+  <div id="header-overlay"></div>
   <div class="container container--type-1">
     <div class="header__inner">
       <nav>
         <ul class="header__nav-list">
-          <li class="header__nav-item">
+          <li class="header__nav-item blurable-on-lang-open">
             <button class="header__nav-btn" id="configurator-main-btn">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
                 <path d="M15 7.5v15c4.1 0 7.5-3.4 7.5-7.5S19.1 7.5 15 7.5zm0 16a8.5 8.5 0 1 1-.01-16.99A8.5 8.5 0 0 1 15 23.5z"/>
@@ -11,14 +12,22 @@
               Configure
             </button>
           </li>
-          <li class="header__nav-item"><a class="header__nav-btn" href="/our-beds.html">Our Beds</a></li>
-          <li class="header__nav-item"><a class="header__nav-btn" href="/contact.html">Contact</a></li>
+          <li class="header__nav-item blurable-on-lang-open"><a class="header__nav-btn" href="/our-beds.html">Our Beds</a></li>
+          <li class="header__nav-item blurable-on-lang-open"><a class="header__nav-btn" href="/contact.html">Contact</a></li>
           <li class="header__nav-item">
-            <button class="header__nav-btn header__nav-btn--underline" id="language-main-btn"><span>EN</span></button>
+            <button class="header__nav-btn header__nav-btn--lang" id="language-main-btn"><span>EN</span></button>
+            <ul class="header__lang-list">
+              <li><a class="active" href="/">English</a></li>
+              <li><a href="/">English</a></li>
+              <li><a href="/">French</a></li>
+              <li><a href="/">Spanish</a></li>
+              <li><a href="/">German</a></li>
+              <li><a href="/">Italian</a></li>
+            </ul>
           </li>
         </ul>
       </nav>
-      <div class="header__logo">
+      <div class="header__logo blurable-on-lang-open">
         <a href="/" class="logo">
           {% include './_svg-logo.twig' %}
           {% include './_svg-vispring.twig' %}
