@@ -9,16 +9,16 @@
     display: inline-block;
     margin-left: 0.15em;
     animation-name: flashing;
-    animation-duration: 1500ms;
+    animation-duration: 850ms;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
     animation-direction: alternate;
-    opacity: 0.3;
+    opacity: 0.1;
   }
 
   @keyframes flashing {
     0% {
-      opacity: 0.2;
+      opacity: 0.1;
     }
     100% {
       opacity: 0.5
@@ -36,6 +36,6 @@
   border: 1px solid $color-1;
 }
 
-.button--dark {
+.button--white {
 
 }
