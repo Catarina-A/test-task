@@ -12,6 +12,7 @@ export default class {
     this.blurTime = 2;
     this.logoDelay = 0.5;
     this.logoShowTime = 1;
+    this.firstDelay = 4000;
   }
 
   removeFollower() {
@@ -89,7 +90,7 @@ export default class {
       this.domBlurFilter.addEventListener('click', fireNextStage);
       timer = setTimeout(() => {
         fireNextStage();
-      }, 3000);
+      }, this.firstDelay);
     });
   }
 }
