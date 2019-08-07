@@ -1,7 +1,7 @@
 export default class {
-  constructor() {
-    this.mainButton = null;
-    this.overlay = null;
+  constructor(options) {
+    this.mainButton = options.mainButton;
+    this.overlay = options.overlay;
     this.content = null;
     this.blurableItems = null;
     this.CLASS_ACTIVE = 'active';
@@ -59,9 +59,7 @@ export default class {
   }
 
   init() {
-    this.mainButton = document.getElementById('language-main-btn');
-    this.overlay = document.getElementById('header-overlay');
-    this.content = document.getElementById('page-blur-filter');
+    this.content = document.querySelector('[data-barba="container"]');
     this.blurableItems = document.querySelectorAll('.blurable-on-lang-open');
     this.mainBtnClickHandler = this.handleMainBtnClick.bind(this);
     this.overlayClickHandler = this.close.bind(this);

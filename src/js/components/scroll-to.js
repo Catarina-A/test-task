@@ -27,9 +27,9 @@ export default watchActiveLinkOnScroll => {
       if (document.activeElement) {
         document.activeElement.blur();
       }
-      if (domAnchor.hasAttribute('data-dropdown-container')) { // if scroll to dropdown list
+      /*if (domAnchor.hasAttribute('data-dropdown-container')) { // if scroll to dropdown list
         domAnchor.classList.add('opened');
-      }
+      }*/
       scrollToAnchor(anchor);
     });
   });

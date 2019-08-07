@@ -31,6 +31,7 @@ export default class {
     );
     tl.add(() => {
       this.domCursorFollower.remove();
+      this.domCursorFollower = null;
     });
   }
 
@@ -51,9 +52,14 @@ export default class {
               },
           ).add(() => {
             document.body.removeAttribute('style');
+            this.domBlurFilter.removeAttribute('style');
+            this.domBlurFilter.removeAttribute('id');
+            this.domBlurFilter = null;
             document.body.style.marginRight = `-${getScrollbarWidth()}px`;
             document.body.classList.add('content-visible');
             this.domVispring.remove();
+            this.domVispring = null;
+            resolve();
           });
 
           vispTl.to(this.domVispring, this.logoShowTime, {
@@ -84,8 +90,7 @@ export default class {
         this.domBlurFilter.removeEventListener('click', fireNextStage);
         clearTimeout(timer);
         this.removeFollower();
-        this.fireNextStage();
-
+        this.fireNextStage().then(resolve)
       };
       this.domBlurFilter.addEventListener('click', fireNextStage);
       timer = setTimeout(() => {

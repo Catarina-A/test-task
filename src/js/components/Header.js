@@ -1,6 +1,6 @@
 export default class {
-  constructor() {
-    this.header = document.getElementById('header');
+  constructor(options) {
+    this.header = options.header
     this.sections = null;
     this.CLASS_WHITE = 'white';
     this.scrolHandler = null;
@@ -39,5 +39,6 @@ export default class {
 
   destroyStyleTrigger() {
     window.removeEventListener('scroll', this.scrolHandler);
+    this.sections = null;
   }
 }
