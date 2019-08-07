@@ -6,14 +6,17 @@ export default class {
     this.scrolHandler = null;
     this.isBig = true;
     this.CLASS_SMALL = 'small';
+    this.ATTR_HEADER_COLOR = 'data-cursor-color';
   }
 
   makeHeaderColorWhite() {
     this.header.classList.add(this.CLASS_WHITE);
+    this.header.setAttribute(this.ATTR_HEADER_COLOR, 'white');
   }
 
   makeHeaderColorDefault() {
     this.header.classList.remove(this.CLASS_WHITE);
+    this.header.removeAttribute(this.ATTR_HEADER_COLOR);
   }
 
   handleScroll() {
