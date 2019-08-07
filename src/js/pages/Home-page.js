@@ -1,5 +1,5 @@
-import LooksSlider from '../components/Home-page-slider';
-import Video from '../components/Home-page-video';
+import LooksSlider from '../components/Section-slider';
+import Video from '../components/Section-video';
 
 export default class {
   constructor() {
