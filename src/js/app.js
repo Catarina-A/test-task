@@ -43,6 +43,7 @@ window.addEventListener('load', () => {
   });
   preloader.hide().then(() => {
     preloader = null;
+    header.initSizeControl();
   });
 
   barba.init({
