@@ -78,6 +78,19 @@ window.addEventListener('load', () => {
           languageMenu.destroy();
           header.destroyStyleTrigger();
         },
+      },
+      {
+        namespace: 'beds-page',
+        afterEnter() {
+          setTimeout(() => {
+            header.initStyleTrigger();
+            languageMenu.init();
+          }, 0);
+        },
+        beforeLeave() {
+          languageMenu.destroy();
+          header.destroyStyleTrigger();
+        },
       }],
   });
 });

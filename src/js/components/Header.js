@@ -19,7 +19,7 @@ export default class {
     this.header.removeAttribute(this.ATTR_HEADER_COLOR);
   }
 
-  handleScroll() {
+  setStyle() {
     const isHeaderOverBlack = this.sections.find(section => {
       const sectionRect = section.getBoundingClientRect();
       const halfHeaderHeight = this.header.clientHeight / 2 + this.header.getBoundingClientRect().top;
@@ -34,12 +34,14 @@ export default class {
   }
 
   initStyleTrigger() {
-    this.makeHeaderColorDefault();
-    const nodeSections = document.querySelectorAll('.header-style-black');
+    const nodeSections = document.querySelectorAll('.header-style-white');
     if (nodeSections.length) {
       this.sections = Array.from(nodeSections);
-      this.scrolHandler = this.handleScroll.bind(this);
+      this.setStyle();
+      this.scrolHandler = this.setStyle.bind(this);
       window.addEventListener('scroll', this.scrolHandler);
+    } else {
+      this.makeHeaderColorDefault();
     }
   }
 
