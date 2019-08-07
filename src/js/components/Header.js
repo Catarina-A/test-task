@@ -34,6 +34,7 @@ export default class {
   }
 
   initStyleTrigger() {
+    this.makeHeaderColorDefault();
     const nodeSections = document.querySelectorAll('.header-style-black');
     if (nodeSections.length) {
       this.sections = Array.from(nodeSections);

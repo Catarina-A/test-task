@@ -70,11 +70,13 @@ window.addEventListener('load', () => {
         namespace: 'contact-page',
         afterEnter() {
           setTimeout(() => {
+            header.initStyleTrigger();
             languageMenu.init();
           }, 0);
         },
         beforeLeave() {
           languageMenu.destroy();
+          header.destroyStyleTrigger();
         },
       }],
   });
