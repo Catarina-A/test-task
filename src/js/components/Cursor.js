@@ -9,6 +9,7 @@ export default class {
     this.hidden = true;
     this.attrType = 'data-cursor-type';
     this.attrColor = 'data-cursor-color';
+    this.defaultTags = ['A', 'BUTTON', 'INPUT', 'TEXTAREA', 'LABEL', 'SELECT'];
   }
 
   setCursorType(type) {
@@ -27,7 +28,7 @@ export default class {
       for (const el of path) {
         if (el.attributes) {
           const tag = el.tagName;
-          const isLink = tag === 'A' || tag === 'BUTTON';
+          const isLink = this.defaultTags.some(item => tag === item);
           const type = el.getAttribute(this.attrType) || (isLink ? 'bigger' : null);
           const color = el.getAttribute(this.attrColor);
           if (!typeResult && type) {
