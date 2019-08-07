@@ -4,6 +4,7 @@
   align-items: center;
   pointer-events: none;
   position: relative;
+  transition: transform $time-md;
 
   &.animated {
     pointer-events: auto;

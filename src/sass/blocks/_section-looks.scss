@@ -28,7 +28,31 @@
 
   &__slider {
     overflow: visible;
-    margin: rem-calc(0 -15);
+    margin: 0 -115px;
+    width: calc(100% + 115px);
+    padding: 0 100px;
+
+    @media (max-width: $lg) {
+      margin: 0 -75px;
+      width: calc(100% + 75px);
+      padding: 0 60px;
+    }
+
+    @media (max-width: $md) {
+      margin: 0 -60px;
+      width: calc(100% + 60px);
+      padding: 0 45px;
+    }
+
+    @media (max-width: $sm) {
+      margin: 0 -45px;
+      width: calc(100% + 45px);
+      padding: 0 30px;
+    }
+
+    .swiper-wrapper {
+      pointer-events: none;
+    }
   }
 
   &__slide {
@@ -37,8 +61,15 @@
     flex-direction: column;
     width: auto;
     height: auto;
-    padding: rem-calc(0 15);
+    padding: 0 15px;
     pointer-events: none;
+
+    /*opacity: 0.5;
+    transition: opacity $time-xl;
+
+    &.swiper-slide-visible {
+      opacity: 1;
+    }*/
   }
 
   &__image {

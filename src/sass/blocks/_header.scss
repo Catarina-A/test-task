@@ -144,6 +144,10 @@
 
   &.small {
     transform: translate3d(0, rem-calc(-27), 0);
+
+    .logo {
+      transform: scale(0.85);
+    }
   }
 
   // style header
