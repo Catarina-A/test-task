@@ -4,17 +4,14 @@ export default class {
   constructor() {
     this.slider = null;
     this.settings = {
-      slidesPerView: 'auto',
       freeMode: true,
-      parallax: true,
-      //watchSlidesVisibility: true,
       touchStartPreventDefault: false,
       touchMoveStopPropagation: false,
     };
   }
 
   init() {
-    this.slider = new Swiper('#home-looks-slider', this.settings);
+    this.slider = new Swiper('#beds-intro-slider', this.settings);
   }
 
   destroy() {

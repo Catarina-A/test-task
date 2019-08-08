@@ -17,12 +17,14 @@ import Preloader from './components/Preloader';
 
 // pages
 import HomePage from './pages/Home-page';
+import BedsPage from './pages/Beds-page';
 
 // global objects
 let preloader = null;
 let header = null;
 let languageMenu = null;
 let homePage = null;
+let bedsPage = null;
 
 window.addEventListener('DOMContentLoaded', () => {
   const cursor = new Cursor({
@@ -42,8 +44,8 @@ window.addEventListener('load', () => {
     mainButton: globalElements.languageButton,
   });
   preloader.hide().then(() => {
-    preloader = null;
     header.initSizeControl();
+    preloader = null;
   });
 
   barba.init({
@@ -56,12 +58,14 @@ window.addEventListener('load', () => {
           setTimeout(() => {
             homePage = new HomePage();
             homePage.init();
-            scrollTo();
             languageMenu.init();
             header.initStyleTrigger();
+            scrollTo();
           }, 0);
         },
         beforeLeave() {
+          homePage.destroy();
+          homePage = null;
           header.destroyStyleTrigger();
           languageMenu.destroy();
         },
@@ -83,11 +87,15 @@ window.addEventListener('load', () => {
         namespace: 'beds-page',
         afterEnter() {
           setTimeout(() => {
+            bedsPage = new BedsPage();
+            bedsPage.init();
             header.initStyleTrigger();
             languageMenu.init();
           }, 0);
         },
         beforeLeave() {
+          bedsPage.destroy();
+          bedsPage = null;
           languageMenu.destroy();
           header.destroyStyleTrigger();
         },

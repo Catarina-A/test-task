@@ -122,6 +122,7 @@ export default class {
   }
 
   destroy() {
-
+    this.data.playing = false;
+    this.data.observer.disconnect();
   }
 }

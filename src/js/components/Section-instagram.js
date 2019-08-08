@@ -34,11 +34,10 @@ export default class {
   }
 
   destroy() {
-    if (this.slider) {
-      this.slider.destroy();
-      this.slider = null;
-      this.domSlider = null;
-    }
+    this.slider.destroy();
+    this.slider = null;
+    this.domSlider = null;
+    this.settings = null;
   }
 
 }
