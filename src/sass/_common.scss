@@ -35,6 +35,18 @@ strong {
   text-transform: uppercase;
 }
 
+.title--md {
+  font-size: rem-calc(20);
+  margin-bottom: 1em;
+}
+
+.title--sm {
+  margin-bottom: 1em;
+  font-size: rem-calc(20);
+  text-transform: none;
+  letter-spacing: 0.05em;
+}
+
 .text-container {
   font-size: 14px;
   font-weight: 300;

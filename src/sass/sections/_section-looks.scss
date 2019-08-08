@@ -64,6 +64,10 @@
     padding: 0 15px;
     pointer-events: none;
 
+    &.swiper-slide-active {
+      pointer-events: none;
+    }
+
     /*opacity: 0.5;
     transition: opacity $time-xl;
 

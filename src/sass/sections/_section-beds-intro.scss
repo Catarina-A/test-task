@@ -3,6 +3,7 @@
   height: 100vh;
   padding: rem-calc(175 0 150);
   color: $color-2;
+  overflow: hidden;
 
   &__bg {
     position: absolute;
@@ -45,6 +46,7 @@
     z-index: 1;
     width: 50%;
     padding-left: 15px;
+    user-select: none;
 
     .swiper-container {
       overflow: visible;
@@ -53,12 +55,14 @@
 
     .swiper-slide {
       padding: 0 15px;
+      position: relative;
     }
   }
 
   &__slide {
     position: relative;
     padding-top: 82.5%;
+    pointer-events: none;
 
     img {
       position: absolute;

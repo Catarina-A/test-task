@@ -1,7 +1,7 @@
 import {
   Swiper,
   //Navigation,
-  //Pagination,
+  Pagination,
   //Controller,
   EffectFade,
   Autoplay,
@@ -10,7 +10,7 @@ import {
 
 Swiper.use([
   //Navigation,
-  //Pagination,
+  Pagination,
   //Controller,
   EffectFade,
   Autoplay,
