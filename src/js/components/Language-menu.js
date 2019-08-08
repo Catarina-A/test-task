@@ -12,9 +12,12 @@ export default class {
     this.opened = false;
     this.mainBtnClickHandler = null;
     this.overlayClickHandler = null;
+    this.openEvent = null;
+    this.closeEvent = null;
   }
 
   open() {
+    window.dispatchEvent(this.openEvent);
     this.overlay.classList.add(this.CLASS_ACTIVE);
     this.mainButton.classList.add(this.CLASS_ACTIVE);
     TweenLite.set(document.body, {
@@ -25,13 +28,17 @@ export default class {
       filter: `blur(${this.BLUR_VALUE})`,
       pointerEvents: 'none',
     });
-    TweenLite.to(this.content, this.TIME, {
+    TweenLite.fromTo(this.content, this.TIME, {
+      webkitFilter: `blur(0) brightness(100%)`,
+      filter: `blur(0) brightness(100%)`,
+    }, {
       webkitFilter: `blur(${this.BLUR_VALUE}) brightness(${this.BRIGHTNESS_VALUE})`,
       filter: `blur(${this.BLUR_VALUE}) brightness(${this.BRIGHTNESS_VALUE})`,
     });
   }
 
   close() {
+    window.dispatchEvent(this.closeEvent);
     this.overlay.classList.remove(this.CLASS_ACTIVE);
     this.mainButton.classList.remove(this.CLASS_ACTIVE);
     TweenLite.to(document.body, this.TIME, {
@@ -46,6 +53,9 @@ export default class {
       webkitFilter: `blur(0) brightness(100%)`,
       filter: `blur(0) brightness(100%)`,
     });
+    tl.eventCallback('onComplete', () => {
+      this.content.removeAttribute('style');
+    });
   }
 
   handleMainBtnClick() {
@@ -58,6 +68,11 @@ export default class {
     }
   }
 
+  initCustomEvents() {
+    this.openEvent = new Event('langOpened');
+    this.closeEvent = new Event('langClosed');
+  }
+
   init() {
     this.content = document.querySelector('[data-barba="container"]');
     this.blurableItems = document.querySelectorAll('.blurable-on-lang-open');
@@ -65,10 +80,13 @@ export default class {
     this.overlayClickHandler = this.close.bind(this);
     this.mainButton.addEventListener('click', this.mainBtnClickHandler);
     this.overlay.addEventListener('click', this.overlayClickHandler);
+    this.initCustomEvents();
   }
 
   destroy() {
     this.mainButton.removeEventListener('click', this.mainBtnClickHandler);
     this.overlay.removeEventListener('click', this.overlayClickHandler);
+    this.openEvent = null;
+    this.closeEvent = null;
   }
 }

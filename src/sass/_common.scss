@@ -47,12 +47,23 @@ strong {
   letter-spacing: 0.05em;
 }
 
+.title--xsm {
+  margin-bottom: 0.6em;
+  font-size: 14px;
+  text-transform: none;
+  letter-spacing: 0
+}
+
 .text-container {
   font-size: 14px;
   font-weight: 300;
   line-height: 1.45em;
-  margin: 1em 0;
+  //margin: 1em 0;
   letter-spacing: 0;
+
+  p {
+    //margin-bottom: 1em;
+  }
 }
 
 .text-container--sm {
