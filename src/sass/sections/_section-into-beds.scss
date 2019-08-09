@@ -1,3 +1,41 @@
 .into-beds {
+  padding: rem-calc(100 0);
 
+  &__heading {
+    margin-right: calc(50% + 30px);
+    padding-bottom: rem-calc(100);
+  }
+
+  &__content {
+    display: flex;
+  }
+
+  &__image-wrapper {
+    width: 50%;
+    padding-right: 18.5px;
+  }
+
+  &__image {
+    position: relative;
+    padding-top: 90.44%;
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__accordion-wrapper {
+    width: 50%;
+    height: auto;
+    padding-left: 10px;
+  }
+
+  &__title {
+    margin-bottom: 0;
+  }
 }
