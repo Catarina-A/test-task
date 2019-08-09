@@ -1,6 +1,7 @@
 .accordion {
   position: relative;
   user-select: none;
+  pointer-events: none;
 
   &::before {
     position: absolute;
@@ -17,7 +18,7 @@
     margin-bottom: 0;
     position: relative;
 
-    &::before,
+    /*&::before,
     &::after {
       content: '';
       position: absolute;
@@ -32,11 +33,12 @@
 
     &::after {
       transform: rotate(90deg);
-    }
+    }*/
   }
 
   &__item {
     position: relative;
+    pointer-events: auto;
 
     &::after {
       position: absolute;
@@ -49,17 +51,18 @@
     }
 
     &.active {
+      pointer-events: none;
 
-      .accordion__title {
+      /*.accordion__title {
 
         &::before,
         &::after {
           transition: opacity 1000ms;
         }
-      }
+      }*/
     }
 
-    &:not(.active):hover {
+    /*&:not(.active):hover {
 
       .accordion__title {
 
@@ -68,7 +71,7 @@
           opacity: 1;
         }
       }
-    }
+    }*/
   }
 
   &__content {
