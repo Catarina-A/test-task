@@ -21,7 +21,11 @@
     flex-direction: column;
     justify-content: center;
     min-height: 100vh;
-    padding: rem-calc(100 0);
+    padding: rem-calc(130 0);
+
+    @media (orientation: portrait){
+      min-height: auto;
+    }
   }
 
   &__video-wrapper {
