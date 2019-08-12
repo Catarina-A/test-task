@@ -6,9 +6,6 @@ import TimelineLite from 'gsap';
 const scrollToPlugin = ScrollToPlugin; // need to include to bundle on build
 import scrollTo from './components/scroll-to';
 
-// helpers
-import {globalElements} from './options';
-
 // blocks
 import Header from './components/Header';
 import LanguageMenu from './components/Language-menu';
@@ -38,13 +35,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
 window.addEventListener('load', () => {
   preloader = new Preloader();
-  header = new Header({header: globalElements.header});
-  languageMenu = new LanguageMenu({
-    overlay: globalElements.headerOverlay,
-    mainButton: globalElements.languageButton,
-  });
+  header = new Header();
+  languageMenu = new LanguageMenu();
   preloader.hide().then(() => {
     header.initSizeControl();
+    header.initMobileMenuControl();
     preloader = null;
   });
 
@@ -60,6 +55,7 @@ window.addEventListener('load', () => {
             homePage.init();
             languageMenu.init();
             header.initStyleTrigger();
+            header.resetMobileMenuControl();
             scrollTo();
           }, 0);
         },
@@ -75,6 +71,7 @@ window.addEventListener('load', () => {
         afterEnter() {
           setTimeout(() => {
             header.initStyleTrigger();
+            header.resetMobileMenuControl();
             languageMenu.init();
           }, 0);
         },
@@ -90,6 +87,7 @@ window.addEventListener('load', () => {
             bedsPage = new BedsPage();
             bedsPage.init();
             header.initStyleTrigger();
+            header.resetMobileMenuControl();
             languageMenu.init();
           }, 0);
         },

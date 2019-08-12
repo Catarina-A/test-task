@@ -4,13 +4,13 @@
     <div class="header__inner">
       <nav>
         <ul class="header__nav-list">
-          <li class="header__nav-item blurable-on-lang-open">
-            <button class="header__nav-btn" id="configurator-main-btn">
+          <li class="header__nav-item header__nav-item--configure blurable-on-lang-open">
+            <a href="/configure.html" class="header__nav-btn header__nav-btn--configure" id="configurator-main-btn">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
                 <path d="M15 7.5v15c4.1 0 7.5-3.4 7.5-7.5S19.1 7.5 15 7.5zm0 16a8.5 8.5 0 1 1-.01-16.99A8.5 8.5 0 0 1 15 23.5z"/>
               </svg>
-              Configure
-            </button>
+              <span>Configure</span>
+            </a>
           </li>
           <li class="header__nav-item blurable-on-lang-open"><a class="header__nav-btn" href="/our-beds.html">Our Beds</a></li>
           <li class="header__nav-item blurable-on-lang-open"><a class="header__nav-btn" href="/contact.html">Contact</a></li>
@@ -24,6 +24,14 @@
               <li><a href="/">Italian</a></li>
             </ul>
           </li>
+          <li class="header__nav-item header__nav-item--burger">
+            <button class="header__nav-btn header__nav-btn--burger" id="mobile-burger-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18.2 16">
+                <path d="M0 2V0h18.2v2H0zm0 7V7h18.2v2H0zm0 7v-2h18.2v2H0z"/>
+                <path d="M9.1 6.9L14 2l1.1 1.1L10.2 8l4.9 4.9L14 14 9.1 9l-4.9 5-1.1-1.1 5-4.9-5-4.9L4.2 2l4.9 4.9z"/>
+              </svg>
+            </button>
+          </li>
         </ul>
       </nav>
       <div class="header__logo blurable-on-lang-open">
@@ -34,5 +42,21 @@
       </div>
     </div>
   </div>
+  <div class="header__nav-list-mobile">
+    {% include "blocks/_nav-list-mobile.twig" %}
+  </div>
 </header>
+<div id="lang-mobile">
+  <div id="lang-mobile-overlay"></div>
+  <div class="lang-mobile-inner">
+    <button class="header__nav-btn header__nav-btn--lang" id="language-mobile-btn"><span>EN</span></button>
+    <ul class="header__lang-list">
+      <li><a class="active" href="/">English</a></li>
+      <li><a href="/">French</a></li>
+      <li><a href="/">Spanish</a></li>
+      <li><a href="/">German</a></li>
+      <li><a href="/">Italian</a></li>
+    </ul>
+  </div>
+</div>
 

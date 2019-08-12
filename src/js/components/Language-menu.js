@@ -1,7 +1,7 @@
 export default class {
-  constructor(options) {
-    this.mainButton = options.mainButton;
-    this.overlay = options.overlay;
+  constructor() {
+    this.mainButton = document.getElementById('language-main-btn');
+    this.overlay = document.getElementById('header-overlay');
     this.content = null;
     this.blurableItems = null;
     this.CLASS_ACTIVE = 'active';
@@ -14,6 +14,8 @@ export default class {
     this.overlayClickHandler = null;
     this.openEvent = null;
     this.closeEvent = null;
+    this.resizeHandler = null;
+    this.prevWindowWidth = window.innerWidth;
   }
 
   open() {
@@ -73,19 +75,29 @@ export default class {
     this.closeEvent = new Event('langClosed');
   }
 
+  handleResize() {
+    if (this.prevWindowWidth !== window.innerWidth) {
+      this.close();
+      this.prevWindowWidth = window.innerWidth;
+    }
+  }
+
   init() {
     this.content = document.querySelector('[data-barba="container"]');
     this.blurableItems = document.querySelectorAll('.blurable-on-lang-open');
     this.mainBtnClickHandler = this.handleMainBtnClick.bind(this);
     this.overlayClickHandler = this.close.bind(this);
+    this.resizeHandler = this.handleResize.bind(this);
     this.mainButton.addEventListener('click', this.mainBtnClickHandler);
     this.overlay.addEventListener('click', this.overlayClickHandler);
+    window.addEventListener('resize', this.resizeHandler);
     this.initCustomEvents();
   }
 
   destroy() {
     this.mainButton.removeEventListener('click', this.mainBtnClickHandler);
     this.overlay.removeEventListener('click', this.overlayClickHandler);
+    window.removeEventListener('resize', this.resizeHandler);
     this.openEvent = null;
     this.closeEvent = null;
   }
