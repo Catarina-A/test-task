@@ -3,9 +3,25 @@
   color: $color-2;
   background: $color-1;
 
+  @media (max-width: $lg) {
+    padding: rem-calc(100 0 50);
+  }
+
+  @media (max-width: $sm) {
+    padding: rem-calc(80 0);
+  }
+
   &__heading {
     display: flex;
     justify-content: space-between;
+  }
+
+  &__inner {
+
+    @media (max-width: $lg) {
+      max-width: 600px;
+      margin: 0 auto;
+    }
   }
 
   &__heading-link {
@@ -19,11 +35,24 @@
   &__list {
     display: flex;
     margin: rem-calc(30) -15px 0;
+
+    @media (max-width: $lg) {
+      flex-wrap: wrap;
+    }
   }
 
   &__item {
     padding: 0 15px;
     width: 25%;
+
+    @media (max-width: $lg) {
+      width: 50%;
+      padding-bottom: rem-calc(50);
+    }
+
+    @media (max-width: $sm) {
+      width: 100%;
+    }
   }
 
   &__image {
