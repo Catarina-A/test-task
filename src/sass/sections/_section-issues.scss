@@ -2,6 +2,10 @@
   padding: rem-calc(0 0 100);
   background: $color-2;
 
+  @media(max-width: $sm) {
+    padding: rem-calc(80 0);
+  }
+
   &__list {
     border-top: 1px solid $color-1;
   }
@@ -16,6 +20,10 @@
     align-items: center;
     justify-content: space-between;
     padding: rem-calc(8 70);
+
+    @media (max-width: $sm) {
+      padding: rem-calc(50 0);
+    }
   }
 
   &__name {
@@ -30,5 +38,9 @@
 
   &__image {
     font-size: 0;
+
+    @media (max-width: $sm) {
+      display: none;
+    }
   }
 }
