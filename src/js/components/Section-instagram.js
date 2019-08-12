@@ -26,6 +26,7 @@ export default class {
 
   init() {
     this.domSlider = document.getElementById('instagram-slider');
+    if (!this.domSlider) return;
     this.mouseOverHandler = this.play.bind(this);
     this.mouseOutHandler = this.pause.bind(this);
     this.slider = new Swiper(this.domSlider, this.settings);

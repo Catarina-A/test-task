@@ -12,7 +12,6 @@ export default class {
   }
 
   setAttr() {
-    this.data.video = document.getElementById('home-page-video');
     const url = this.data.video.getAttribute(this.ATTR);
     this.data.video.setAttribute('src', url);
   }
@@ -109,6 +108,8 @@ export default class {
 
   init() {
     try {
+      this.data.video = document.getElementById('home-page-video');
+      if (!this.data.video) return;
       this.setAttr();
       this.loadVideo().then(() => {
         this.createProgressBar();
