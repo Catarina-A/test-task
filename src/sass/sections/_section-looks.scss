@@ -5,6 +5,10 @@
   background: $color-2;
   user-select: none;
 
+  @media (max-width: $sm) {
+    padding: rem-calc(80 0);
+  }
+
   &__section-title-wrapper {
     position: absolute;
     z-index: 2;
@@ -29,25 +33,13 @@
   &__slider {
     overflow: visible;
     margin: 0 -115px;
-    width: calc(100% + 115px);
+    width: calc(100% + 130px);
     padding: 0 100px;
 
     @media (max-width: $lg) {
-      margin: 0 -75px;
-      width: calc(100% + 75px);
-      padding: 0 60px;
-    }
-
-    @media (max-width: $md) {
-      margin: 0 -60px;
-      width: calc(100% + 60px);
-      padding: 0 45px;
-    }
-
-    @media (max-width: $sm) {
-      margin: 0 -45px;
-      width: calc(100% + 45px);
-      padding: 0 30px;
+      margin: 0 -15px;
+      width: calc(100% + 30px);
+      padding: 0;
     }
 
     .swiper-wrapper {
@@ -64,6 +56,14 @@
     padding: 0 15px;
     pointer-events: none;
 
+    @media (max-width: $sm) {
+      max-width: calc(100vw - 40px);
+    }
+
+    @media (max-height: 500px) {
+      max-width: calc(40vw - 40px);
+    }
+
     &.swiper-slide-active {
       pointer-events: none;
     }
@@ -78,7 +78,9 @@
 
   &__image {
 
-
+    @media (max-width: $sm) {
+      //width: 70%;
+    }
   }
 
   &__image-caption {
