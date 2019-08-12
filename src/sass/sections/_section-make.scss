@@ -3,12 +3,28 @@
   height: 100vh;
   background: $color-4;
 
+  @media(orientation: portrait) {
+    height: auto;
+  }
+
+  @media(max-width: $md) {
+    height: auto;
+  }
+
   &__bg {
     position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
     right: calc(50% - 85px);
+
+    @media(orientation: portrait) {
+      position: static;
+    }
+
+    @media(max-width: $md) {
+      position: static;
+    }
 
     img {
       width: 100%;
@@ -23,11 +39,36 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
+
+    @media(orientation: portrait) {
+      display: block;
+      margin-left: 0;
+      height: auto;
+    }
+
+    @media(max-width: $md) {
+      display: block;
+      margin-left: 0;
+      height: auto;
+    }
   }
 
   &__content-inner {
     padding: rem-calc(50 0 50 50);
     max-width: 410px;
+
+    @media(orientation: portrait) {
+      margin: 0 auto;
+      max-width: 520px;
+      padding: 10vh 0;
+    }
+
+    @media(max-width: $md) {
+      margin: 0 auto;
+      max-width: 520px;
+      padding: 10vh 0;
+    }
+
   }
 
   &__button {

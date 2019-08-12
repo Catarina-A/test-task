@@ -2,8 +2,12 @@
   padding: rem-calc(100 0);
   background: $color-2;
 
+  @media(max-width: $sm) {
+    padding: rem-calc(80 0);
+  }
+
   &__inner {
-    width: 360px;
+    max-width: 360px;
     margin: 0 auto;
     text-align: center;
 
