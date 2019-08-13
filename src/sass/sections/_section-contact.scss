@@ -2,13 +2,22 @@
   height: 100vh;
   background: $color-2;
 
+  @media (max-width: $lg) {
+    height: auto;
+  }
+
   &__image {
-    position: absolute;
     font-size: 0;
+    position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     width: 50%;
+
+    @media (max-width: $lg) {
+      display: none;
+    }
+
     img {
       width: 100%;
       max-width: 100%;
@@ -23,10 +32,21 @@
 
   &__content {
     display: flex;
+    overflow: auto;
     align-items: center;
-    max-width: 535px;
+    flex-wrap: wrap;
+    width: 535px;
+    max-width: 50%;
     height: 100%;
     margin-left: auto;
-    padding: rem-calc(120 0 120 85);
+    padding: rem-calc(120 0 120) 100px;
+
+    @media (max-width: $lg) {
+      width: auto;
+      max-width: 470px;
+      min-height: 100vh;
+      margin: 0 auto;
+      padding: rem-calc(120 0 50);
+    }
   }
 }

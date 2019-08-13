@@ -15,6 +15,10 @@ export default class {
     this.isOpening = false;
     this.time = 1;
     this.containerHeight = 0;
+    this.changeSlideEvent = null;
+    this.activeIndex = {
+      index: 0
+    };
   }
 
   setActiveItemHeight(isResize = false) {
@@ -58,6 +62,10 @@ export default class {
     }
   }
 
+  fireSlideChangeEvent() {
+    window.dispatchEvent(this.changeSlideEvent);
+  }
+
   handleClick(e) {
     if (this.isClosing || this.isOpening) return;
     const target = e.target;
@@ -69,23 +77,31 @@ export default class {
       }
       this.closeActiveItem();
       this.activeItem = parent;
+      Array.from(this.activeItem.parentNode.children).forEach((item, index) => {
+        if (item === this.activeItem) this.activeIndex.index = index;
+      });
       this.activeItem.classList.add(this.classes.active);
       this.setActiveItemHeight();
+      this.fireSlideChangeEvent();
     }
   }
 
   findActiveItem() {
-    for (const item of this.items) {
+    this.items.forEach((item, index) => {
       if (item.classList.contains(this.classes.active)) {
         this.activeItem = item;
-        break;
+        this.activeIndex.index = index;
       }
-    }
+    });
   }
 
   handleResize() {
     if (this.isClosing || this.isOpening) return;
     this.setActiveItemHeight(true);
+  }
+
+  initCustomEvents() {
+    this.changeSlideEvent = new CustomEvent('intoBedsChangeSlide', {detail: this.activeIndex});
   }
 
   init() {
@@ -94,9 +110,11 @@ export default class {
     if (htmlItems.length) {
       this.items = Array.from(htmlItems);
     } else return;
+    this.initCustomEvents();
     this.containerHeight = this.container.offsetHeight;
     this.findActiveItem();
     this.setActiveItemHeight();
+    this.fireSlideChangeEvent();
     this.container.addEventListener('click', this.handleClick.bind(this));
     this.resizeHandler = debounce(this.handleResize.bind(this), 100);
     window.addEventListener('resize', this.resizeHandler);
@@ -106,5 +124,6 @@ export default class {
     window.removeEventListener('resize', this.resizeHandler);
     this.container = null;
     this.items = null;
+    this.changeSlideEvent = null;
   }
 }
