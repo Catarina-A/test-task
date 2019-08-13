@@ -12,11 +12,11 @@ export default class {
   }
 
   handleLangOpened() {
-    console.log('nag opened');
+    // console.log('nag opened');
   }
 
   handleLangClosed() {
-    console.log('nag closed');
+    // console.log('nag closed');
   }
 
   addListenersForLang() {

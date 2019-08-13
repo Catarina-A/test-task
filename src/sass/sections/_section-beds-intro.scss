@@ -34,11 +34,19 @@
   &__content {
     width: 50%;
     padding-right: 15px;
+
+    @media (max-width: $lg) {
+      width: 58%;
+    }
   }
 
   &__text {
     max-width: 360px;
     margin: 0 auto;
+
+    @media (max-width: $lg) {
+      max-width: 280px;
+    }
   }
 
   &__slider {
@@ -48,6 +56,10 @@
     padding-left: 15px;
     user-select: none;
 
+    @media (max-width: $lg) {
+      width: 42%;
+    }
+
     .swiper-container {
       overflow: visible;
       margin: 0 -15px;
@@ -56,6 +68,10 @@
     .swiper-slide {
       padding: 0 15px;
       position: relative;
+
+      @media (max-width: $lg) {
+        min-width: 555px;
+      }
     }
   }
 

@@ -51,6 +51,7 @@ export default class {
   }
 
   init() {
+    if (!this.container || !this.aside) return;
     this.getAsideCssTop();
     this.checkAsidePosition();
     this.scrollHandler = this.checkAsidePosition.bind(this);

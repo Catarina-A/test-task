@@ -5,8 +5,14 @@ export default class {
     this.slider = null;
     this.settings = {
       freeMode: true,
+      slidesPerView: 1,
       touchStartPreventDefault: false,
       touchMoveStopPropagation: false,
+      breakpoints: {
+        1023: {
+          slidesPerView: 'auto',
+        }
+      }
     };
   }
 

@@ -92,6 +92,7 @@ export default class {
   }
 
   init() {
+    if (!this.container) return;
     const htmlItems = this.container.children;
     if (htmlItems.length) {
       this.items = Array.from(htmlItems);
