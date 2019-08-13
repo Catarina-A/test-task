@@ -12,7 +12,6 @@ export default class {
     this.accordion = null;
     this.accordionSettings = {
       container: document.getElementById('beds-accordion'),
-      fullHeight: true,
     };
   }
 

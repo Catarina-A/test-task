@@ -4,7 +4,6 @@ export default class {
   constructor(props) {
     this.container = props.container;
     this.items = null;
-    this.fullHeight = props.fullHeight || false;
     this.classes = {
       active: 'active',
       title: 'accordion__title',
@@ -15,35 +14,33 @@ export default class {
     this.isClosing = false;
     this.isOpening = false;
     this.time = 1;
+    this.containerHeight = this.container.offsetHeight;
   }
 
   setActiveItemHeight(isResize = false) {
     this.isOpening = true;
     const content = this.activeItem.getElementsByClassName(this.classes.content)[0];
-    if (this.fullHeight) {
-      if (isResize) {
-        content.style.height = '0';
-      }
-      const containerHeight = this.container.offsetHeight;
-      const itemsHeight = this.items.reduce((acc, item) => {
-        const title = item.getElementsByClassName(this.classes.title)[0];
-        return acc += title.offsetHeight;
-      }, 0);
-      const resHeight = containerHeight - itemsHeight;
-      if (isResize) {
-        content.style.height = `${resHeight}px`;
-        this.isOpening = false;
-      } else {
-        const tl = TweenLite.to(content, this.time, {
-          height: resHeight,
-        });
-        tl.eventCallback('onComplete', () => {
-          this.isOpening = false;
-        });
-      }
-
+    if (isResize) {
+      content.style.height = '0';
+      this.containerHeight = this.container.offsetHeight;
+    }
+    const itemsHeight = this.items.reduce((acc, item) => {
+      const title = item.getElementsByClassName(this.classes.title)[0];
+      return acc += title.offsetHeight;
+    }, 0);
+    const contentHeight = content.children[0].offsetHeight;
+    const resHeight = this.containerHeight - itemsHeight;
+    const height = contentHeight > resHeight ? contentHeight : resHeight;
+    if (isResize) {
+      content.style.height = `${height}px`;
+      this.isOpening = false;
     } else {
-      // if not fullheight logic will be here
+      const tl = TweenLite.to(content, this.time, {
+        height: height,
+      });
+      tl.eventCallback('onComplete', () => {
+        this.isOpening = false;
+      });
     }
   }
 
@@ -97,9 +94,6 @@ export default class {
     if (htmlItems.length) {
       this.items = Array.from(htmlItems);
     } else return;
-    if (this.fullHeight) {
-      this.container.style.height = '100%';
-    }
     this.findActiveItem();
     this.setActiveItemHeight();
     this.container.addEventListener('click', this.handleClick.bind(this));
