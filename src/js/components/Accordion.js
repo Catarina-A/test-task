@@ -14,7 +14,7 @@ export default class {
     this.isClosing = false;
     this.isOpening = false;
     this.time = 1;
-    this.containerHeight = this.container.offsetHeight;
+    this.containerHeight = 0;
   }
 
   setActiveItemHeight(isResize = false) {
@@ -94,6 +94,7 @@ export default class {
     if (htmlItems.length) {
       this.items = Array.from(htmlItems);
     } else return;
+    this.containerHeight = this.container.offsetHeight;
     this.findActiveItem();
     this.setActiveItemHeight();
     this.container.addEventListener('click', this.handleClick.bind(this));
