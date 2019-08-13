@@ -106,7 +106,7 @@
 
       @media (max-width: $md) {
         min-width: auto;
-        width: calc(100vh - 150px);
+        width: calc(100vh - 200px);
 
         @media (orientation: landscape) {
           width: calc(100vh - 150px);

@@ -9,6 +9,10 @@ export default class {
       speed: 1000,
       allowTouchMove: false,
       effect: 'fade',
+      autoHeight: true,
+      fadeEffect: {
+        crossFade: true,
+      },
       pagination: {
         el: '#mattresses-pagination',
         type: 'bullets',

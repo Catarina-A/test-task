@@ -4,6 +4,10 @@
   color: $color-2;
   background: $color-1;
 
+  @media (max-width: $sm) {
+    padding: rem-calc(80 0);
+  }
+
   &__heading {
     position: relative;
   }
@@ -16,6 +20,10 @@
     display: flex;
     align-items: center;
     width: auto;
+
+    @media (max-width: $md) {
+      position: static;
+    }
   }
 
   &__pagination-btn {
@@ -45,6 +53,14 @@
     justify-content: space-between;
     margin-left: 222px;
     padding: rem-calc(32 0 75);
+
+    @media (max-width: $lg) {
+      display: block;
+    }
+
+    @media (max-width: $md) {
+      margin-left: 0;
+    }
   }
 
   &__item-title {
@@ -56,6 +72,13 @@
     max-width: 385px;
     padding-right: 30px;
 
+    @media (max-width: $lg) {
+      width: 100%;
+      max-width: 430px;
+      padding-bottom: rem-calc(60);
+      padding-right: 0;
+    }
+
     .text-container {
       margin-top: 0;
     }
@@ -64,9 +87,17 @@
   &__options {
     width: 50%;
 
+    @media (max-width: $lg) {
+      width: 100%;
+    }
+
     ul {
       max-width: 360px;
       border-top: 1px solid $color-2;
+
+      @media (max-width: $lg) {
+        max-width: 430px;
+      }
     }
 
     li {
@@ -78,33 +109,21 @@
 
     h4 {
       width: 80px;
+      min-width: 80px;
     }
   }
 
   &__image-slider {
     overflow: visible;
-    /*
-        margin: 0 -100px;
-        width: calc(100% + 100px);
-        padding: 0 100px;
 
-        @media (max-width: $lg) {
-          margin: 0 -60px;
-          width: calc(100% + 60px);
-          padding: 0 60px;
-        }
+    img {
 
-        @media (max-width: $md) {
-          margin: 0 -45px;
-          width: calc(100% + 45px);
-          padding: 0 45px;
-        }
-
-        @media (max-width: $sm) {
-          margin: 0 -30px;
-          width: calc(100% + 30px);
-          padding: 0 30px;
-        }*/
+      @media (max-width: $md) {
+        width: auto;
+        max-width: none;
+        height: 70vh;
+      }
+    }
 
     .swiper-wrapper {
       pointer-events: none;
