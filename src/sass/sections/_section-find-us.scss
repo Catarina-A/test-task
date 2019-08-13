@@ -2,15 +2,30 @@
   padding: rem-calc(100 0);
   background: $color-2;
 
+  @media (max-width: $sm) {
+    padding: rem-calc(80 0 40);
+  }
+
   &__inner {
     display: flex;
     margin: 0 -15px;
+
+    @media (max-width: $sm) {
+      display: block;
+      max-width: 360px;
+      margin: 0 auto;
+    }
   }
 
   &__col {
     width: 50%;
     padding: 0 15px;
     text-align: center;
+
+    @media (max-width: $sm) {
+      width: 100%;
+      padding: rem-calc(0 0 50);
+    }
   }
 
   &__image {

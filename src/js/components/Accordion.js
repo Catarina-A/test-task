@@ -98,12 +98,12 @@ export default class {
     this.findActiveItem();
     this.setActiveItemHeight();
     this.container.addEventListener('click', this.handleClick.bind(this));
-    this.resizeHandler = this.handleResize.bind(this);
-    window.addEventListener('resize', debounce(this.resizeHandler, 100));
+    this.resizeHandler = debounce(this.handleResize.bind(this), 100);
+    window.addEventListener('resize', this.resizeHandler);
   }
 
   destroy() {
-    window.removeEventListener('resize', debounce(this.resizeHandler, 100));
+    window.removeEventListener('resize', this.resizeHandler);
     this.container = null;
     this.items = null;
   }

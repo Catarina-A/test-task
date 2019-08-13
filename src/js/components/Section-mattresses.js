@@ -3,7 +3,7 @@ import Swiper from '../imports/import-swiper';
 export default class {
   constructor() {
     this.mainSlider = null;
-    this.imageSliders = {};
+    this.imageSliders = [];
     this.domImageSliders = null;
     this.mainSettings = {
       speed: 1000,
@@ -39,14 +39,18 @@ export default class {
 
     this.domImageSliders = document.querySelectorAll('.mattresses__image-slider');
     this.domImageSliders.forEach((domSlider, index) => {
-      this.imageSliders[`slider_${index}`] = new Swiper(domSlider, this.imageSettings);
+      this.imageSliders.push(new Swiper(domSlider, this.imageSettings));
     });
-
   }
 
   destroy() {
     this.mainSlider.destroy();
     this.mainSlider = null;
     this.mainSettings = null;
+    this.imageSliders.forEach(slider => {
+      slider.destroy();
+    });
+    this.imageSliders = null;
+    this.imageSettings = null;
   }
 }

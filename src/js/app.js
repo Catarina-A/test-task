@@ -89,6 +89,7 @@ window.addEventListener('load', () => {
             header.initStyleTrigger();
             header.resetMobileMenuControl();
             languageMenu.init();
+            scrollTo();
           }, 0);
         },
         beforeLeave() {
