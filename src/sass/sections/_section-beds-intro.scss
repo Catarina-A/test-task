@@ -38,6 +38,17 @@
     @media (max-width: $lg) {
       width: 58%;
     }
+
+    @media (max-width: $md) {
+      width: 295px;
+      max-width: 100%;
+      padding-right: 30px;
+
+      @media (orientation: landscape) {
+        width: 50%;
+        min-width: 350px;
+      }
+    }
   }
 
   &__text {
@@ -46,6 +57,11 @@
 
     @media (max-width: $lg) {
       max-width: 280px;
+    }
+
+    @media (max-width: $md) {
+      max-width: 230px;
+      margin: 0;
     }
   }
 
@@ -60,6 +76,16 @@
       width: 42%;
     }
 
+    @media (max-width: $md) {
+      padding-left: 0;
+      width: calc(100% - 295px);
+
+      @media (orientation: landscape) {
+        width: auto;
+        max-width: 50%;
+      }
+    }
+
     .swiper-container {
       overflow: visible;
       margin: 0 -15px;
@@ -71,6 +97,20 @@
 
       @media (max-width: $lg) {
         min-width: 555px;
+
+        @media (orientation: landscape) {
+          min-width: auto;
+          width: calc(100vh - 150px);
+        }
+      }
+
+      @media (max-width: $md) {
+        min-width: auto;
+        width: calc(100vh - 150px);
+
+        @media (orientation: landscape) {
+          width: calc(100vh - 150px);
+        }
       }
     }
   }
