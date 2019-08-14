@@ -1,6 +1,20 @@
 .default-form {
 
+  &__error {
+    font-size: 12px;
+    color: $color-5;
+    margin-top: 30px;
+  }
+
   &__button {
     margin-top: rem-calc(65);
+  }
+
+  &.success {
+
+  }
+
+  .processing {
+
   }
 }
