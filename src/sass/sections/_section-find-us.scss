@@ -21,6 +21,8 @@
     width: 50%;
     padding: 0 15px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
 
     @media (max-width: $sm) {
       width: 100%;
@@ -51,7 +53,7 @@
 
   &__text {
     max-width: 300px;
-    margin: 0 auto;
+    margin: 0 auto rem-calc(24);
   }
 
   &__link {
@@ -60,7 +62,7 @@
     letter-spacing: 0.05em;
     text-transform: uppercase;
     display: inline-block;
-    margin-top: rem-calc(24);
+    margin-top: auto;
     transition: opacity $time-sm;
 
     &:hover {
