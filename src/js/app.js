@@ -5,6 +5,7 @@ import TimelineLite from 'gsap';
 
 const scrollToPlugin = ScrollToPlugin; // need to include to bundle on build
 import scrollTo from './helpers/scroll-to';
+import LazyImages from './helpers/Lazy-images';
 
 // blocks
 import Header from './components/Header';
@@ -18,6 +19,7 @@ import BedsPage from './pages/Beds-page';
 
 // global objects
 let preloader = null;
+let lazyImages = null;
 let header = null;
 let languageMenu = null;
 let homePage = null;
@@ -35,6 +37,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 window.addEventListener('load', () => {
   preloader = new Preloader();
+  lazyImages = new LazyImages();
   header = new Header();
   languageMenu = new LanguageMenu();
   preloader.hide().then(() => {
@@ -57,6 +60,7 @@ window.addEventListener('load', () => {
             header.initStyleTrigger();
             header.resetMobileMenuControl();
             scrollTo();
+            lazyImages.init()
           }, 0);
         },
         beforeLeave() {
@@ -64,6 +68,7 @@ window.addEventListener('load', () => {
           homePage = null;
           header.destroyStyleTrigger();
           languageMenu.destroy();
+          lazyImages.destroy()
         },
       },
       {
@@ -90,6 +95,7 @@ window.addEventListener('load', () => {
             header.resetMobileMenuControl();
             languageMenu.init();
             scrollTo();
+            lazyImages.init()
           }, 0);
         },
         beforeLeave() {
@@ -97,6 +103,7 @@ window.addEventListener('load', () => {
           bedsPage = null;
           languageMenu.destroy();
           header.destroyStyleTrigger();
+          lazyImages.destroy()
         },
       }],
   });
