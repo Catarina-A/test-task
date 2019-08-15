@@ -9,27 +9,30 @@
   <div class="container container--default">
     <div class="contact__content">
       <form action="" class="default-form">
-        <label class="default-input">
-          <input class="default-input__input" type="text" name="name" placeholder="Name">
-          <span class="default-input__error"></span>
-        </label>
-        <label class="default-input">
-          <input class="default-input__input" type="email" name="email" placeholder="Email">
-          <span class="default-input__error"></span>
-        </label>
-        <label class="default-input">
-          <textarea class="default-input__textarea" name="message" placeholder="Message"></textarea>
-          <span class="default-input__error"></span>
-        </label>
-        <label class="default-checkbox">
-          <input class="default-checkbox__input" type="checkbox" name="accept" required>
-          <span class="default-checkbox__check"></span>
-          <span class="default-checkbox__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, consectetur consequuntur distinctio dolores libero odit quae quod.</span>
-        </label>
-        {#<div class="default-form__error"></div>#}
-        <div class="default-form__button">
-          <button type="submit" class="button button--dark">Send Message</button>
+        <div class="default-form__content">
+          <label class="default-input">
+            <input class="default-input__input" type="text" name="name" placeholder="Name">
+            <span class="default-input__error"></span>
+          </label>
+          <label class="default-input">
+            <input class="default-input__input" type="email" name="email" placeholder="Email">
+            <span class="default-input__error"></span>
+          </label>
+          <label class="default-input">
+            <textarea class="default-input__textarea" name="message" placeholder="Message"></textarea>
+            <span class="default-input__error"></span>
+          </label>
+          <label class="default-checkbox">
+            <input class="default-checkbox__input" type="checkbox" name="accept" required>
+            <span class="default-checkbox__check"></span>
+            <span class="default-checkbox__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, consectetur consequuntur distinctio dolores libero odit quae quod.</span>
+          </label>
+          <div class="default-form__error"></div>
+          <div class="default-form__button">
+            <button type="submit" class="button button--dark">Send Message</button>
+          </div>
         </div>
+        <div class="default-form__success"><span>Thank you for the message. We'll get back to you shortly.</span></div>
       </form>
     </div>
   </div>
