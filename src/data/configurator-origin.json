@@ -1,0 +1,85 @@
+[
+  {
+    "title": "Choose your size",
+    "elements": [
+      {
+        "name": "190x135 cm",
+        "thumbnail": "https://via.placeholder.com/94x129/999999/FFFFFF"
+      },
+      {
+        "name": "190x135 cm",
+        "thumbnail": "https://via.placeholder.com/115x152/999999/FFFFFF"
+      },
+      {
+        "name": "190x135 cm",
+        "thumbnail": "https://via.placeholder.com/153x160/999999/FFFFFF"
+      }
+    ]
+  },
+  {
+    "title": "Choose your size",
+    "elements": [
+      {
+        "name": "Wool and cotton",
+        "thumbnail": "https://via.placeholder.com/274x100/999999/FFFFFF",
+        "images": {
+          "front": "/img/configurator/L3Q_Divan_Oslo_Zinc.png",
+          "side": "/img/configurator/L3Q_Divan_Oslo_Zinc copy.png"
+        }
+      },
+      {
+        "name": "Wool, tencel, bamboo and alpaca",
+        "thumbnail": "https://via.placeholder.com/274x100/999999/FFFFFF",
+        "images": {
+          "front": "/img/configurator/L3Q_Divan_Oslo_Zinc_01.png",
+          "side": "/img/configurator/L3Q_Divan_Oslo_Zinc_01 copy.png"
+        }
+      },
+      {
+        "name": "Wool, pashmina, bamboo and alpaca",
+        "thumbnail": "https://via.placeholder.com/274x100/999999/FFFFFF",
+        "images": {
+          "front": "/img/configurator/L3Q_Divan_Oslo_Zinc_02",
+          "side": "/img/configurator/L3Q_Divan_Oslo_Zinc_02 copy.png"
+        }
+      },
+      {
+        "name": "Wool, pashmina, bamboo and alpaca",
+        "thumbnail": "https://via.placeholder.com/274x100/999999/FFFFFF",
+        "images": {
+          "front": "/img/configurator/L3Q_Divan_Oslo_Zinc_03.png",
+          "side": "/img/configurator/L3Q_Divan_Oslo_Zinc_03 copy.png"
+        }
+      }
+    ]
+  },
+  {
+    "title": "Customise the headboard fabric",
+    "elements": [
+      {
+        "name": "Type 1",
+        "thumbnail": "https://via.placeholder.com/90x65/999999/FFFFFF",
+        "images": {
+          "front": "/img/configurator/L3Q_Divan_Oslo_Zinc.png",
+          "side": "/img/configurator/L3Q_Divan_Oslo_Zinc copy.png"
+        }
+      },
+      {
+        "name": "Type 2",
+        "thumbnail": "https://via.placeholder.com/90x65/999999/FFFFFF",
+        "images": {
+          "front": "/img/configurator/L3Q_Divan_Oslo_Zinc_01.png",
+          "side": "/img/configurator/L3Q_Divan_Oslo_Zinc_01 copy.png"
+        }
+      },
+      {
+        "name": "Type 3",
+        "thumbnail": "https://via.placeholder.com/90x65/999999/FFFFFF",
+        "images": {
+          "front": "/img/configurator/L3Q_Divan_Oslo_Zinc_02",
+          "side": "/img/configurator/L3Q_Divan_Oslo_Zinc_02 copy.png"
+        }
+      }
+    ]
+  }
+]

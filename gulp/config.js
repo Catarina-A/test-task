@@ -46,7 +46,7 @@ var config = {
     favicon: destPath + '/favicon',
     fonts: destPath + '/fonts',
     libs: destPath + '/js',
-    data: destPath + '/data'
+    data: destPath + '/'
   },
 
   setEnv: function(env) {

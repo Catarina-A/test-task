@@ -59,7 +59,7 @@ gulp.task('copy', [
   'copy:favicon',
   //'copy:rootfiles',
   //'copy:libs',
-  // 'copy:data',
+  'copy:data',
   'copy:fonts'
 ]);
 gulp.task('copy:watch', function() {

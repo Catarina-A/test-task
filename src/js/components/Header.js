@@ -207,4 +207,12 @@ export default class {
   resetMobileMenuControl() {
     this.content = document.querySelector('[data-barba="container"]');
   }
+
+  enableConfiguratorMode() {
+    console.log('header enable configurator mode')
+  }
+
+  disableConfiguratorMode() {
+    console.log('header disable configurator mode')
+  }
 }

@@ -16,6 +16,7 @@ import Preloader from './components/Preloader';
 // pages
 import HomePage from './pages/Home-page';
 import BedsPage from './pages/Beds-page';
+import ConfiguratorPage from './pages/Configurator-page';
 
 // global objects
 let preloader = null;
@@ -24,6 +25,7 @@ let header = null;
 let languageMenu = null;
 let homePage = null;
 let bedsPage = null;
+let configuratorPage = null;
 
 window.addEventListener('DOMContentLoaded', () => {
   const cursor = new Cursor({
@@ -104,6 +106,23 @@ window.addEventListener('load', () => {
           languageMenu.destroy();
           header.destroyStyleTrigger();
           lazyImages.destroy()
+        },
+      },
+      {
+        namespace: 'configurator-page',
+        afterEnter() {
+          setTimeout(() => {
+            configuratorPage = new ConfiguratorPage();
+            configuratorPage.init();
+            header.initStyleTrigger();
+            header.resetMobileMenuControl();
+            header.enableConfiguratorMode();
+          }, 0);
+        },
+        beforeLeave() {
+          configuratorPage.destroy();
+          configuratorPage = null;
+          header.disableConfiguratorMode();
         },
       }],
   });

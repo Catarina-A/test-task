@@ -1,0 +1,13 @@
+.configurator-settings {
+  width: 50%;
+  height: 100vh;
+  padding: rem-calc(100) 50px;
+
+  @media (max-width: $lg) {
+    padding: rem-calc(100) 30px;
+  }
+
+  @media (max-width: $sm) {
+    padding: rem-calc(100) 25px;
+  }
+}

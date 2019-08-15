@@ -1,0 +1,14 @@
+.configurator-preview {
+  width: 50%;
+  height: 100vh;
+  background: $color-2;
+  padding: rem-calc(100) 50px;
+
+  @media (max-width: $lg) {
+    padding: rem-calc(100) 30px;
+  }
+
+  @media (max-width: $sm) {
+    padding: rem-calc(100) 25px;
+  }
+}

@@ -32,11 +32,11 @@ function createConfig(env) {
         '#source-map' :
         '#cheap-module-eval-source-map',
     plugins: [
-      new webpack.ProvidePlugin({
+      /*new webpack.ProvidePlugin({
         $: 'jquery',
         jQuery: 'jquery',
         'window.jQuery': 'jquery',
-      }),
+      }),*/
       /*new webpack.ContextReplacementPlugin(
           /highlight\.js\/lib\/languages$/,
           new RegExp(
