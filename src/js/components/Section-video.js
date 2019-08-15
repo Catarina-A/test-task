@@ -124,6 +124,8 @@ export default class {
 
   destroy() {
     this.data.playing = false;
-    this.data.observer.disconnect();
+    if (this.data.observer) {
+      this.data.observer.disconnect();
+    }
   }
 }

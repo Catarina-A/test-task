@@ -66,11 +66,15 @@ window.addEventListener('load', () => {
           }, 0);
         },
         beforeLeave() {
-          homePage.destroy();
-          homePage = null;
-          header.destroyStyleTrigger();
-          languageMenu.destroy();
-          lazyImages.destroy()
+          try {
+            homePage.destroy();
+            homePage = null;
+            header.destroyStyleTrigger();
+            languageMenu.destroy();
+            lazyImages.destroy()
+          } catch (e) {
+            console.log(e)
+          }
         },
       },
       {
