@@ -1,4 +1,4 @@
-import FixedAside from './Fixed-aside';
+import FixedAside from '../helpers/Fixed-aside';
 
 export default class {
   constructor() {

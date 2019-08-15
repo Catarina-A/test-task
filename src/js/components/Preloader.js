@@ -1,5 +1,5 @@
 import Cursor from './Cursor';
-import getScrollbarWidth from './get-scrollbar-width';
+import getScrollbarWidth from '../helpers/get-scrollbar-width';
 
 export default class {
   constructor() {

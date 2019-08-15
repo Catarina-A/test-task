@@ -4,7 +4,7 @@ import TweenLite from 'gsap';
 import TimelineLite from 'gsap';
 
 const scrollToPlugin = ScrollToPlugin; // need to include to bundle on build
-import scrollTo from './components/scroll-to';
+import scrollTo from './helpers/scroll-to';
 
 // blocks
 import Header from './components/Header';
