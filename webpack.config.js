@@ -20,8 +20,7 @@ function createConfig(env) {
     mode: isProduction ? 'production' : 'development',
     context: path.join(__dirname, config.src.js),
     entry: {
-      // vendor: ['jquery'],
-      app: './app.js',
+      app: ['babel-polyfill', './app.js'],
     },
     output: {
       path: path.join(__dirname, config.dest.js),
@@ -32,16 +31,6 @@ function createConfig(env) {
         '#source-map' :
         '#cheap-module-eval-source-map',
     plugins: [
-      /*new webpack.ProvidePlugin({
-        $: 'jquery',
-        jQuery: 'jquery',
-        'window.jQuery': 'jquery',
-      }),*/
-      /*new webpack.ContextReplacementPlugin(
-          /highlight\.js\/lib\/languages$/,
-          new RegExp(
-              `^./(${['javascript', 'bash', 'xml', 'cpp', 'vim'].join('|')})$`),
-      ),*/
       new Dotenv(),
 
       new webpack.NoEmitOnErrorsPlugin(),

@@ -14,7 +14,7 @@ export default class {
     }
   }
 
-  init() {
+  async init() {
     if (!this.vueURL && process.env.NODE_ENV === 'development') {
       this.vueURL = process.env.VUE_DEV_PATH;
     } else {

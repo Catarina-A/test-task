@@ -17,44 +17,73 @@
     ]
   },
   {
-    "title": "Choose your size",
+    "title": "Choose your mattress",
     "elements": [
       {
         "name": "Wool and cotton",
         "thumbnail": "https://via.placeholder.com/274x100/999999/FFFFFF",
         "images": {
-          "front": "/img/configurator/L3Q_Divan_Oslo_Zinc.png",
-          "side": "/img/configurator/L3Q_Divan_Oslo_Zinc copy.png"
+          "front": "/img/configurator/L3Q_M1_Mattress.png",
+          "side": "/img/configurator/L3Q_M1_Mattress copy.png"
         }
       },
       {
         "name": "Wool, tencel, bamboo and alpaca",
         "thumbnail": "https://via.placeholder.com/274x100/999999/FFFFFF",
         "images": {
-          "front": "/img/configurator/L3Q_Divan_Oslo_Zinc_01.png",
-          "side": "/img/configurator/L3Q_Divan_Oslo_Zinc_01 copy.png"
+          "front": "/img/configurator/L3Q_M1_Mattress_01.png",
+          "side": "/img/configurator/L3Q_M1_Mattress_01 copy.png"
         }
       },
       {
         "name": "Wool, pashmina, bamboo and alpaca",
         "thumbnail": "https://via.placeholder.com/274x100/999999/FFFFFF",
         "images": {
-          "front": "/img/configurator/L3Q_Divan_Oslo_Zinc_02",
-          "side": "/img/configurator/L3Q_Divan_Oslo_Zinc_02 copy.png"
+          "front": "/img/configurator/L3Q_M1_Mattress_02.png",
+          "side": "/img/configurator/L3Q_M1_Mattress_02 copy.png"
         }
       },
       {
         "name": "Wool, pashmina, bamboo and alpaca",
         "thumbnail": "https://via.placeholder.com/274x100/999999/FFFFFF",
         "images": {
-          "front": "/img/configurator/L3Q_Divan_Oslo_Zinc_03.png",
-          "side": "/img/configurator/L3Q_Divan_Oslo_Zinc_03 copy.png"
+          "front": "/img/configurator/L3Q_M1_Mattress_03.png",
+          "side": "/img/configurator/L3Q_M1_Mattress_03 copy.png"
         }
       }
     ]
   },
   {
     "title": "Customise the headboard fabric",
+    "elements": [
+      {
+        "name": "Type 1",
+        "thumbnail": "https://via.placeholder.com/90x65/999999/FFFFFF",
+        "images": {
+          "front": "/img/configurator/L3Q_Headboard_Oslo_Zinc.png",
+          "side": "/img/configurator/L3Q_Divan_Oslo_Zinc copy.png"
+        }
+      },
+      {
+        "name": "Type 2",
+        "thumbnail": "https://via.placeholder.com/90x65/999999/FFFFFF",
+        "images": {
+          "front": "/img/configurator/L3Q_Headboard_Oslo_Zinc_01.png",
+          "side": "/img/configurator/L3Q_Headboard_Oslo_Zinc_01 copy.png"
+        }
+      },
+      {
+        "name": "Type 3",
+        "thumbnail": "https://via.placeholder.com/90x65/999999/FFFFFF",
+        "images": {
+          "front": "/img/configurator/L3Q_Headboard_Oslo_Zinc_02.png",
+          "side": "/img/configurator/L3Q_Headboard_Oslo_Zinc_02 copy.png"
+        }
+      }
+    ]
+  },
+  {
+    "title": "Customise the divan fabric",
     "elements": [
       {
         "name": "Type 1",
@@ -76,10 +105,40 @@
         "name": "Type 3",
         "thumbnail": "https://via.placeholder.com/90x65/999999/FFFFFF",
         "images": {
-          "front": "/img/configurator/L3Q_Divan_Oslo_Zinc_02",
+          "front": "/img/configurator/L3Q_Divan_Oslo_Zinc_02.png",
           "side": "/img/configurator/L3Q_Divan_Oslo_Zinc_02 copy.png"
+        }
+      }
+    ]
+  },
+  {
+    "title": "Swap frame leg colours",
+    "elements": [
+      {
+        "name": "Brass",
+        "thumbnail": "https://via.placeholder.com/90x65/999999/FFFFFF",
+        "images": {
+          "front": "/img/configurator/L3Q_Legs_Brass.png",
+          "side": "/img/configurator/L3Q_Legs_Brass copy.png"
+        }
+      },
+      {
+        "name": "Black",
+        "thumbnail": "https://via.placeholder.com/90x65/999999/FFFFFF",
+        "images": {
+          "front": "/img/configurator/L3Q_Legs_Brass_01.png",
+          "side": "/img/configurator/L3Q_Legs_Brass_01 copy.png"
+        }
+      },
+      {
+        "name": "Copper",
+        "thumbnail": "https://via.placeholder.com/90x65/999999/FFFFFF",
+        "images": {
+          "front": "/img/configurator/L3Q_Legs_Brass_02.png",
+          "side": "/img/configurator/L3Q_Legs_Brass_02 copy.png"
         }
       }
     ]
   }
 ]
+
