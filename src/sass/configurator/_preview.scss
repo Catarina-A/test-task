@@ -1,7 +1,12 @@
-.configurator-settings {
-  width: 50%;
+.configurator-preview {
+  width: calc(50% + 15px);
   height: 100vh;
+  background: $color-2;
   padding: rem-calc(100) 50px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
 
   @media (max-width: $lg) {
     padding: rem-calc(100) 30px;

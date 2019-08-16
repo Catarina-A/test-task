@@ -1,5 +1,7 @@
 [
   {
+    "id": 0,
+    "modifier": "size",
     "title": "Choose your size",
     "elements": [
       {
@@ -7,16 +9,18 @@
         "thumbnail": "https://via.placeholder.com/94x129/999999/FFFFFF"
       },
       {
-        "name": "190x135 cm",
+        "name": "190x150 cm",
         "thumbnail": "https://via.placeholder.com/115x152/999999/FFFFFF"
       },
       {
-        "name": "190x135 cm",
+        "name": "190x200 cm",
         "thumbnail": "https://via.placeholder.com/153x160/999999/FFFFFF"
       }
     ]
   },
   {
+    "id": 1,
+    "modifier": "mattress",
     "title": "Choose your mattress",
     "elements": [
       {
@@ -54,6 +58,8 @@
     ]
   },
   {
+    "id": 2,
+    "modifier": "fabric",
     "title": "Customise the headboard fabric",
     "elements": [
       {
@@ -79,10 +85,100 @@
           "front": "/img/configurator/L3Q_Headboard_Oslo_Zinc_02.png",
           "side": "/img/configurator/L3Q_Headboard_Oslo_Zinc_02 copy.png"
         }
+      },
+      {
+        "name": "Type 3",
+        "thumbnail": "https://via.placeholder.com/90x65/999999/FFFFFF",
+        "images": {
+          "front": "/img/configurator/L3Q_Headboard_Oslo_Zinc_02.png",
+          "side": "/img/configurator/L3Q_Headboard_Oslo_Zinc_02 copy.png"
+        }
+      },
+      {
+        "name": "Type 3",
+        "thumbnail": "https://via.placeholder.com/90x65/999999/FFFFFF",
+        "images": {
+          "front": "/img/configurator/L3Q_Headboard_Oslo_Zinc_02.png",
+          "side": "/img/configurator/L3Q_Headboard_Oslo_Zinc_02 copy.png"
+        }
+      },
+      {
+        "name": "Type 3",
+        "thumbnail": "https://via.placeholder.com/90x65/999999/FFFFFF",
+        "images": {
+          "front": "/img/configurator/L3Q_Headboard_Oslo_Zinc_02.png",
+          "side": "/img/configurator/L3Q_Headboard_Oslo_Zinc_02 copy.png"
+        }
+      },
+      {
+        "name": "Type 3",
+        "thumbnail": "https://via.placeholder.com/90x65/999999/FFFFFF",
+        "images": {
+          "front": "/img/configurator/L3Q_Headboard_Oslo_Zinc_02.png",
+          "side": "/img/configurator/L3Q_Headboard_Oslo_Zinc_02 copy.png"
+        }
+      },
+      {
+        "name": "Type 3",
+        "thumbnail": "https://via.placeholder.com/90x65/999999/FFFFFF",
+        "images": {
+          "front": "/img/configurator/L3Q_Headboard_Oslo_Zinc_02.png",
+          "side": "/img/configurator/L3Q_Headboard_Oslo_Zinc_02 copy.png"
+        }
+      },
+      {
+        "name": "Type 3",
+        "thumbnail": "https://via.placeholder.com/90x65/999999/FFFFFF",
+        "images": {
+          "front": "/img/configurator/L3Q_Headboard_Oslo_Zinc_02.png",
+          "side": "/img/configurator/L3Q_Headboard_Oslo_Zinc_02 copy.png"
+        }
+      },
+      {
+        "name": "Type 3",
+        "thumbnail": "https://via.placeholder.com/90x65/999999/FFFFFF",
+        "images": {
+          "front": "/img/configurator/L3Q_Headboard_Oslo_Zinc_02.png",
+          "side": "/img/configurator/L3Q_Headboard_Oslo_Zinc_02 copy.png"
+        }
+      },
+      {
+        "name": "Type 3",
+        "thumbnail": "https://via.placeholder.com/90x65/999999/FFFFFF",
+        "images": {
+          "front": "/img/configurator/L3Q_Headboard_Oslo_Zinc_02.png",
+          "side": "/img/configurator/L3Q_Headboard_Oslo_Zinc_02 copy.png"
+        }
+      },
+      {
+        "name": "Type 3",
+        "thumbnail": "https://via.placeholder.com/90x65/999999/FFFFFF",
+        "images": {
+          "front": "/img/configurator/L3Q_Headboard_Oslo_Zinc_02.png",
+          "side": "/img/configurator/L3Q_Headboard_Oslo_Zinc_02 copy.png"
+        }
+      },
+      {
+        "name": "Type 3",
+        "thumbnail": "https://via.placeholder.com/90x65/999999/FFFFFF",
+        "images": {
+          "front": "/img/configurator/L3Q_Headboard_Oslo_Zinc_02.png",
+          "side": "/img/configurator/L3Q_Headboard_Oslo_Zinc_02 copy.png"
+        }
+      },
+      {
+        "name": "Type 3",
+        "thumbnail": "https://via.placeholder.com/90x65/999999/FFFFFF",
+        "images": {
+          "front": "/img/configurator/L3Q_Headboard_Oslo_Zinc_02.png",
+          "side": "/img/configurator/L3Q_Headboard_Oslo_Zinc_02 copy.png"
+        }
       }
     ]
   },
   {
+    "id": 3,
+    "modifier": "fabric",
     "title": "Customise the divan fabric",
     "elements": [
       {
@@ -112,11 +208,13 @@
     ]
   },
   {
+    "id": 4,
+    "modifier": "legs",
     "title": "Swap frame leg colours",
     "elements": [
       {
         "name": "Brass",
-        "thumbnail": "https://via.placeholder.com/90x65/999999/FFFFFF",
+        "thumbnail": "https://via.placeholder.com/170x187/999999/FFFFFF",
         "images": {
           "front": "/img/configurator/L3Q_Legs_Brass.png",
           "side": "/img/configurator/L3Q_Legs_Brass copy.png"
@@ -124,7 +222,7 @@
       },
       {
         "name": "Black",
-        "thumbnail": "https://via.placeholder.com/90x65/999999/FFFFFF",
+        "thumbnail": "https://via.placeholder.com/170x187/999999/FFFFFF",
         "images": {
           "front": "/img/configurator/L3Q_Legs_Brass_01.png",
           "side": "/img/configurator/L3Q_Legs_Brass_01 copy.png"
@@ -132,7 +230,7 @@
       },
       {
         "name": "Copper",
-        "thumbnail": "https://via.placeholder.com/90x65/999999/FFFFFF",
+        "thumbnail": "https://via.placeholder.com/170x187/999999/FFFFFF",
         "images": {
           "front": "/img/configurator/L3Q_Legs_Brass_02.png",
           "side": "/img/configurator/L3Q_Legs_Brass_02 copy.png"

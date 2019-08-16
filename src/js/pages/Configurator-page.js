@@ -1,17 +1,24 @@
 import configuratorObject from '../condigurator/logic';
 import scriptLoader from '../helpers/scriptLoader';
+import axios from 'axios';
 
 export default class {
   constructor() {
     this.vueURL = null;
     this.vueScriptName = 'vue-configurator-script';
-    this.Vue = null;
+    this.configuratorDataUrl = process.env.CONFIGURATOR_DATA;
+    this.vue = null;
   }
 
   initVue() {
     if (Vue) {
-      this.Vue = new Vue(configuratorObject);
+      this.vue = new Vue(configuratorObject);
     }
+  }
+
+  async loadDataConfigurator() {
+    const response = await axios.get(this.configuratorDataUrl);
+    window.configuratorData = response.data;
   }
 
   async init() {
@@ -21,15 +28,21 @@ export default class {
       this.vueURL = process.env.VUE_PROD_PATH;
     }
 
-    scriptLoader(this.vueURL, this.vueScriptName).then(() => {
+    try {
+      await Promise.all([
+        scriptLoader(this.vueURL, this.vueScriptName),
+        this.loadDataConfigurator()]);
       this.initVue();
-    }).catch(console.log);
+    } catch (e) {
+      console.log(e);
+    }
+
   }
 
   destroy() {
-    if (this.Vue) {
-      this.Vue.$destroy();
-      this.Vue = null;
+    if (this.vue) {
+      this.vue.$destroy();
+      this.vue = null;
     }
   }
 }

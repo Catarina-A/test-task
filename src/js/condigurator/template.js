@@ -1,5 +1,5 @@
 import settings from './template-settings';
-import preview from './template-prevoew';
+import preview from './template-preview';
 
 export default `
 <div class="configurator">
