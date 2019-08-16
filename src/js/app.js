@@ -63,6 +63,7 @@ window.addEventListener('load', () => {
             header.resetMobileMenuControl();
             scrollTo();
             lazyImages.init()
+            window.scrollTo(0, 0)
           }, 0);
         },
         beforeLeave() {
@@ -98,6 +99,7 @@ window.addEventListener('load', () => {
             languageMenu.init();
             scrollTo();
             lazyImages.init()
+            window.scrollTo(0, 0)
           }, 0);
         },
         beforeLeave() {
@@ -117,6 +119,7 @@ window.addEventListener('load', () => {
             header.initStyleTrigger();
             header.resetMobileMenuControl();
             header.enableConfiguratorMode();
+            window.scrollTo(0, 0)
           }, 0);
         },
         beforeLeave() {
