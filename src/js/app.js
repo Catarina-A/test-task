@@ -30,8 +30,6 @@ let configuratorPage = null;
 window.addEventListener('DOMContentLoaded', () => {
   const cursor = new Cursor({
     el: document.getElementById('cursor'),
-    delay: 0,
-    time: 0,
     watchTarget: true,
     disableOnTouch: true
   });

@@ -1,8 +1,8 @@
 export default class {
   constructor(options) {
     this.el = options.el;
-    this.time = options.time;
-    this.delay = options.delay;
+    this.time = options.time || 0;
+    this.delay = options.delay || 0;
     this.watchTarget = options.watchTarget || false;
     this.disableOnTouch = options.disableOnTouch || false;
     this.MOVE_LISTENER = 'mousemove';
