@@ -38,6 +38,7 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 window.addEventListener('load', () => {
+  document.getElementById('header').removeAttribute('style');
   preloader = new Preloader();
   lazyImages = new LazyImages();
   header = new Header();
@@ -62,8 +63,8 @@ window.addEventListener('load', () => {
             header.initStyleTrigger();
             header.resetMobileMenuControl();
             scrollTo();
-            lazyImages.init()
-            window.scrollTo(0, 0)
+            lazyImages.init();
+            window.scrollTo(0, 0);
           }, 0);
         },
         beforeLeave() {
@@ -71,7 +72,7 @@ window.addEventListener('load', () => {
           homePage = null;
           header.destroyStyleTrigger();
           languageMenu.destroy();
-          lazyImages.destroy()
+          lazyImages.destroy();
         },
       },
       {
@@ -98,8 +99,8 @@ window.addEventListener('load', () => {
             header.resetMobileMenuControl();
             languageMenu.init();
             scrollTo();
-            lazyImages.init()
-            window.scrollTo(0, 0)
+            lazyImages.init();
+            window.scrollTo(0, 0);
           }, 0);
         },
         beforeLeave() {
@@ -107,7 +108,7 @@ window.addEventListener('load', () => {
           bedsPage = null;
           languageMenu.destroy();
           header.destroyStyleTrigger();
-          lazyImages.destroy()
+          lazyImages.destroy();
         },
       },
       {
@@ -119,7 +120,7 @@ window.addEventListener('load', () => {
             header.initStyleTrigger();
             header.resetMobileMenuControl();
             header.enableConfiguratorMode();
-            window.scrollTo(0, 0)
+            window.scrollTo(0, 0);
           }, 0);
         },
         beforeLeave() {
