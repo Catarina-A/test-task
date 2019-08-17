@@ -70,6 +70,8 @@ window.addEventListener('load', () => {
           homePage.destroy();
           homePage = null;
           header.destroyStyleTrigger();
+          header.closeMobileLang();
+          header.closeMobileMenu();
           languageMenu.destroy();
           lazyImages.destroy();
         },
@@ -86,6 +88,8 @@ window.addEventListener('load', () => {
         beforeLeave() {
           languageMenu.destroy();
           header.destroyStyleTrigger();
+          header.closeMobileLang();
+          header.closeMobileMenu();
         },
       },
       {
@@ -107,6 +111,8 @@ window.addEventListener('load', () => {
           bedsPage = null;
           languageMenu.destroy();
           header.destroyStyleTrigger();
+          header.closeMobileLang();
+          header.closeMobileMenu();
           lazyImages.destroy();
         },
       },
@@ -126,6 +132,8 @@ window.addEventListener('load', () => {
           configuratorPage.destroy();
           configuratorPage = null;
           header.disableConfiguratorMode();
+          header.closeMobileLang();
+          header.closeMobileMenu();
         },
       }],
   });
