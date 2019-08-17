@@ -4,20 +4,20 @@ export default class {
     this.time = options.time;
     this.delay = options.delay;
     this.watchTarget = options.watchTarget || false;
-    this.LISTENER = 'mousemove';
+    this.disableOnTouch = options.disableOnTouch || false;
+    this.MOVE_LISTENER = 'mousemove';
+    this.TOUCH_LISTENER = 'touchstart';
     this.clickHandler = null;
+    this.touchHandler = null;
     this.hidden = true;
     this.attrType = 'data-cursor-type';
     this.attrColor = 'data-cursor-color';
     this.defaultTags = ['A', 'BUTTON', 'INPUT', 'TEXTAREA', 'LABEL', 'SELECT'];
-  }
-
-  setCursorType(type) {
-    this.el.setAttribute(this.attrType, type);
-  }
-
-  setCursorColor(color) {
-    this.el.setAttribute(this.attrColor, color);
+    this.STYLE_ELEMENT_ID = 'cursor-style-element';
+    this.CSS_TEXT = `
+* {
+  cursor: none !important;
+}`;
   }
 
   checkTarget(e) {
@@ -42,18 +42,37 @@ export default class {
           break;
         }
       }
-      this.setCursorType(typeResult);
-      this.setCursorColor(colorResult);
+      this.el.setAttribute(this.attrType, typeResult);
+      this.el.setAttribute(this.attrColor, colorResult);
+    }
+  }
+
+  goToCustomCursor() {
+    this.el.classList.add('visible');
+    const existingStyleElement = document.getElementById(this.STYLE_ELEMENT_ID);
+    if (existingStyleElement) return;
+    const styleEl = document.createElement('style');
+    styleEl.setAttribute('id', this.STYLE_ELEMENT_ID);
+    styleEl.innerHTML = this.CSS_TEXT;
+    document.head.appendChild(styleEl);
+  }
+
+  goToDefaultCursor() {
+    this.el.classList.remove('visible');
+    const existingStyleElement = document.getElementById(this.STYLE_ELEMENT_ID);
+    if (existingStyleElement) {
+      existingStyleElement.remove();
     }
   }
 
   handleMouseMove(e) {
+    console.log('sdsd');
     if (this.watchTarget) {
       this.checkTarget(e);
     }
     if (this.hidden) {
       this.hidden = false;
-      this.el.classList.add('visible');
+      this.goToCustomCursor();
     }
     TweenLite.to(this.el, this.time, {
       delay: this.delay,
@@ -64,10 +83,18 @@ export default class {
 
   init() {
     this.clickHandler = this.handleMouseMove.bind(this);
-    window.addEventListener(this.LISTENER, this.clickHandler);
+    this.touchHandler = this.destroy.bind(this);
+    window.addEventListener(this.MOVE_LISTENER, this.clickHandler);
+    if (this.disableOnTouch) {
+      window.addEventListener(this.TOUCH_LISTENER, this.touchHandler);
+    }
   }
 
   destroy() {
-    window.removeEventListener(this.LISTENER, this.clickHandler);
+    window.removeEventListener(this.MOVE_LISTENER, this.clickHandler);
+    if (this.disableOnTouch) {
+      window.removeEventListener(this.TOUCH_LISTENER, this.touchHandler);
+    }
+    this.goToDefaultCursor();
   }
 }

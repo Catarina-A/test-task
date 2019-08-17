@@ -29,10 +29,11 @@ let configuratorPage = null;
 
 window.addEventListener('DOMContentLoaded', () => {
   const cursor = new Cursor({
-    el: document.getElementsByClassName('cursor')[0],
+    el: document.getElementById('cursor'),
     delay: 0,
     time: 0,
     watchTarget: true,
+    disableOnTouch: true
   });
   cursor.init();
 });

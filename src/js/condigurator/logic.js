@@ -22,7 +22,7 @@ export default {
           return element.images;
         });
       }).filter(step => {
-        console.log(step)
+        //console.log(step)
         return true
       });
     },

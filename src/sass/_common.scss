@@ -6,7 +6,6 @@ html, body {
 
 body {
   overflow-x: hidden;
-  cursor: none;
   transition: background $time-xl;
 }
 
@@ -21,10 +20,6 @@ img, video {
 
 strong {
   font-weight: 800;
-}
-
-* {
-  cursor: none !important;
 }
 
 .title {
