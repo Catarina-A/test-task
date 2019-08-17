@@ -32,14 +32,7 @@ function createConfig(env) {
         '#cheap-module-eval-source-map',
     plugins: [
       new Dotenv(),
-
       new webpack.NoEmitOnErrorsPlugin(),
-
-      new BundleAnalyzerPlugin({
-        analyzerMode: 'static',
-        analyzerPort: 4000,
-        openAnalyzer: false,
-      }),
     ],
     resolve: {
       extensions: ['.js'],
@@ -91,6 +84,13 @@ function createConfig(env) {
     webpackConfig.plugins.push(
         new webpack.LoaderOptionsPlugin({
           minimize: true,
+        }),
+    );
+    webpackConfig.plugins.push(
+        new BundleAnalyzerPlugin({
+          analyzerMode: 'static',
+          analyzerPort: 4000,
+          openAnalyzer: false,
         }),
     );
   }
