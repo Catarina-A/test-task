@@ -66,7 +66,6 @@ export default class {
   }
 
   handleMouseMove(e) {
-    console.log('sdsd');
     if (this.watchTarget) {
       this.checkTarget(e);
     }

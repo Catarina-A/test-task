@@ -13,41 +13,50 @@
   }
 
   &__steps {
+    position: relative;
     max-width: 615px;
     margin: 0 auto;
-    position: relative;
 
     &::after {
-      content: '';
       position: absolute;
+      right: 0;
       bottom: 0;
       left: 0;
-      right: 0;
       height: 1px;
+      content: '';
+      transition: opacity 1000ms;
+      opacity: 1;
       background: $color-2;
+    }
+
+    &.no-border {
+
+      &::after {
+        opacity: 0;
+      }
     }
   }
 
   &__step-heading {
-    display: flex;
-    padding: rem-calc(25 26 25 0);
     font-size: 14px;
     position: relative;
+    display: flex;
+    padding: rem-calc(25 26 25 0);
 
     &::after {
-      content: '';
       position: absolute;
       top: 0;
-      left: 0;
       right: 0;
+      left: 0;
       height: 1px;
+      content: '';
       background: $color-2;
     }
   }
 
   &__step-number {
-    padding-right: rem-calc(45);
     font-weight: 500;
+    padding-right: rem-calc(45);
   }
 
   &__step-selected {
@@ -55,17 +64,26 @@
   }
 
   &__step-content {
-    overflow: hidden;
     position: relative;
+    overflow: hidden;
 
     &::before {
-      content: '';
       position: absolute;
       top: 0;
-      left: 0;
       right: 0;
+      left: 0;
       height: 1px;
+      content: '';
+      transition: opacity 1000ms;
+      opacity: 0;
       background: $color-2;
+    }
+
+    &.active {
+
+      &::before {
+        opacity: 1;
+      }
     }
   }
 

@@ -38,9 +38,7 @@ export default {
   },
 
   mounted() {
-    setTimeout(() => {
-      this.openActiveStep(0);
-    }, 2000);
+
   },
 
   methods: {
@@ -81,6 +79,7 @@ export default {
       const height = contentInner.offsetHeight;
       TweenLite.to(content, this.stepOpenTime, {height});
     },
+
     closeActiveStep(index) {
       if (index >= 0) {
         const content = this.$refs.stepContent[index];

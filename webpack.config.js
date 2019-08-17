@@ -20,7 +20,7 @@ function createConfig(env) {
     mode: isProduction ? 'production' : 'development',
     context: path.join(__dirname, config.src.js),
     entry: {
-      app: ['babel-polyfill', './app.js'],
+      app: './app.js',
     },
     output: {
       path: path.join(__dirname, config.dest.js),
@@ -72,21 +72,17 @@ function createConfig(env) {
           ],
           use: {
             loader: 'babel-loader',
-            options: {
-              presets: ['@babel/preset-env'],
-            },
           },
         },
+        /*
         {
           test: /\.jsx?$/,
-          exclude: [/node_modules\/(?!(swiper|dom7)\/).*/, /\.test\.jsx?$/],
+          exclude: [/node_modules\/(?!(swiper|dom7)\/).*!/, /\.test\.jsx?$/],
           use: {
             loader: 'babel-loader',
-            options: {
-              presets: ['@babel/preset-env'],
-            },
           },
         }
+        */
       ],
     },
   };
