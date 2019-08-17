@@ -4,7 +4,7 @@ export default `
     <div class="configurator-preview__images">
       <img
       v-for="step in stepImages"
-      src="/" 
+      :src="step" 
       alt="layer of configurator"
       >
     </div>

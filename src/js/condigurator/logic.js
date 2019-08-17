@@ -6,8 +6,7 @@ export default {
   data: {
     selectedElement: {},
     activeStep: 0,
-    sides: {},
-    imagesResultArray: [],
+    activeSide: '',
   },
 
   computed: {
@@ -17,51 +16,47 @@ export default {
     },
 
     stepImages() {
-      return this.steps.map(step => {
-        return step.elements.every(element => {
-          return element.images;
-        });
-      }).filter(step => {
-        //console.log(step)
-        return true
-      });
+      return Object.values(this.selectedElement).reduce((acc, elementIndex, stepIndex) => {
+        const element = this.steps[stepIndex].elements[elementIndex];
+        const imagesBySide = element.images;
+        if (imagesBySide) {
+          acc.push(imagesBySide[this.activeSide]);
+        }
+        return acc;
+      }, []);
     },
   },
 
   created() {
     this.stepOpenTime = 1;
-
     this.steps = window.configuratorData;
-
-    this.setReactivity();
-    this.makeFirstSideActive();
+    this.sidesArray = null;
+    this.setupConfigurator();
+    this.activeSide = this.sidesArray[0];
   },
 
   mounted() {
-
+    //console.log(this.stepImages);
   },
 
   methods: {
 
-    makeFirstSideActive() {
-      const keys = Object.keys(this.sides);
-      this.sides[keys[0]] = true;
-    },
-
-    setReactivity() {
+    setupConfigurator() {
       this.steps.forEach((step, index) => {
-        // object for active element
+        // set object for active element
         this.$set(this.selectedElement, `step_${index}`, 0);
 
-        // object for sides
+        // create sides array
+        let sidesSet = new Set([]);
         step.elements.forEach((element, index) => {
           const images = element.images;
           if (!images) return;
           Object.keys(images).forEach(key => {
-            this.$set(this.sides, key, false);
+            sidesSet.add(key);
           });
         });
-
+        this.sidesArray = Array.from(sidesSet);
+        sidesSet = null;
       });
     },
 
