@@ -15,6 +15,13 @@ export default {
           process.env.DEV_PATH : process.env.PROD_PATH;
     },
 
+    selectedSize() {
+      const sizeStep = this.steps.find(step => {
+        return step.modifier === 'size';
+      });
+      return sizeStep.elements[this.selectedElement.step_0].name;
+    },
+
     stepImages() {
       return Object.values(this.selectedElement).reduce((acc, elementIndex, stepIndex) => {
         const element = this.steps[stepIndex].elements[elementIndex];
@@ -36,10 +43,12 @@ export default {
   },
 
   mounted() {
-    //console.log(this.stepImages);
   },
 
   methods: {
+
+    confirmSelection() {
+    },
 
     setupConfigurator() {
       this.steps.forEach((step, index) => {
@@ -68,14 +77,14 @@ export default {
       this.setActiveOption(step, item);
     },
 
-    openActiveStep(index) {
+    openStep(index) {
       const content = this.$refs.stepContent[index];
       const contentInner = this.$refs.stepContentInner[index];
       const height = contentInner.offsetHeight;
       TweenLite.to(content, this.stepOpenTime, {height});
     },
 
-    closeActiveStep(index) {
+    closeStep(index) {
       if (index >= 0) {
         const content = this.$refs.stepContent[index];
         TweenLite.to(content, this.stepOpenTime, {height: 0});
@@ -85,8 +94,8 @@ export default {
 
   watch: {
     activeStep(current, prev) {
-      this.openActiveStep(current);
-      this.closeActiveStep(prev);
+      this.openStep(current);
+      this.closeStep(prev);
     },
 
   },

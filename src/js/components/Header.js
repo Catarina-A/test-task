@@ -209,10 +209,16 @@ export default class {
   }
 
   enableConfiguratorMode() {
-    console.log('header enable configurator mode')
+    TweenLite.to(this.header, 0.3, {
+      opacity: 0,
+      yPercent: -100,
+    });
   }
 
   disableConfiguratorMode() {
-    console.log('header disable configurator mode')
+    TweenLite.to(this.header, 0.3, {
+      opacity: 1,
+      yPercent: 0,
+    });
   }
 }

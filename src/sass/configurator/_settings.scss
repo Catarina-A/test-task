@@ -1,7 +1,7 @@
 .configurator-settings {
   width: calc(50% - 15px);
-  height: 100vh;
-  padding: rem-calc(117) 60px;
+  min-height: 100vh;
+  padding: rem-calc(117) 60px rem-calc(90);
   color: $color-2;
 
   @media (max-width: $lg) {
@@ -100,5 +100,9 @@
     &--fabric {
       padding-bottom: 0;
     }
+  }
+
+  &__confirm-button {
+    margin-top: rem-calc(60);
   }
 }

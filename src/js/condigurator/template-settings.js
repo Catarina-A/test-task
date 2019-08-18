@@ -15,7 +15,7 @@ export default `
       >
         <span class="configurator-settings__step-number">{{stepIndex + 1}}</span>
         <span class="configurator-settings__step-title">{{step.title}}</span>
-        <span class="configurator-settings__step-selected">{{steps[stepIndex].elements[selectedElement['step_' + stepIndex]].name}}</span>
+        <span class="configurator-settings__step-selected">{{steps[stepIndex].elements[selectedElement['step_' + stepIndex]].name}}<span v-if="step.modifier === 'size'"> cm</span></span>
       </div>
       <div class="configurator-settings__step-content"
         :style="stepIndex > 0 ? 'height: 0' : ''"
@@ -32,6 +32,9 @@ export default `
         </div>
       </div>
     </div>
+  </div>
+  <div class="configurator-settings__confirm-button">
+    <button class="button button--white" @click="confirmSelection">Confirm Selection</button>
   </div>
 </div>
 `;

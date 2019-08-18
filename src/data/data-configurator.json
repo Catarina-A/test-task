@@ -5,15 +5,15 @@
     "title": "Choose your size",
     "elements": [
       {
-        "name": "190x135 cm",
+        "name": "190x135",
         "thumbnail": "https://via.placeholder.com/94x129/999999/FFFFFF"
       },
       {
-        "name": "190x150 cm",
+        "name": "190x150",
         "thumbnail": "https://via.placeholder.com/115x152/999999/FFFFFF"
       },
       {
-        "name": "190x200 cm",
+        "name": "190x200",
         "thumbnail": "https://via.placeholder.com/153x160/999999/FFFFFF"
       }
     ]
@@ -67,7 +67,7 @@
         "thumbnail": "https://via.placeholder.com/90x65/999999/FFFFFF",
         "images": {
           "front": "/img/configurator/L3Q_Headboard_Oslo_Zinc.png",
-          "side": "/img/configurator/L3Q_Divan_Oslo_Zinc copy.png"
+          "side": "/img/configurator/L3Q_Headboard_Oslo_Zinc copy.png"
         }
       },
       {

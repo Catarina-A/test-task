@@ -7,7 +7,19 @@ export default `
       :src="step" 
       alt="layer of configurator"
       >
+      <div class="configurator-preview__size">
+        <span>{{selectedSize}}</span>
+      </div>
+    </div>
+    <div class="configurator-preview__side-select">
+      <button
+        v-for="side in sidesArray"
+        :class="{
+          active: activeSide === side
+        }"
+        @click="activeSide = side"
+      >{{side}}</button>
     </div>
   </div>
 </div>
-`
+`;
