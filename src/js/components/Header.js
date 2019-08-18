@@ -10,6 +10,7 @@ export default class {
     this.CLASS_WHITE = 'white';
     this.CLASS_ACTIVE = 'active';
     this.CLASS_SMALL = 'small';
+    this.CLASS_CONDIGURATOR = 'configurator';
     this.BLUR_VALUE = '20px';
     this.BRIGHTNESS_VALUE = '70%';
     this.BODY_COLOR = '#737373';
@@ -209,16 +210,10 @@ export default class {
   }
 
   enableConfiguratorMode() {
-    TweenLite.to(this.header, 0.3, {
-      opacity: 0,
-      yPercent: -100,
-    });
+    this.header.classList.add(this.CLASS_CONDIGURATOR);
   }
 
   disableConfiguratorMode() {
-    TweenLite.to(this.header, 0.3, {
-      opacity: 1,
-      yPercent: 0,
-    });
+    this.header.classList.remove(this.CLASS_CONDIGURATOR);
   }
 }

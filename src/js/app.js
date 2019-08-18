@@ -31,7 +31,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const cursor = new Cursor({
     el: document.getElementById('cursor'),
     watchTarget: true,
-    disableOnTouch: true
+    disableOnTouch: true,
   });
   cursor.init();
 });
@@ -120,7 +120,7 @@ window.addEventListener('load', () => {
         namespace: 'configurator-page',
         afterEnter() {
           setTimeout(() => {
-            configuratorPage = new ConfiguratorPage();
+            configuratorPage = new ConfiguratorPage({header});
             configuratorPage.init();
             header.initStyleTrigger();
             header.resetMobileMenuControl();

@@ -43,9 +43,16 @@ export default {
   },
 
   mounted() {
+    this.$nextTick(() => {
+      this.initHeader();
+    });
   },
 
   methods: {
+
+    initHeader() {
+      this.$pageHeader.makeHeaderColorWhite();
+    },
 
     confirmSelection() {
     },

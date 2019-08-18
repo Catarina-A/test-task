@@ -12,10 +12,10 @@
               <span>Configure</span>
             </a>
           </li>
-          <li class="header__nav-item blurable-on-lang-open"><a class="header__nav-btn" href="/our-beds.html">Our Beds</a></li>
-          <li class="header__nav-item blurable-on-lang-open"><a class="header__nav-btn" href="/contact.html">Contact</a></li>
+          <li class="header__nav-item blurable-on-lang-open"><a class="header__nav-btn hide-on-configurator" href="/our-beds.html">Our Beds</a></li>
+          <li class="header__nav-item blurable-on-lang-open"><a class="header__nav-btn hide-on-configurator" href="/contact.html">Contact</a></li>
           <li class="header__nav-item">
-            <button class="header__nav-btn header__nav-btn--lang" id="language-main-btn"><span>EN</span></button>
+            <button class="header__nav-btn header__nav-btn--lang hide-on-configurator" id="language-main-btn"><span>EN</span></button>
             <ul class="header__lang-list">
               <li><a class="active" href="/">English</a></li>
               <li><a href="/">French</a></li>
@@ -24,7 +24,7 @@
               <li><a href="/">Italian</a></li>
             </ul>
           </li>
-          <li class="header__nav-item header__nav-item--burger">
+          <li class="header__nav-item header__nav-item--burger hide-on-configurator">
             <button class="header__nav-btn header__nav-btn--burger" id="mobile-burger-btn">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18.2 16">
                 <path d="M0 2V0h18.2v2H0zm0 7V7h18.2v2H0zm0 7v-2h18.2v2H0z"/>
@@ -35,7 +35,7 @@
         </ul>
       </nav>
       <div class="header__logo blurable-on-lang-open">
-        <a href="/" class="logo">
+        <a href="/" class="logo hide-on-configurator">
           {% include './_svg-logo.twig' %}
           {% include './_svg-vispring.twig' %}
         </a>

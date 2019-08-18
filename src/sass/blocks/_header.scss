@@ -139,6 +139,7 @@
   &__nav-btn--lang {
     position: relative;
     display: none;
+    transition: opacity $time-sm;
 
     span {
       position: relative;
@@ -173,6 +174,7 @@
   }
 
   &__nav-btn--burger {
+    transition: opacity $time-sm;
 
     svg {
       width: 18.2px;
@@ -221,6 +223,7 @@
       height: 1.24em;
       margin: 0.3rem 0.4rem 0.3rem 0;
       fill: $color-1;
+      transition: transform 1000ms;
     }
 
     &.small {
@@ -260,6 +263,26 @@
 
     .header__nav-btn--lang span::after {
       background: $color-2;
+    }
+  }
+
+  &.configurator {
+
+    .hide-on-configurator {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .header__nav-btn--configure {
+      pointer-events: none;
+
+      span {
+        opacity: 0;
+      }
+
+      svg {
+        transform: rotate(180deg);
+      }
     }
   }
 }

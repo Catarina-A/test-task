@@ -3,8 +3,9 @@ import scriptLoader from '../helpers/scriptLoader';
 import axios from 'axios';
 
 export default class {
-  constructor() {
+  constructor(props) {
     this.vueURL = null;
+    this.header = props.header;
     this.vueScriptName = 'vue-configurator-script';
     this.configuratorDataUrl = process.env.CONFIGURATOR_DATA;
     this.vue = null;
@@ -13,6 +14,7 @@ export default class {
   initVue() {
     if (Vue) {
       this.vue = new Vue(configuratorObject);
+      this.vue.$pageHeader = this.header;
     }
   }
 
