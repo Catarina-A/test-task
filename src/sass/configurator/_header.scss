@@ -1,0 +1,55 @@
+.configurator-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: calc(50% - 15px);
+  padding: rem-calc(37) 60px;
+  color: $color-2;
+  z-index: 2;
+  pointer-events: none;
+
+  @media (max-width: $lg) {
+    padding: rem-calc(37) 30px;
+  }
+
+  @media (max-width: $sm) {
+    padding: rem-calc(37) 25px;
+  }
+
+  &__inner {
+    position: relative;
+    transition: transform $time-md;
+    transform: translate3d(0, 0, 0);
+  }
+
+  &__back {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    pointer-events: auto;
+    padding: rem-calc(10 0);
+
+    span {
+      margin-bottom: rem-calc(2);
+      margin-right: rem-calc(13);
+    }
+
+    svg {
+      fill: $color-2;
+      width: 18.2px;
+      height: 16px;
+    }
+  }
+
+  &.small {
+    .configurator-header__inner {
+      transform: translate3d(0, rem-calc(-27), 0);
+    }
+  }
+}

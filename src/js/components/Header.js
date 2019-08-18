@@ -18,6 +18,8 @@ export default class {
     this.scrolHandler = null;
     this.ATTR_HEADER_COLOR = 'data-cursor-color';
     this.isBig = true;
+    this.sizeBigEvent = null;
+    this.sizeSmallEvent = null;
     this.content = null;
     this.mobileMenuIsOpened = false;
     this.mobileLangIsOpened = false;
@@ -70,10 +72,12 @@ export default class {
   // size control
   makeBig() {
     this.header.classList.remove(this.CLASS_SMALL);
+    window.dispatchEvent(this.sizeBigEvent);
   };
 
   makeSmall() {
     this.header.classList.add(this.CLASS_SMALL);
+    window.dispatchEvent(this.sizeSmallEvent);
   };
 
   toggleHeaderSize(e) {
@@ -102,6 +106,7 @@ export default class {
     document.body.appendChild(domHiddenElement);
     const observer = new IntersectionObserver(this.toggleHeaderSize.bind(this));
     observer.observe(domHiddenElement);
+    this.initCustomEvents();
   }
 
   // mobile menu control
@@ -190,6 +195,11 @@ export default class {
   initMobileLang() {
     this.langMobileBtn.addEventListener('click', this.handleMobileLangClick.bind(this));
     this.langMobileOverlay.addEventListener('click', this.closeMobileLang.bind(this));
+  }
+
+  initCustomEvents() {
+    this.sizeBigEvent = new Event('headerBig');
+    this.sizeSmallEvent = new Event('headerSmall');
   }
 
   initMobileMenuControl() {

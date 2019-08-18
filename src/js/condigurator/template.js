@@ -1,8 +1,10 @@
 import settings from './template-settings';
 import preview from './template-preview';
+import header from './template-header';
 
 export default `
 <div class="configurator">
+  ${header}
   <div class="configurator__bg">
     <!--<picture>
       <source type="image/webp" :srcset="baseURL + 'img/intro-bg.webp'">

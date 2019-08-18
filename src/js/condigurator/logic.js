@@ -7,6 +7,8 @@ export default {
     selectedElement: {},
     activeStep: 0,
     activeSide: '',
+    headerIsSmall: false,
+    headerIsWhite: true,
   },
 
   computed: {
@@ -40,6 +42,9 @@ export default {
     this.sidesArray = null;
     this.setupConfigurator();
     this.activeSide = this.sidesArray[0];
+
+    window.addEventListener('headerBig', this.makeHeaderBig);
+    window.addEventListener('headerSmall', this.makeHeaderSmall);
   },
 
   mounted() {
@@ -48,7 +53,24 @@ export default {
     });
   },
 
+  destroyed() {
+    window.removeEventListener('headerBig', this.makeHeaderBig);
+    window.removeEventListener('headerSmall', this.makeHeaderSmall);
+  },
+
   methods: {
+
+    goBack() {
+      window.history.back();
+    },
+
+    makeHeaderBig() {
+      this.headerIsSmall = false;
+    },
+
+    makeHeaderSmall() {
+      this.headerIsSmall = true;
+    },
 
     initHeader() {
       this.$pageHeader.makeHeaderColorWhite();
