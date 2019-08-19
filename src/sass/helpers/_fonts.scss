@@ -1,17 +1,18 @@
 //include third-party fonts
 
-@mixin font-face($font-name, $file-name, $font-weight) {
+@mixin font-face($font-name, $file-name, $font-weight, $font-style) {
   @font-face {
     font-family: quote($font-name);
     src: url("../fonts/"+ $file-name + ".woff2") format("woff2"),
     url("../fonts/"+ $file-name + ".woff") format("woff");
     font-weight: $font-weight;
-    font-style: normal;
+    font-style: $font-style;
     font-display: swap;
   }
 }
 
 
-@include font-face(GTAmerica, GTAmerica-CondensedMedium, 500);
-@include font-face(GTAmerica, GTAmerica-Light, 300);
+@include font-face(GTAmerica, GTAmerica-CondensedMedium, 500, normal);
+@include font-face(GTAmerica, GTAmerica-Light, 300, normal);
+@include font-face(GTAmerica, GTAmerica-LightItalic, 300, italic);
 

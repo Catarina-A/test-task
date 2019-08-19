@@ -103,6 +103,7 @@
   }
 
   &__confirm-button {
-    margin-top: rem-calc(60);
+    max-width: 615px;
+    margin: rem-calc(60) auto 0;
   }
 }

@@ -10,7 +10,8 @@
 {% if homePage %}background:#737373;
 {% elseif contactPage %}background:#999999;
 {% elseif bedsPage %}background:#241817;
-{% else %}background:#fff;
+{% elseif configuratorPage %}background:#333333;
+{% else %} background:#fff;
 {% endif %}
     ">
 {% include "blocks/_header.twig" %}
@@ -21,6 +22,8 @@
 </div>
 
 {#{% include "blocks/_svg-defs.twig" %}#}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
+
 <script src="/js/app.js"></script>
 
 </body>

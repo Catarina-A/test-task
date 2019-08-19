@@ -3,14 +3,15 @@
     "id": 0,
     "modifier": "size",
     "title": "Choose your size",
+    "resultsTitle": "Size",
     "elements": [
       {
-        "name": "190x135",
-        "thumbnail": "https://via.placeholder.com/94x129/999999/FFFFFF"
+        "name": "135x190",
+        "thumbnail": "https://via.placeholder.com/153x160/999999/FFFFFF"
       },
       {
-        "name": "190x150",
-        "thumbnail": "https://via.placeholder.com/115x152/999999/FFFFFF"
+        "name": "150x200",
+        "thumbnail": "https://via.placeholder.com/153x160/999999/FFFFFF"
       },
       {
         "name": "190x200",
@@ -22,6 +23,7 @@
     "id": 1,
     "modifier": "mattress",
     "title": "Choose your mattress",
+    "resultsTitle":  "Mattress type",
     "elements": [
       {
         "name": "Wool and cotton",
@@ -61,6 +63,7 @@
     "id": 2,
     "modifier": "fabric",
     "title": "Customise the headboard fabric",
+    "resultsTitle":  "Headboard fabric",
     "elements": [
       {
         "name": "Type 1",
@@ -180,6 +183,7 @@
     "id": 3,
     "modifier": "fabric",
     "title": "Customise the divan fabric",
+    "resultsTitle":  "Divan fabric",
     "elements": [
       {
         "name": "Type 1",
@@ -211,6 +215,7 @@
     "id": 4,
     "modifier": "legs",
     "title": "Swap frame leg colours",
+    "resultsTitle":  "Leg colour",
     "elements": [
       {
         "name": "Brass",

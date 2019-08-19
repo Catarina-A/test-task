@@ -3,10 +3,32 @@
   top: 0;
   left: 0;
   width: calc(50% - 15px);
-  padding: rem-calc(37) 60px;
+  padding: rem-calc(35) 60px;
   color: $color-2;
-  z-index: 2;
+  z-index: 3;
   pointer-events: none;
+  transition: color 500ms;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: opacity 500ms;
+    z-index: -1;
+  }
+
+  &::before {
+    background: linear-gradient($color-1, transparentize($color-1, 1));
+  }
+
+  &::after {
+    background: linear-gradient($color-4, transparentize($color-1, 1));
+    opacity: 0;
+  }
 
   @media (max-width: $lg) {
     padding: rem-calc(37) 30px;
@@ -17,26 +39,55 @@
   }
 
   &__inner {
-    position: relative;
     transition: transform $time-md;
     transform: translate3d(0, 0, 0);
+    display: flex;
+    align-items: center;
   }
 
-  &__back {
-    position: absolute;
-    top: 0;
-    right: 0;
+  &__back,
+  &__leave {
     display: flex;
     align-items: center;
     font-size: 14px;
     font-weight: 500;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    pointer-events: auto;
     padding: rem-calc(10 0);
 
     span {
       margin-bottom: rem-calc(2);
+    }
+  }
+
+  &__back {
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 500ms;
+
+    &.visible {
+      pointer-events: auto;
+      opacity: 1;
+    }
+
+    span {
+      margin-left: rem-calc(13);
+    }
+
+    svg {
+      width: 7.5px;
+      height: 13.1px;
+      fill: $color-1;
+    }
+  }
+
+  &__leave {
+    margin-left: auto;
+    pointer-events: auto;
+
+    span {
       margin-right: rem-calc(13);
     }
 
@@ -44,12 +95,40 @@
       fill: $color-2;
       width: 18.2px;
       height: 16px;
+      transition: fill 500ms, transform $time-sm;
+    }
+
+    &:hover {
+
+      svg {
+        transform: rotate(45deg);
+      }
     }
   }
 
   &.small {
     .configurator-header__inner {
       transform: translate3d(0, rem-calc(-27), 0);
+    }
+  }
+
+  &.black {
+    color: $color-1;
+
+    &::after {
+      opacity: 1;
+    }
+
+    &::before {
+      opacity: 0;
+    }
+
+    .configurator-header__back,
+    .configurator-header__leave {
+
+      svg {
+        fill: $color-1;
+      }
     }
   }
 }

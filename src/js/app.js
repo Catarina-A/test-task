@@ -49,7 +49,7 @@ window.addEventListener('load', () => {
   });
 
   barba.init({
-    debug: true,
+    debug: process.env.NODE_ENV === 'development', // no debug for production
     prevent: ({el}) => el.classList && el.classList.contains('barba-prevent'),
     views: [
       {

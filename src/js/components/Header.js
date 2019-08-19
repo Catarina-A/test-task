@@ -38,6 +38,18 @@ export default class {
     this.header.removeAttribute(this.ATTR_HEADER_COLOR);
   }
 
+  hideHeader() {
+    TweenLite.to(this.header, this.mobileMenuTime, {
+      opacity: 0,
+    });
+  }
+
+  showHeader() {
+    TweenLite.to(this.header, this.mobileMenuTime, {
+      opacity: 1,
+    });
+  }
+
   setStyle() {
     const isHeaderOverBlack = this.sections.find(section => {
       const sectionRect = section.getBoundingClientRect();
@@ -145,6 +157,28 @@ export default class {
     });
     tl.eventCallback('onComplete', () => {
       this.content.removeAttribute('style');
+    });
+  }
+
+  blurHeader () {
+    TweenLite.fromTo(this.header, 0.5, {
+      webkitFilter: `blur(0) brightness(100%)`,
+      filter: `blur(0) brightness(100%)`,
+    }, {
+      webkitFilter: `blur(${this.BLUR_VALUE}) brightness(${this.BRIGHTNESS_VALUE})`,
+      filter: `blur(${this.BLUR_VALUE}) brightness(${this.BRIGHTNESS_VALUE})`,
+      pointerEvents: 'none',
+    });
+  }
+
+  unBlurHeader () {
+    const tl = TweenLite.to(this.header, 0.5, {
+      webkitFilter: `blur(0) brightness(100%)`,
+      filter: `blur(0) brightness(100%)`,
+      pointerEvents: 'auto',
+    });
+    tl.eventCallback('onComplete', () => {
+      this.header.removeAttribute('style');
     });
   }
 

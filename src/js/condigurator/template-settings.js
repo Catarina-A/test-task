@@ -1,7 +1,8 @@
 import stepItem from './template-step-item';
 
 export default `
-<div class="configurator-settings" data-cursor-color="white">
+<transition name="configurator-transition">
+<div class="configurator-settings" data-cursor-color="white" v-show="!isTimeToConfirm">
   <div class="configurator-settings__steps"
     :class="{
       'no-border': activeStep === steps.length - 1
@@ -34,7 +35,8 @@ export default `
     </div>
   </div>
   <div class="configurator-settings__confirm-button">
-    <button class="button button--white" @click="confirmSelection">Confirm Selection</button>
+    <button class="button button--white" @click="isTimeToConfirm = true">Confirm Selection</button>
   </div>
 </div>
+</transition>
 `;
