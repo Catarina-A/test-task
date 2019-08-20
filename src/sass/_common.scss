@@ -79,6 +79,15 @@ strong {
   will-change: filter;
 }
 
+.privacy-page {
+  min-height: 100vh;
+  padding: 7rem 0 4rem;
+
+  @media (max-width: $md) {
+    padding: 5rem 0 2rem;
+  }
+}
+
 //scroll-bar
 /*body {
   scrollbar-width: thin;

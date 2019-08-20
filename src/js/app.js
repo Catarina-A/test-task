@@ -135,6 +135,21 @@ window.addEventListener('load', () => {
           header.closeMobileLang();
           header.closeMobileMenu();
         },
-      }],
+      },
+      {
+        namespace: 'privacy-page',
+        afterEnter() {
+          setTimeout(() => {
+            header.initStyleTrigger();
+            header.resetMobileMenuControl();
+            window.scrollTo(0, 0);
+          }, 0);
+        },
+        beforeLeave() {
+          header.closeMobileLang();
+          header.closeMobileMenu();
+        },
+      },
+    ],
   });
 });
