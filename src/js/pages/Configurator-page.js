@@ -32,7 +32,10 @@ export default class {
 
     try {
       await Promise.all([
-        scriptLoader(this.vueURL, this.vueScriptName),
+        scriptLoader({
+          url: this.vueURL,
+          libraryName: this.vueScriptName,
+        }),
         this.loadDataConfigurator()]);
       this.initVue();
     } catch (e) {

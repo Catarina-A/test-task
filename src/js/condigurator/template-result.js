@@ -14,7 +14,7 @@ export default `
           >{{steps[index].elements[selectedElement['step_' + index]].name}} <span v-if="step.modifier === 'size'">cm</span></span>
         </li>
       </ul>
-      <div class="configurator-result__buttons">
+      <div class="configurator-result__buttons" v-if="pdfScriptIsLoaded">
         <div class="configurator-result__button">
           <button class="button" @click="downloadPDF()">Download PDF</button>
         </div>

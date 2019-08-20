@@ -5,9 +5,10 @@ export default class {
     this.delay = options.delay || 0;
     this.watchTarget = options.watchTarget || false;
     this.disableOnTouch = options.disableOnTouch || false;
+    this.dontShowCursorOnDestroy = options.dontShowCursorOnDestroy || false;
     this.MOVE_LISTENER = 'mousemove';
     this.TOUCH_LISTENER = 'touchstart';
-    this.clickHandler = null;
+    this.moveHandler = null;
     this.touchHandler = null;
     this.hidden = true;
     this.attrType = 'data-cursor-type';
@@ -81,19 +82,22 @@ export default class {
   }
 
   init() {
-    this.clickHandler = this.handleMouseMove.bind(this);
+    this.moveHandler = this.handleMouseMove.bind(this);
     this.touchHandler = this.destroy.bind(this);
-    window.addEventListener(this.MOVE_LISTENER, this.clickHandler);
+    window.addEventListener(this.MOVE_LISTENER, this.moveHandler);
     if (this.disableOnTouch) {
       window.addEventListener(this.TOUCH_LISTENER, this.touchHandler);
     }
   }
 
   destroy() {
-    window.removeEventListener(this.MOVE_LISTENER, this.clickHandler);
+    window.removeEventListener(this.MOVE_LISTENER, this.moveHandler);
     if (this.disableOnTouch) {
       window.removeEventListener(this.TOUCH_LISTENER, this.touchHandler);
     }
-    this.goToDefaultCursor();
+
+    if (this.dontShowCursorOnDestroy) {
+      this.goToDefaultCursor();
+    }
   }
 }

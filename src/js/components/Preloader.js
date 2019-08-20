@@ -81,6 +81,7 @@ export default class {
         el: this.domCursorFollower,
         time: 1.2,
         delay: 0.1,
+        dontShowCursorOnDestroy: false,
       });
 
       this.cursor.init();
@@ -90,7 +91,7 @@ export default class {
         this.domBlurFilter.removeEventListener('click', fireNextStage);
         clearTimeout(timer);
         this.removeFollower();
-        this.fireNextStage().then(resolve)
+        this.fireNextStage().then(resolve);
       };
       this.domBlurFilter.addEventListener('click', fireNextStage);
       timer = setTimeout(() => {
