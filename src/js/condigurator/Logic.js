@@ -16,6 +16,7 @@ export default {
     headerIsWhite: true,
     outConfirmationIsOpened: false,
     isTimeToConfirm: false,
+    isViewMode: false,
   },
 
   computed: {
@@ -61,10 +62,24 @@ export default {
   mounted() {
     this.$nextTick(() => {
       this.initHeader();
+      window.addEventListener('resize', this.handleResize);
     });
   },
 
   methods: {
+
+    handleResize() {
+      this.updateStepHeight();
+      if (window.innerWidth > 1023) {
+        this.isViewMode = false;
+      }
+    },
+
+    updateStepHeight() {
+      if (this.activeStep === this.previousStep) return;
+      this.openStep(this.activeStep);
+    }
+    ,
 
     handleStepClick(index) {
       if (index === this.activeStep) { // click on active step
@@ -134,6 +149,7 @@ export default {
     openStep(index) {
       const content = this.$refs.stepContent[index];
       const contentInner = this.$refs.stepContentInner[index];
+      if (!contentInner) return;
       const height = contentInner.offsetHeight;
       TweenLite.to(content, this.stepOpenTime, {height});
     },
@@ -146,7 +162,9 @@ export default {
     },
 
     blur() {
-      this.$pageHeader.blurHeader();
+      if (!this.isTimeToConfirm) {
+        this.$pageHeader.blurHeader();
+      }
       TweenLite.set(document.body, {
         backgroundColor: '#000',
       });
@@ -160,7 +178,9 @@ export default {
     },
 
     unBlur() {
-      this.$pageHeader.unBlurHeader();
+      if (!this.isTimeToConfirm) {
+        this.$pageHeader.unBlurHeader();
+      }
       const tl = TweenLite.to([this.$refs.content, this.$refs.header], this.blurTime, {
         webkitFilter: `blur(0) brightness(100%)`,
         filter: `blur(0) brightness(100%)`,
@@ -173,6 +193,14 @@ export default {
   },
 
   watch: {
+
+    isViewMode(current) {
+      if (current) {
+        this.$pageHeader.makeHeaderColorDefault();
+      } else {
+        this.$pageHeader.makeHeaderColorWhite();
+      }
+    },
 
     outConfirmationIsOpened(current, prev) {
       if (current) {
@@ -195,6 +223,7 @@ export default {
   destroyed() {
     window.removeEventListener('headerBig', this.makeHeaderBig);
     window.removeEventListener('headerSmall', this.makeHeaderSmall);
+    window.addEventListener('resize', this.handleResize);
 
     // just no magic
     this.activeStep = 0;
@@ -203,5 +232,6 @@ export default {
     this.headerIsWhite = true;
     this.outConfirmationIsOpened = false;
     this.isTimeToConfirm = false;
+    this.isViewMode = false;
   },
 };

@@ -12,11 +12,12 @@
   background: $color-4;
 
   @media (max-width: $lg) {
-    padding: rem-calc(100) 30px;
+    padding: rem-calc(117) 30px rem-calc(70);
+    width: 100%;
   }
 
   @media (max-width: $sm) {
-    padding: rem-calc(100) 25px;
+    padding: rem-calc(117) 25px rem-calc(70);
   }
 
   &__inner {
@@ -51,12 +52,18 @@
 
   &__buttons {
     display: flex;
+    flex-wrap: wrap;
     margin: 0 -15px;
   }
 
   &__button {
     width: 50%;
     padding: rem-calc(45) 15px 0;
+
+    @media (max-width: $xsm) {
+      width: 100%;
+      padding: 15px 15px 0;
+    }
   }
 
   &__info {

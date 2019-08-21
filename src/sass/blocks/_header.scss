@@ -271,6 +271,11 @@
     .hide-on-configurator {
       opacity: 0;
       pointer-events: none;
+
+      button {
+        pointer-events: none;
+
+      }
     }
 
     .header__nav-btn--configure {

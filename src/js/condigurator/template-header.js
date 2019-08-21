@@ -2,7 +2,8 @@ export default `
 <div class="configurator-header"
   :class="{
     small: headerIsSmall,
-    black: isTimeToConfirm
+    black: isTimeToConfirm,
+    'black-for-mobile': isViewMode
     }"
   :data-cursor-color="headerIsWhite ? 'white' : ''"
   ref="header"
@@ -17,6 +18,18 @@ export default `
       </svg>
       <span>go back</span>
     </button>
+    <div class="configurator-header__mode-buttons"
+    :class="{hidden: isTimeToConfirm}"
+    >
+      <button
+       :class="{active: !isViewMode}"
+       @click="isViewMode = false"
+       >Configurator</button>
+      <button
+       :class="{active: isViewMode}"
+       @click="isViewMode = true"
+       >Preview</button>
+    </div>
     <button class="configurator-header__leave"
       @click="outConfirmationIsOpened = true"
     >

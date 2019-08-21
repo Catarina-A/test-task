@@ -1,24 +1,24 @@
 .configurator-header {
   position: fixed;
+  z-index: 3;
   top: 0;
   left: 0;
   width: calc(50% - 15px);
   padding: rem-calc(35) 60px;
-  color: $color-2;
-  z-index: 3;
-  pointer-events: none;
   transition: color 500ms;
+  pointer-events: none;
+  color: $color-2;
 
   &::before,
   &::after {
-    content: '';
     position: absolute;
+    z-index: -1;
     top: 0;
-    left: 0;
     right: 0;
     bottom: 0;
+    left: 0;
+    content: '';
     transition: opacity 200ms;
-    z-index: -1;
   }
 
   &::before {
@@ -26,11 +26,12 @@
   }
 
   &::after {
-    background: linear-gradient($color-4, transparentize($color-1, 1));
     opacity: 0;
+    background: linear-gradient($color-4, transparentize($color-1, 1));
   }
 
   @media (max-width: $lg) {
+    width: 100%;
     padding: rem-calc(37) 30px;
   }
 
@@ -39,21 +40,60 @@
   }
 
   &__inner {
-    transition: transform $time-md;
-    transform: translate3d(0, 0, 0);
     display: flex;
     align-items: center;
+    transition: transform $time-md;
+    transform: translate3d(0, 0, 0);
+  }
+
+  &__mode-buttons {
+    display: none;
+
+    @media (max-width: $lg) {
+      display: block;
+      margin: 0 auto;
+      transition: opacity $time-sm;
+
+      button {
+        font-size: 14px;
+        font-weight: 500;
+        padding: rem-calc(10 20);
+        transition: opacity $time-sm;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        pointer-events: auto;
+        opacity: 0.5;
+
+        @media (max-width: $xsm) {
+          font-size: 12px;
+        }
+
+        &.active {
+          opacity: 1;
+        }
+      }
+
+      &.hidden {
+        opacity: 0;
+
+        button {
+          pointer-events: none;
+        }
+      }
+    }
   }
 
   &__back,
   &__leave {
-    display: flex;
-    align-items: center;
     font-size: 14px;
     font-weight: 500;
+    position: absolute;
+    top: 0;
+    display: flex;
+    align-items: center;
+    padding: rem-calc(10 0);
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    padding: rem-calc(10 0);
 
     span {
       margin-bottom: rem-calc(2);
@@ -61,11 +101,12 @@
   }
 
   &__back {
+    left: 0;
     display: flex;
     align-items: center;
-    opacity: 0;
-    pointer-events: none;
     transition: opacity 500ms;
+    pointer-events: none;
+    opacity: 0;
 
     &.visible {
       pointer-events: auto;
@@ -84,18 +125,27 @@
   }
 
   &__leave {
+    right: 0;
     margin-left: auto;
     pointer-events: auto;
 
+    @media (max-width: $lg) {
+      margin-left: 0;
+    }
+
     span {
       margin-right: rem-calc(13);
+
+      @media (max-width: $md) {
+        display: none;
+      }
     }
 
     svg {
-      fill: $color-2;
       width: 18.2px;
       height: 16px;
       transition: fill 500ms, transform $time-sm;
+      fill: $color-2;
     }
 
     &:hover {
@@ -128,6 +178,29 @@
 
       svg {
         fill: $color-1;
+      }
+    }
+  }
+
+  &.black-for-mobile {
+
+    @media (max-width: $lg) {
+      color: $color-1;
+
+      &::after {
+        opacity: 1;
+      }
+
+      &::before {
+        opacity: 0;
+      }
+
+      .configurator-header__back,
+      .configurator-header__leave {
+
+        svg {
+          fill: $color-1;
+        }
       }
     }
   }

@@ -1,5 +1,7 @@
 export default `
-<div class="configurator-preview">
+<div class="configurator-preview"
+  :class="{visible: isViewMode}"
+>
   <div class="configurator-preview__inner">
     <div class="configurator-preview__images" ref="images">
       <img

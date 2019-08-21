@@ -14,7 +14,7 @@ export default `
     </div>
     <div class="configurator-step-item__name">
       <span v-if="step.modifier === 'mattress'">N° {{elementIndex + 1}}</span>
-      <span v-html="element.name"></span>
+      <span><span v-html="element.name"></span><span v-if="step.modifier === 'size'"> cm</span></span>
     </div>
   </div>
 </div>

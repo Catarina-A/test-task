@@ -7,6 +7,14 @@
     text-align: center;
     letter-spacing: 0.05em;
 
+    @media (max-width: $sm) {
+      width: 100%;
+
+      .configurator-step-item__image {
+        display: none;
+      }
+    }
+
     &.active {
       background: $color-6;
     }
@@ -15,6 +23,16 @@
   &--mattress {
     width: 50%;
     padding: 0 15px 15px;
+
+    @media (max-width: $sm) {
+
+      .configurator-step-item__inner {
+        padding-top: 15px;
+      }
+      .configurator-step-item__image {
+        display: none;
+      }
+    }
 
     &.active {
 
@@ -38,16 +56,29 @@
       display: flex;
       align-items: flex-end;
 
-      span {
+      @media (max-width: $xl) {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      & > span {
         padding: rem-calc(0 20);
 
         &:first-child {
           margin-right: auto;
           white-space: nowrap;
+
+          @media (max-width: $xl) {
+            padding-bottom: rem-calc(15);
+          }
         }
 
         &:last-child {
           text-align: right;
+
+          @media (max-width: $xl) {
+            text-align: left;
+          }
         }
       }
     }
@@ -58,6 +89,14 @@
     text-align: center;
     padding: 0 15px 0;
     margin-bottom: rem-calc(15);
+
+    @media (max-width: $xl) {
+      width: 25%;
+    }
+
+    @media (max-width: $xsm) {
+      width: 33.3333%;
+    }
 
     &.active {
 
@@ -87,6 +126,18 @@
     width: 33.3333%;
     text-align: center;
     padding: 0 15px 15px;
+
+    @media (max-width: $sm) {
+      width: 100%;
+
+      .configurator-step-item__image {
+        display: none;
+      }
+
+      .configurator-step-item__inner {
+        padding-top: 15px;
+      }
+    }
 
     &.active {
 
@@ -130,5 +181,9 @@
     line-height: 1.21em;
     font-weight: 500;
     margin-top: auto;
+
+    @media (max-width: $xl) {
+      margin-top: 0;
+    }
   }
 }

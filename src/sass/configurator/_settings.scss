@@ -5,17 +5,22 @@
   color: $color-2;
 
   @media (max-width: $lg) {
-    padding: rem-calc(100) 30px;
+    width: 100%;
+    padding: rem-calc(117) 30px rem-calc(70);
   }
 
   @media (max-width: $sm) {
-    padding: rem-calc(100) 25px;
+    padding: rem-calc(117) 25px rem-calc(70);
   }
 
   &__steps {
     position: relative;
     max-width: 615px;
     margin: 0 auto;
+
+    @media (max-width: $lg) {
+      max-width: none;
+    }
 
     &::after {
       position: absolute;
@@ -61,6 +66,13 @@
 
   &__step-selected {
     margin-left: auto;
+
+    @media (max-width: $sm) {
+
+      &.size {
+        display: none;
+      }
+    }
   }
 
   &__step-content {
@@ -105,5 +117,9 @@
   &__confirm-button {
     max-width: 615px;
     margin: rem-calc(60) auto 0;
+
+    @media (max-width: $lg) {
+      max-width: none;
+    }
   }
 }
