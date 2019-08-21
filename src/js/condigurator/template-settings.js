@@ -5,14 +5,14 @@ export default `
 <div class="configurator-settings" data-cursor-color="white" v-show="!isTimeToConfirm">
   <div class="configurator-settings__steps"
     :class="{
-      'no-border': activeStep === steps.length - 1
+      'no-border': activeStep === steps.length - 1 && activeStep !== previousStep
     }"
   >
     <div class="configurator-settings__step"
       v-for="(step, stepIndex) in steps" :key = step.id>
       <div class="configurator-settings__step-heading"
       data-cursor-type="bigger"
-        @click="activeStep = stepIndex"
+        @click="handleStepClick(stepIndex)"
       >
         <span class="configurator-settings__step-number">{{stepIndex + 1}}</span>
         <span class="configurator-settings__step-title">{{step.title}}</span>
@@ -21,7 +21,7 @@ export default `
       <div class="configurator-settings__step-content"
         :style="stepIndex > 0 ? 'height: 0' : ''"
         :class="{
-          active: activeStep === stepIndex
+          'has-border': activeStep === stepIndex && activeStep !== previousStep
         }"
         ref="stepContent"
         >

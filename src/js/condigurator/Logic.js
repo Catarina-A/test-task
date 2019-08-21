@@ -9,6 +9,7 @@ export default {
   template: template,
   data: {
     selectedElement: {},
+    previousStep: -1,
     activeStep: 0,
     activeSide: '',
     headerIsSmall: false,
@@ -64,6 +65,23 @@ export default {
   },
 
   methods: {
+
+    handleStepClick(index) {
+      if (index === this.activeStep) { // click on active step
+        if (this.previousStep !== index) {
+          this.closeStep(index);
+          this.previousStep = index;
+        } else {
+          this.openStep(index);
+          this.previousStep = -1;
+        }
+      } else {
+        this.closeStep(this.activeStep);
+        this.previousStep = this.activeStep;
+        this.openStep(index);
+        this.activeStep = index;
+      }
+    },
 
     async getPdfFont() {
       this.pdfFont = await loadPdfFont(process.env.PDF_PATH_TO_FONT);
@@ -155,10 +173,6 @@ export default {
   },
 
   watch: {
-    activeStep(current, prev) {
-      this.openStep(current);
-      this.closeStep(prev);
-    },
 
     outConfirmationIsOpened(current, prev) {
       if (current) {
