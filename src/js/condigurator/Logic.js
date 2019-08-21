@@ -1,8 +1,10 @@
 import template from './template';
 import scriptLoader from '../helpers/scriptLoader';
 import loadPdfFont from '../helpers/load-pdf-font';
+import DownloadPDF from './DownloadPDF';
 
 export default {
+  mixins: [DownloadPDF],
   el: '#app-configurator',
   template: template,
   data: {
@@ -13,7 +15,6 @@ export default {
     headerIsWhite: true,
     outConfirmationIsOpened: false,
     isTimeToConfirm: false,
-    pdfScriptIsLoaded: false,
   },
 
   computed: {
@@ -42,12 +43,6 @@ export default {
   },
 
   created() {
-    this.jsPdfOptions = {
-      url: process.env.PDF_SCRIPT_URL,
-      libraryName: 'pdf-library',
-      integrity: process.env.PDF_INTEGRITY,
-      crossorigin: 'anonymous',
-    };
     this.stepOpenTime = 1;
     this.blurTime = 0.5;
     this.BLUR_VALUE = '20px';
@@ -57,8 +52,6 @@ export default {
     this.sidesArray = null;
     this.setupConfigurator();
     this.activeSide = this.sidesArray[0];
-    this.pdfAPI = null;
-    this.pdfFont = null;
 
     window.addEventListener('headerBig', this.makeHeaderBig);
     window.addEventListener('headerSmall', this.makeHeaderSmall);
@@ -68,69 +61,12 @@ export default {
     this.$nextTick(() => {
       this.initHeader();
     });
-    Promise.all([
-      this.getPdfFont(),
-      scriptLoader(this.jsPdfOptions),
-    ]).then(() => {
-      this.pdfScriptIsLoaded = true;
-      this.initPDF_API();
-    });
-
   },
 
   methods: {
 
     async getPdfFont() {
       this.pdfFont = await loadPdfFont(process.env.PDF_PATH_TO_FONT);
-    },
-
-    initPDF_API() {
-      this.pdfAPI = new jsPDF();
-      this.pdfAPI.addFileToVFS('gtamerica.ttf', this.pdfFont);
-      this.pdfAPI.addFont('gtamerica.ttf', 'gtamerica', 'Bold');
-      this.pdfFont = null;
-    },
-
-    downloadPDF() {
-      const imageSide = 150;
-      const xOffset = 20;
-      let textHeight = 0;
-      const link = 'http://jmarshall.co.uk/';
-      const logo = document.getElementById('logo-for-svg');
-
-      this.pdfAPI.deletePage(1);
-      this.pdfAPI.addPage('a4', 'portrait');
-      this.pdfAPI.setFont('gtamerica', 'Bold');
-      this.pdfAPI.setFontSize(22);
-      this.pdfAPI.addImage(logo, 'PNG', 75, 12, 54, 7.5);
-
-      this.pdfAPI.setFontSize(18);
-      this.steps.forEach((step, index) => {
-        let selectedValue = step.elements[this.selectedElement[`step_${index}`]].name;
-        if (step.modifier === 'size') {
-          selectedValue += ' cm';
-        }
-        const y = (20 * (index + 2));
-        textHeight = y;
-        this.pdfAPI.text(step.resultsTitle, xOffset, y);
-        this.pdfAPI.text(selectedValue, 190, (20 * (index + 2)), {
-          align: 'right',
-        });
-      });
-      const images = this.$refs.images.getElementsByTagName('img');
-      textHeight -= 10;
-      if (images.length) {
-        Array.from(images).forEach(image => {
-          this.pdfAPI.addImage(image, 'PNG', xOffset + 5, textHeight, imageSide, imageSide);
-        });
-      }
-      this.pdfAPI.setFontSize(16);
-      this.pdfAPI.textWithLink(link, xOffset, textHeight + imageSide, {
-        url: link,
-      });
-
-      //console.log(doc);
-      this.pdfAPI.save('jmarshal-configurator.pdf');
     },
 
     goBack() {
@@ -253,6 +189,5 @@ export default {
     this.headerIsWhite = true;
     this.outConfirmationIsOpened = false;
     this.isTimeToConfirm = false;
-    this.pdfFont = null;
   },
 };

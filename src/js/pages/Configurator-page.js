@@ -1,4 +1,4 @@
-import configuratorObject from '../condigurator/logic';
+import configuratorObject from '../condigurator/Logic';
 import scriptLoader from '../helpers/scriptLoader';
 import axios from 'axios';
 

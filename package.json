@@ -50,6 +50,7 @@
     "object-fit-images": "^3.2.4",
     "object-fit-videos": "^1.0.4",
     "parallax-js": "^3.1.0",
+    "qrcode": "^1.4.1",
     "qs": "^6.7.0",
     "regenerator-runtime": "^0.13.3",
     "swiper": "^4.5.0"

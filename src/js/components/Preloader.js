@@ -12,7 +12,7 @@ export default class {
     this.blurTime = 2;
     this.logoDelay = 0.5;
     this.logoShowTime = 1;
-    this.firstDelay = 2500;
+    this.firstDelay = 100;
   }
 
   removeFollower() {
