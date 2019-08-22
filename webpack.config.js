@@ -19,11 +19,6 @@ function createConfig(env) {
   const publicPath = 'js/';
   const devtool = isProduction ? '#source-map' : '#cheap-module-eval-source-map';
   const plugins = [
-    /*new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-      'window.jQuery': 'jquery',
-    }),*/
     new Dotenv(),
     new webpack.NoEmitOnErrorsPlugin(),
   ];
@@ -63,18 +58,6 @@ function createConfig(env) {
     optimization,
     module: {
       rules: [
-        // {
-        //   test: /\.js$/,
-        //   exclude: [
-        //     path.resolve(__dirname, 'node_modules'),
-        //   ],
-        //   loader: 'babel-loader',
-        // },
-        // {
-        //   test: /\.js$/, // Check for all js files
-        //   exclude: /node_modules\/(?!(dom7|swiper)\/).*/,
-        //   loader: 'babel-loader',
-        // },
         {
           test: /\.js$/,
           exclude: /node_modules\/(?!(dom7|swiper)\/).*/,
