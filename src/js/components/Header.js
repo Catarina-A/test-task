@@ -1,5 +1,3 @@
-import IntersectionObserver from 'intersection-observer-polyfill';
-
 export default class {
   constructor() {
     this.header = document.getElementById('header');

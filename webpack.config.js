@@ -57,19 +57,13 @@ function createConfig(env) {
           exclude: [
             path.resolve(__dirname, 'node_modules'),
           ],
-          use: {
-            loader: 'babel-loader',
-          },
+          loader: 'babel-loader',
         },
-        /*
         {
-          test: /\.jsx?$/,
-          exclude: [/node_modules\/(?!(swiper|dom7)\/).*!/, /\.test\.jsx?$/],
-          use: {
-            loader: 'babel-loader',
-          },
-        }
-        */
+          test: /\.js$/, // Check for all js files
+          exclude: /node_modules\/(?!(dom7|swiper)\/).*/,
+          loader: 'babel-loader',
+        },
       ],
     },
   };
