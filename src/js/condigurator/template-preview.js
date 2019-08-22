@@ -6,10 +6,10 @@ export default `
     <div class="configurator-preview__images" ref="images">
       <transition-group name="configurator-image-animation" tag="div">
         <img
-        v-for="step in stepImages"
-        :src="step" 
+        v-for="src in stepImages"
+        :src="src" 
         alt="layer of configurator"
-        :key="step"
+        :key="src"
         >
       </transition-group>
       <div class="configurator-preview__size">
@@ -22,9 +22,13 @@ export default `
         :class="{
           active: activeSide === side
         }"
+        @mouseenter="loadImageOnHoverSide(side)"
         @click="activeSide = side"
       >{{side}}</button>
     </div>
+  </div>
+  <div class="configurator-preview__preloaded-images" v-if="loadedImagesArr.length">
+    <img :src="src" alt="preloded image" v-for="src in loadedImagesArr" :key="src">
   </div>
 </div>
 `;

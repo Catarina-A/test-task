@@ -5,6 +5,7 @@ export default `
    {active: selectedElement['step_' + stepIndex] === elementIndex}
    ]"
    @click="handleElementClick(stepIndex, elementIndex)"
+   @mouseenter="loadImageOnHoverElement(element)"
    data-cursor-type="bigger"
    v-for="(element, elementIndex) in step.elements"
 >

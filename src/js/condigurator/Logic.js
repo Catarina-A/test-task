@@ -17,6 +17,7 @@ export default {
     outConfirmationIsOpened: false,
     isTimeToConfirm: false,
     isViewMode: false,
+    loadedImagesArr: [],
   },
 
   computed: {
@@ -33,14 +34,7 @@ export default {
     },
 
     stepImages() {
-      return Object.values(this.selectedElement).reduce((acc, elementIndex, stepIndex) => {
-        const element = this.steps[stepIndex].elements[elementIndex];
-        const imagesBySide = element.images;
-        if (imagesBySide) {
-          acc.push(imagesBySide[this.activeSide]);
-        }
-        return acc;
-      }, []);
+      return this.getImagesBySide(this.activeSide);
     },
   },
 
@@ -67,6 +61,37 @@ export default {
   },
 
   methods: {
+
+    getImagesBySide(side) {
+      return Object.values(this.selectedElement).reduce((acc, elementIndex, stepIndex) => {
+        const element = this.steps[stepIndex].elements[elementIndex];
+        const imagesBySide = element.images;
+        if (imagesBySide) {
+          acc.push(imagesBySide[side]);
+        }
+        return acc;
+      }, []);
+    },
+
+    loadImageOnHoverSide(side) {
+      const images = this.getImagesBySide(side);
+      if (images.length) {
+        for (const image of images) {
+          if (!this.loadedImagesArr.includes(image)) {
+            this.loadedImagesArr.push(image);
+          }
+        }
+      }
+    },
+
+    loadImageOnHoverElement(element) {
+      const images = element.images;
+      if (images) {
+        const src = images[this.activeSide];
+        if (this.loadedImagesArr.includes(src)) return;
+        this.loadedImagesArr.push(src);
+      }
+    },
 
     handleResize() {
       this.updateStepHeight();
