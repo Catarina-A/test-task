@@ -21,8 +21,7 @@ export default class {
 }`;
   }
 
-  checkTarget(e) {
-    const path = e.path || e.composedPath();
+  checkTarget(path) {
     if (path) {
       let typeResult = '';
       let colorResult = '';
@@ -67,8 +66,10 @@ export default class {
   }
 
   handleMouseMove(e) {
+    const path = e.path || e.composedPath && e.composedPath();
+    if (!path) return;
     if (this.watchTarget) {
-      this.checkTarget(e);
+      this.checkTarget(path);
     }
     if (this.hidden) {
       this.hidden = false;
