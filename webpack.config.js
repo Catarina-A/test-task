@@ -63,13 +63,13 @@ function createConfig(env) {
     optimization,
     module: {
       rules: [
-        {
-          test: /\.js$/,
-          exclude: [
-            path.resolve(__dirname, 'node_modules'),
-          ],
-          loader: 'babel-loader',
-        },
+        // {
+        //   test: /\.js$/,
+        //   exclude: [
+        //     path.resolve(__dirname, 'node_modules'),
+        //   ],
+        //   loader: 'babel-loader',
+        // },
         {
           test: /\.js$/, // Check for all js files
           exclude: /node_modules\/(?!(dom7|swiper)\/).*/,
