@@ -70,11 +70,21 @@ function createConfig(env) {
         //   ],
         //   loader: 'babel-loader',
         // },
+        // {
+        //   test: /\.js$/, // Check for all js files
+        //   exclude: /node_modules\/(?!(dom7|swiper)\/).*/,
+        //   loader: 'babel-loader',
+        // },
         {
-          test: /\.js$/, // Check for all js files
+          test: /\.js$/,
           exclude: /node_modules\/(?!(dom7|swiper)\/).*/,
-          loader: 'babel-loader',
-        },
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env'],
+            },
+          },
+        }
       ],
     },
   };
