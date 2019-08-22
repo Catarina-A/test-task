@@ -4,16 +4,18 @@ export default `
 >
   <div class="configurator-preview__inner">
     <div class="configurator-preview__images" ref="images">
-      <transition-group name="configurator-image-animation" tag="div">
-        <img
-        v-for="src in stepImages"
-        :src="src" 
-        alt="layer of configurator"
-        :key="src"
-        >
-      </transition-group>
-      <div class="configurator-preview__size">
-        <span>{{selectedSize}}</span>
+      <div class="configurator-preview__images-box">
+        <transition-group name="configurator-image-animation" tag="div">
+          <img
+          v-for="src in selectedImages"
+          :src="src" 
+          :key="src"
+          alt="layer of configurator"
+          >
+        </transition-group>
+        <div class="configurator-preview__size">
+          <span>{{selectedSize}}</span>
+        </div>
       </div>
     </div>
     <div class="configurator-preview__side-select">

@@ -18,6 +18,7 @@ export default {
     isTimeToConfirm: false,
     isViewMode: false,
     loadedImagesArr: [],
+    selectedImages: [],
   },
 
   computed: {
@@ -33,7 +34,7 @@ export default {
       return sizeStep.elements[this.selectedElement.step_0].name;
     },
 
-    stepImages() {
+    computedImages() {
       return this.getImagesBySide(this.activeSide);
     },
   },
@@ -215,9 +216,33 @@ export default {
         this.$refs.content.removeAttribute('style');
       });
     },
+
+    getNewImages(currentImages, prevImages) {
+      return currentImages.reduce((acc, image) => {
+        if (!prevImages.includes(image)) {
+          acc.push(image);
+        }
+        return acc;
+      }, []);
+    },
+
+    handleImagesChanging(currentImages, prevImages) {
+      this.selectedImages = currentImages;
+
+      //const newImages = this.getNewImages(currentImages, prevImages);
+      //console.log(newImages);
+    },
   },
 
   watch: {
+
+    computedImages(current, prev) {
+      if (prev.length) {
+        this.handleImagesChanging(current, prev);
+      } else {
+        this.selectedImages = current;
+      }
+    },
 
     isViewMode(current) {
       if (current) {

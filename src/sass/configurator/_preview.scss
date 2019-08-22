@@ -11,13 +11,13 @@
   @media (max-width: $lg) {
     width: 100%;
     padding: rem-calc(100) 30px;
-    opacity: 0;
-    pointer-events: none;
     transition: opacity 500ms;
+    pointer-events: none;
+    opacity: 0;
 
     &.visible {
-      opacity: 1;
       pointer-events: auto;
+      opacity: 1;
     }
   }
 
@@ -37,6 +37,17 @@
     left: 50%;
     width: 100%;
     padding-top: 100%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__images-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    max-width: 75vh;
+    height: 100%;
+    max-height: 75vh;
     transform: translate(-50%, -50%);
 
     img {
@@ -74,22 +85,22 @@
     font-size: 14px;
     font-weight: 500;
     position: absolute;
+    bottom: rem-calc(-30);
     left: 50%;
     width: 84%;
+    padding-top: rem-calc(33);
     transform: translateX(-50%);
-    bottom: rem-calc(-30);
     text-align: center;
     letter-spacing: 0.05em;
-    padding-top: rem-calc(33);
     border-top: 1px solid $color-1;
 
     &::before,
     &::after {
-      content: '';
       position: absolute;
       top: -4px;
-      height: 7px;
       width: 1px;
+      height: 7px;
+      content: '';
       background: $color-1;
     }
 
