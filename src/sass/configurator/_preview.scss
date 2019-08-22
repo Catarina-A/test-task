@@ -102,3 +102,12 @@
     }
   }
 }
+
+.configurator-image-animation {}
+
+.configurator-image-animation-enter-active, .configurator-image-animation-leave-active {
+  transition: opacity 500ms;
+}
+.configurator-image-animation-enter, .configurator-image-animation-leave-to{
+  opacity: 0;
+}
