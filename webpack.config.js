@@ -19,6 +19,11 @@ function createConfig(env) {
   const publicPath = 'js/';
   const devtool = isProduction ? '#source-map' : '#cheap-module-eval-source-map';
   const plugins = [
+    /*new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery',
+    }),*/
     new Dotenv(),
     new webpack.NoEmitOnErrorsPlugin(),
   ];
@@ -33,6 +38,12 @@ function createConfig(env) {
           'gsap/src/uncompressed/TimelineLite.js'),
       TimelineMax: path.resolve('node_modules',
           'gsap/src/uncompressed/TimelineMax.js'),
+      ScrollMagic: path.resolve('node_modules',
+          'scrollmagic/scrollmagic/uncompressed/ScrollMagic.js'),
+      'animation.gsap': path.resolve('node_modules',
+          'scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js'),
+      'debug.addIndicators': path.resolve('node_modules',
+          'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators.js'),
     },
   };
   const optimization = {minimize: isProduction};

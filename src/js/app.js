@@ -1,3 +1,6 @@
+import 'regenerator-runtime';
+import 'core-js'
+
 import barba from '@barba/core';
 import {ScrollToPlugin} from 'gsap/all';
 import TweenLite from 'gsap';
