@@ -36,3 +36,9 @@ $rem-base: 18px;
     @content
   }
 }
+
+@mixin target-safari {
+  @media not all and (min-resolution: .001dpcm) {
+    @content
+  }
+}

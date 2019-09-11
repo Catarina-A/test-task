@@ -1,25 +1,16 @@
 html, body {
   font-family: $font-1;
-  font-weight: 300;
+  font-weight: 400;
   color: $color-1;
 }
 
-body {
-  overflow-x: hidden;
-  transition: background $time-xl;
-}
-
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 500;
+  font-weight: 700;
 }
 
 img, video {
   max-width: 100%;
   height: auto;
-}
-
-strong {
-  font-weight: 800;
 }
 
 .title {
@@ -31,82 +22,14 @@ strong {
   text-transform: uppercase;
 }
 
-.title--lg {
-  font-size: rem-calc(24);
-  margin-bottom: 1.6em;
-}
-
-.title--md {
-  font-size: rem-calc(20);
-  margin-bottom: 1.6em;
-}
-
-.title--sm {
-  font-size: rem-calc(20);
-  margin-bottom: 1.6em;
-  letter-spacing: 0.05em;
-  text-transform: none;
-}
-
-.title--xsm {
-  font-size: 14px;
-  margin-bottom: 1.2em;
-  letter-spacing: 0;
-  text-transform: none;
-}
-
 .text-container {
   font-size: 14px;
   font-weight: 300;
   line-height: 1.45em;
-  //margin: 1em 0;
   letter-spacing: 0;
 
-  p {
-    //margin-bottom: 1em;
+  p, ul, ol {
+    margin-bottom: 1em;
   }
 }
 
-.text-container--sm {
-  font-size: 12px;
-}
-
-.text-container--lg {
-  font-size: 16px;
-}
-
-.blurable-on-lang-open {
-  will-change: filter;
-}
-
-.privacy-page {
-  min-height: 100vh;
-  padding: 7rem 0 4rem;
-
-  @media (max-width: $md) {
-    padding: 5rem 0 2rem;
-  }
-}
-
-//scroll-bar
-/*body {
-  scrollbar-width: thin;
-
-  &::-webkit-scrollbar {
-    width: 5px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: $color-4;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: #737373;
-  }
-}
-
-.page-blur-filter {
-  height: 100vh;
-  overflow: scroll;
-  display: none;
-}*/

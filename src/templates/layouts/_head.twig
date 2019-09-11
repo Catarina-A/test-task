@@ -1,13 +1,13 @@
 <head>
   <meta charset="utf-8"/>
-  <title>{% if title %}{{ title }}{% else %}J. Marshall{% endif %}</title>
-  <meta name="description" content="{% if description %}{{ description }}{% else %}J. Marshall{% endif %}">
+  <title>{% if title %}{{ title }}{% else %}Template{% endif %}</title>
+  <meta name="description" content="{% if description %}{{ description }}{% else %}Template{% endif %}">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="format-detection" content="telephone=no"/>
 
-  <meta property="og:title" content="{% if title %}{{ title }}{% else %}J. Marshall{% endif %}">
-  <meta property="og:description" content="{% if description %}{{ description }}{% else %}J. Marshall{% endif %}">
+  <meta property="og:title" content="{% if title %}{{ title }}{% else %}Template{% endif %}">
+  <meta property="og:description" content="{% if description %}{{ description }}{% else %}Template{% endif %}">
 
 
   {#<meta property="og:url" content="https://www.archon.cloud">
@@ -34,7 +34,6 @@
   <meta name="theme-color" content="#ffffff"> #}
 
   <link rel="stylesheet" href="/css/app.css"/>
-  {#<link href="/js/app.js" rel="preload" as="script">#}
 
   <!-- Global Site Tag (gtag.js) - Google Analytics -->
   {#<script async src="https://www.googletagmanager.com/gtag/js?id=UA-122343978-1"></script>
@@ -49,5 +48,7 @@
 
     gtag('config', 'UA-122343978-1');
   </script>#}
+  
+  <script crossorigin="anonymous" nomodule src="https://polyfill.io/v3/polyfill.min.js?features=blissfuljs%2Cdefault%2Ces2015%2Ces2016%2Ces2017%2Ces2018%2Ces5%2Ces6%2Ces7%2CNodeList.prototype.forEach%2CIntersectionObserver%2CIntersectionObserverEntry"></script>
 
 </head>
