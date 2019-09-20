@@ -1,10 +1,16 @@
 import 'regenerator-runtime';
-//import 'core-js'
 
-import {ScrollToPlugin} from 'gsap/all';
-import TweenLite from 'gsap';
-import TimelineLite from 'gsap';
+//import {ScrollToPlugin} from 'gsap/all';
+//import TweenLite from 'gsap';
+//import TimelineLite from 'gsap';
+//const scrollToPlugin = ScrollToPlugin; // need to include to bundle on build
 
-const scrollToPlugin = ScrollToPlugin; // need to include to bundle on build
-import scrollTo from './helpers/scroll-to';
-import LazyImages from './helpers/Lazy-images';
+import pageLoader from './page-loader';
+import commonScripts from './common';
+
+window.addEventListener('load', () => {
+
+  pageLoader(); // fire scripts for loaded page
+  commonScripts(); // fore common scripts
+
+});
