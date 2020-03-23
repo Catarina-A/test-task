@@ -37,3 +37,9 @@ img, video {
   text-transform: uppercase;
 }
 
+.hidden-d{
+  display: none;
+  @include mobile{
+    display: block;
+  }
+}
