@@ -1,5 +1,5 @@
 html, body {
-  font-family: $font-1;
+  font-family: $font-regular;
   font-weight: 400;
   color: $color-1;
 }
@@ -31,5 +31,9 @@ img, video {
   p, ul, ol {
     margin-bottom: 1em;
   }
+}
+
+.uppercase{
+  text-transform: uppercase;
 }
 

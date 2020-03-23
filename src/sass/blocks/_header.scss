@@ -1,0 +1,53 @@
+.header{
+    background-color: $color-2;
+    &__logo-box{
+        padding: 8px 16px 8px 26px;
+        img{
+            max-width: 230px;
+        }
+    }
+    &__content{
+        flex: 1;
+    }
+    &__tel-box{
+        color: $color-7;
+        font-family: $font-bold;
+        padding: 15px 40px;
+        img{
+            vertical-align: bottom;
+            margin-right: 7px;
+        }
+    }
+    &__menu-box-search{
+        background-color: $color-7;
+        position: relative;
+        padding-right: 20px;
+    }
+    &__menu{
+        &-item{
+            padding: 18px 40px;
+            cursor: pointer;
+            transition: $time-sm;
+            span{
+                color:$color-2;
+                font-family: $font-bold;
+            }
+            &:hover{
+                background-color: #fff;
+            }
+        }
+    }
+    &__search-button{
+        width: 40px;
+        background-image: url('/img/icons/search.svg');
+        background-position: center;
+        background-size: 22px;
+        background-repeat: no-repeat;
+    }
+    &__search-box{
+        position: absolute;
+        right: 0;
+        top:0;
+        max-width: 400px;
+    }
+}
