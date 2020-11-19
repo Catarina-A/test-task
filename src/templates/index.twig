@@ -1,11 +1,12 @@
 ---
-title: Template
+title: Home
 description: Template
 pageName: homePage
 ---
 
 {% extends 'layouts/_page-default.twig' %}
 {% block content %}
-  <main>
-  </main>
+<main>
+  {% include "pages/home/_hero.twig" %}
+</main>
 {% endblock %}

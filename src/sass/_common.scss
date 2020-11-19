@@ -1,14 +1,21 @@
-html, body {
+html,
+body {
   font-family: $font-1;
   font-weight: 400;
   color: $color-1;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 700;
 }
 
-img, video {
+img,
+video {
   max-width: 100%;
   height: auto;
 }
@@ -28,8 +35,9 @@ img, video {
   line-height: 1.45em;
   letter-spacing: 0;
 
-  p, ul, ol {
+  p,
+  ul,
+  ol {
     margin-bottom: 1em;
   }
 }
-

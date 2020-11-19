@@ -8,7 +8,13 @@ $xl: 1199px;
 $xxl: 1399px;
 
 //fonts
-$font-1: Helvetica, Tahoma, Arial, sans-serif;
+$font-1: "AktivGrotesk_Trial_Rg",
+Tahoma,
+Helvetica,
+Tahoma,
+Arial,
+sans-serif;
+
 
 //colors
 $color-1: #000;
@@ -16,6 +22,7 @@ $color-2: #fff;
 $color-3: #fff;
 $color-4: #fff;
 $color-5: #fff;
+$c-header-text: #333333;
 
 // timing
 $time-sm: 300ms;
