@@ -1,0 +1,51 @@
+.hero {
+    position: relative;
+
+    &__video-bg {
+        width: 100%;
+        height: 100vh;
+        object-fit: cover;
+    }
+
+    &__content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        max-width: 1142px;
+        transform: translate(-50%, -50%);
+        transition: opacity $time-sm ease;
+
+        @include tablet {
+            width: 500px;
+        }
+
+        @include media($xsm) {
+            width: 100%;
+        }
+
+        h1 {
+            color: $color-2;
+            font-family: $font-2;
+            // font-size: 120px;
+            font-size: 6.25vw;
+            line-height: (130/120);
+            font-weight: 300;
+            letter-spacing: -1.2px;
+            text-align: center;
+
+            @include media-min (1920px) {
+                font-size: 120px;
+                line-height: (130/120);
+            }
+
+            @include tablet {
+                font-size: 60px;
+            }
+
+            @include mobile {
+                padding: 0 20px;
+                font-size: 40px;
+            }
+        }
+    }
+}

@@ -3,12 +3,19 @@ $xxsm: 374px;
 $xsm: 459px;
 $sm: 639px;
 $md: 767px;
-$lg: 1023px;
-$xl: 1199px;
+$lg: 1024px;
+$xl: 1365px;
 $xxl: 1399px;
+$xxxl: 1800px;
 
 //fonts
 $font-1: "AktivGrotesk_Trial_Rg",
+Tahoma,
+Helvetica,
+Tahoma,
+Arial,
+sans-serif;
+$font-2: "AktivGrotesk_Trial_Lt",
 Tahoma,
 Helvetica,
 Tahoma,
@@ -22,7 +29,8 @@ $color-2: #fff;
 $color-3: #fff;
 $color-4: #fff;
 $color-5: #fff;
-$c-header-text: #333333;
+$c-grey: #333333;
+$c-header-text: $c-grey;
 
 // timing
 $time-sm: 300ms;
