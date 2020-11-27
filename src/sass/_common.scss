@@ -41,18 +41,3 @@ video {
     margin-bottom: 1em;
   }
 }
-
-a,
-.pointer {
-  cursor: pointer;
-}
-
-.nav__link,
-.header__lang {
-  transition: color $time-sm ease;
-}
-
-.nav__link:hover,
-.header__lang a:hover {
-  color: rgba($c-header-text, 0.4)
-}
