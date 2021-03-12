@@ -55,8 +55,12 @@ export default () => {
             console.log('cookies set: localData');
 
             let instaPosts = localStorage.getItem('instagram');
-            let values = JSON.parse(instaPosts);
-            createInstagramPosts(values);
+            if (instaPosts){
+                let values = JSON.parse(instaPosts);
+                createInstagramPosts(values);
+            } else {
+                deleteCookie('localData');
+            }
 
         } else {
             createLocalDataCookie();
