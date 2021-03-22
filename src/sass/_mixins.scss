@@ -25,14 +25,6 @@ $rem-base: 18px;
   @return $remValues;
 }
 
-@mixin clearfix{
-  &:after{
-    content: '';
-    display: block;
-    clear: both;
-  }
-}
-
 @mixin target-ie11 {
   @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
     @content;
@@ -48,23 +40,5 @@ $rem-base: 18px;
 @mixin target-safari {
   @media not all and (min-resolution: .001dpcm) {
     @content
-  }
-}
-
-@mixin laptop {
-  @media (max-width: $xxl){
-    @content;
-  }
-}
-
-@mixin tablet {
-  @media (max-width: $lg){
-    @content;
-  }
-}
-
-@mixin mobile {
-  @media (max-width: $md){
-    @content;
   }
 }

@@ -1,56 +1,18 @@
-.wrapper {
-  width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
-  position: relative;
-  @include laptop {
-    max-width: 1024px;
-  }
-}
-
 .container {
   width: 100%;
   margin: 0 auto;
-  max-width: 1090px;
-  padding: 0 45px;
-  @include laptop {
-    max-width: 990px;
-  }
-  @include tablet{
-    max-width: 698px;
-  }
-  @include mobile {
-    padding: 0 20px;
-    max-width: 375px;
-  }
-}
+  max-width: 1345px;
+  padding: 0 100px;
 
-.container-max {
-  width: 1190px;
-  margin: 0 auto;
-  @include laptop {
-    width: 890px;
+  @media (max-width: $lg) {
+    padding: 0 60px;
   }
-  @include tablet {
-    width: 630px;
-  }
-  @include mobile {
-    width: 375px;
-    padding: 0 20px;
-  }
-  @media (max-width: 374px) {
-    width: 320px;
-  }
-}
 
-.section-inner {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  @include mobile {
-    flex-wrap: nowrap;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+  @media (max-width: $md) {
+    padding: 0 45px;
+  }
+
+  @media (max-width: $sm) {
+    padding: 0 30px;
   }
 }
