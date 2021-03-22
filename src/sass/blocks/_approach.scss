@@ -1,0 +1,101 @@
+.approach {
+  padding-bottom: 110px;
+  @include laptop {
+    padding: 80px 0 70px;
+  }
+  @include tablet {
+    padding: 42px 0 130px;
+  }
+  @include mobile {
+    padding-bottom: 104px;
+  }
+
+  .section-inner {
+    flex-wrap: wrap;
+    @include mobile {
+      width: 375px;
+      padding: 0 20px;
+      margin: 0 auto;
+      flex-wrap: nowrap;
+    }
+    @media (max-width: 374px) {
+      width: 320px;
+    }
+  }
+
+  &__blockquote {
+    width: 362px;
+    margin: -200px 120px 0 auto;
+    text-align: right;
+    @include laptop {
+      margin: -270px 90px 0 auto;
+    }
+    @include tablet {
+      width: 254px;
+      margin-top: -200px;
+    }
+    @include mobile {
+      order: 2;
+      text-align: center;
+      margin: 0 auto;
+    }
+  }
+}
+
+.approach-text {
+  width: 330px;
+  margin-left: 240px;
+  @include laptop {
+    margin-left: 62px;
+  }
+  @include tablet {
+    width: 218px;
+    margin-left: 100px;
+  }
+  @include mobile {
+    width: 100%;
+    margin: 0 auto 54px;
+    order: 1;
+  }
+}
+
+.approach-description {
+  margin-bottom: 68px;
+  @include tablet {
+    margin-bottom: 0;
+  }
+
+  &__paragraph {
+    &:last-of-type {
+      margin-bottom: 55px;
+      @include tablet {
+        margin-bottom: 30px;
+      }
+    }
+  }
+}
+
+.approach-img {
+  margin-top: -200px;
+  margin-left: auto;
+  width: 708px;
+  height: 473px;
+  @include laptop {
+    width: 522px;
+    height: 348px;
+    margin-top: -180px;
+  }
+  @include tablet {
+    width: 394px;
+    height: 263px;
+    margin-top: -120px;
+  }
+  @include mobile {
+    width: 335px;
+    height: 223px;
+    margin-left: 0;
+    order: 0;
+    margin-top: -100px;
+    margin-bottom: 25px;
+  }
+}

@@ -8,14 +8,18 @@ $xl: 1199px;
 $xxl: 1399px;
 
 //fonts
-$font-1: Helvetica, Tahoma, Arial, sans-serif;
+$font-1: Montserrat, sans-serif;
+$font-2: Crimson Text, sans-serif;
 
 //colors
 $color-1: #000;
 $color-2: #fff;
-$color-3: #fff;
-$color-4: #fff;
-$color-5: #fff;
+$color-3: #313A40;
+$color-4: #FAB36D;
+$color-5: #F3EFE5;
+
+$bg-header: $color-3;
+$color-heading: $color-3;
 
 // timing
 $time-sm: 300ms;

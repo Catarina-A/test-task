@@ -1,0 +1,100 @@
+.advisory {
+  padding: 70px 0 50px;
+  @include tablet {
+    padding: 36px 0 34px;
+  }
+  @include mobile {
+    padding-bottom: 4px;
+  }
+
+  .section-inner {
+    flex-direction: column;
+    @include laptop {
+      width: 850px;
+      margin: 0 auto;
+    }
+    @include tablet {
+      width: 100%;
+      padding: 0 20px;
+    }
+    @include mobile {
+      padding: 0;
+    }
+  }
+
+  .card-wrapper {
+    margin:  0 -50px;
+    justify-content: space-around;
+    @include tablet {
+      margin: 0 -11px;
+    }
+    @include mobile {
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 0 -10px;
+    }
+  }
+}
+
+.advisory-text {
+  text-align: center;
+  margin-bottom: 40px;
+  @include tablet {
+    margin-bottom: 26px;
+  }
+  @include mobile {
+    margin-bottom: 12px;
+  }
+}
+
+.advisory-card {
+  text-align: center;
+  width: calc((100% / 3) - 100px);
+  margin: 0 50px;
+  @include tablet {
+    margin:  0 11px;
+    width: calc((100% / 3) - 22px);
+  }
+  @include mobile {
+    margin: 0 10px;
+    width: calc(50% - 20px);
+  }
+
+  .card__header {
+    @include  tablet {
+      margin-bottom: 20px;
+    }
+  }
+
+  .card__heading {
+    @include tablet {
+      line-height: 28px;
+    }
+  }
+
+  .card__subheading {
+    @include tablet {
+      font-size: 10px;
+      line-height: 15px;
+    }
+  }
+
+  .card__img {
+    margin: 0 auto 19px;
+    width: 218px;
+    height: 259px;
+    @include tablet {
+      width: 175px;
+      height: 206px;
+    }
+    @include mobile {
+      width: 157px;
+      height: 186px;
+      margin-bottom: 12px;
+    }
+    @media (max-width: 374px) {
+      width: 140px;
+      height: 164px;
+    }
+  }
+}

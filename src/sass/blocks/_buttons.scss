@@ -1,0 +1,45 @@
+.btn {
+  //background: $color-4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 39px;
+  width: 130px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  overflow: hidden;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  background-size: 300% !important;
+  transition: all .6s;
+  background: linear-gradient(120deg, $color-4 50%, orange 50%);
+  @include tablet {
+    width: 120px;
+    height: 36px;
+  }
+  @include mobile {
+    margin: 0 auto;
+  }
+
+  &:hover {
+    background-position: 100%;
+    transform: translateX(5px);
+  }
+
+  &__text {
+    color: $color-1;
+    position: relative;
+    z-index: 1;
+    font: {
+      size: 12px;
+      weight: 500;
+    }
+    @include tablet {
+      font-size: 10px;
+      line-height: 12px;
+    }
+  }
+}

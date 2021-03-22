@@ -1,0 +1,148 @@
+.team {
+  padding-top: 70px;
+  padding-bottom: 90px;
+  @include laptop {
+    padding-bottom: 100px;
+  }
+  @include tablet {
+    padding: 36px 0 62px;
+  }
+  @include mobile {
+    padding-bottom: 56px;
+  }
+
+  &::before {
+    left: -180px;
+    top: 140px;
+    @include laptop {
+      top: 162px;
+      left: -216px;
+    }
+    @include tablet {
+      left: -160px;
+      top: 122px;
+    }
+    @include mobile {
+      left: -80px;
+      top: 200px;
+    }
+  }
+
+  .section-inner {
+    flex-wrap: wrap;
+    @include laptop {
+      width: 850px;
+      margin: 0 auto;
+    }
+    @include tablet {
+      width: 100%;
+    }
+    @include mobile {
+      flex-wrap: nowrap;
+    }
+  }
+
+  .blockquote-wrapper {
+    width: 100%;
+    margin-left: -50px;
+    @include laptop {
+      margin-left: 30px;
+    }
+    @include tablet {
+      margin-left: 40px;
+    }
+    @include mobile {
+      margin-left: 0;
+      order: 2;
+      margin-bottom: 60px;
+    }
+  }
+
+  &__blockquote {
+    width: 222px;
+    margin-left: 0;
+    margin-top: -20px;
+    @include mobile {
+      width: 254px;
+      margin: 0 auto;
+    }
+  }
+}
+
+.team-text {
+  width: 100%;
+  text-align: center;
+  @include mobile {
+    margin-bottom: 14px;
+    order: 0;
+  }
+}
+
+.team-card {
+  width: 338px;
+  @include laptop {
+    width: 260px;
+  }
+  @include tablet {
+    width: 220px;
+  }
+  @include mobile {
+    width: 100%;
+  }
+
+  &.-left {
+    margin-top: -210px;
+    @include tablet {
+      margin-top: -140px;
+    }
+    @include mobile {
+      margin-top: 0;
+      margin-bottom: 54px;
+      text-align: center;
+      order: 1;
+    }
+
+    .card__img {
+      @include mobile {
+        margin: 0 auto 28px;
+      }
+    }
+  }
+
+  &.-right {
+    margin-top: -35px;
+    text-align: right;
+    @include tablet {
+      margin-top: 20px;
+    }
+    @include mobile {
+      margin-top: 0;
+      text-align: center;
+      order: 3;
+    }
+
+    .card__img {
+      margin-left: auto;
+      @include mobile {
+        margin: 0 auto 28px;
+      }
+    }
+
+    .social {
+      flex-direction: row-reverse;
+    }
+  }
+
+  .paragraph:last-of-type {
+    margin-bottom: 20px;
+  }
+
+  .card__img {
+    width: 268px;
+    height: 317px;
+    @include tablet {
+      width: 158px;
+      height: 185px;
+    }
+  }
+}

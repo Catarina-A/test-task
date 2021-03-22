@@ -1,11 +1,447 @@
 ---
-title: Template
-description: Template
+title: Home
+description: Home
 pageName: homePage
 ---
 
 {% extends 'layouts/_page-default.twig' %}
 {% block content %}
-  <main>
+  <main class="main">
+    {#    ========== PROMO ========== #}
+    <section class="section promo" id="promo">
+      <div class="promo-inner">
+        <div class="promo-text" data-aos="fade-up" data-aos-duration="1500">
+          <h2 class="heading promo-text__heading">A Better <br>World of Work</h2>
+        </div>
+
+        <a class="link promo__link" href="#story">
+          <svg class="promo__icon" height="10" width="20">
+            <use xlink:href="#arrow"></use>
+          </svg>
+        </a>
+      </div>
+    </section>
+
+
+    {#    ========== STORY ========== #}
+    <section class="section story" id="story">
+      <div class="container">
+        <div class="section-inner story-inner">
+          <div class="img-wrapper story-img" data-aos="fade-up" data-aos-duration="1500">
+            <img src="../img/story.jpg" alt="">
+          </div>
+          <div class="section-text story-text" data-aos="fade-up" data-aos-duration="1500">
+            <div class="story-description">
+              <div class="section-header">
+                <small class="section-header__subheading">Our story</small>
+                <h2 class="heading section-header__heading">Work. Life. Balance.</h2>
+              </div>
+              <p class="paragraph story-description__paragraph">The desire for people to work in different places and the worldwide upheaval has created opportunities for businesses like yours to reconsider their workspaces. Where do you start?</p>
+              <p class="paragraph story-description__paragraph">Rebase is a refined service you’d normally expect from a global firm. Our experience means we offer first class services to small and medium sized companies; from building office strategies all the way through to the completion of the transaction.</p>
+              <a class="btn btn-contact" href="#contact"><span class="btn__text">Contact</span></a>
+            </div>
+
+            <blockquote class="blockquote story__blockquote">
+              <div class="blockquote__content">
+                <div class="blockquote__text">Nick delivered an in-depth analysis of our portfolio which drove the consolidation of our fast growth business into one office – which he found for us and delivered the best deal. The service we received was thorough, professional, and gave us the confidence we needed to make such a crucial business decision.</div>
+              </div>
+              <div class="blockquote__author">
+                <div class="blockquote__name">Susan Stanley</div>
+                <div class="blockquote__source">Head of Space, MVF Global</div>
+              </div>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    {#    ========== APPROACH ========== #}
+    <section class="section approach" id="approach">
+      <div class="wrapper">
+        <div class="section-inner">
+          <div class="section-text approach-text" data-aos="fade-up" data-aos-duration="1500">
+            <div class="approach-description">
+              <div class="section-header">
+                <small class="section-header__subheading">Our approach</small>
+                <h2 class="heading section-header__heading">Timing is <br>everything.</h2>
+              </div>
+              <p class="paragraph approach-description__paragraph">We will work with you to understand your priorities and your time pressures.</p>
+              <p class="paragraph approach-description__paragraph">We can move as fast as you need by using our experience, technology and network to keep you ahead of the ever-increasing competition. This process condenses and makes accessible the hundreds of workspaces, office concepts, and deal structures available, to find exactly what you’re looking for.</p>
+              <a class="btn btn-contact" href="#contact"><span class="btn__text">Contact</span></a>
+            </div>
+          </div>
+          <div class="img-wrapper approach-img" data-aos="fade-up" data-aos-duration="1500">
+            <img src="../img/approach.jpg" alt="">
+          </div>
+          <blockquote class="blockquote approach__blockquote" data-aos="fade-up" data-aos-duration="1500">
+            <div class="blockquote__content">
+              <div class="blockquote__text">Will is extremely knowledgeable, hard working and results-oriented. He has been instrumental in helping our company identify, negotiate and secure permanent space to support our expansion in London and, most importantly, he focuses on the best decisions for our company. He's top-notch as both a trusted advisor and negotiator.</div>
+            </div>
+            <div class="blockquote__author">
+              <div class="blockquote__name">Holly Jones</div>
+              <div class="blockquote__source">SVP Global Administration - Afiniti</div>
+            </div>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+
+    {#    ========== ACTIVITY ========== #}
+    <section class="section activity" id="activity">
+      <div class="wrapper">
+        <div class="container">
+          <div class="section-inner">
+            <div class="img-wrapper activity-img" data-aos="fade-up" data-aos-duration="1500">
+              <img src="../img/activity.jpg" alt="">
+            </div>
+            <div class="section-text activity-text" data-aos="fade-up" data-aos-duration="1500">
+              <div class="activity-description">
+                <div class="section-header">
+                  <h2 class="heading section-header__heading">What we do.</h2>
+                </div>
+                <p class="paragraph activity-description__paragraph">After a combined 28 years working for the largest global real estate service corporations, our ‘big firm’ foundations enable us to deliver more creative, agile and bespoke office solutions.</p>
+                <p class="paragraph activity-description__paragraph">Our advise is tailored to your situation. From our experience we’ve learned that each business is different, so listening to you and learning about your goals is an important step.</p>
+                <p class="paragraph aactivity-description__paragraph">Our strength is our size, as experienced professionals we are able to act on your behalf across every stage of the process, whether it’s a renewal, relocation (flex licenses / traditional leases), or third space integration.</p>
+                <p class="paragraph activity-description__paragraph">As we have acted for some of the best known occupiers across multiple sectors, our standards are high. We only work with best in class suppliers and have strong relationships with independents across each discipline.</p>
+                <p class="paragraph activity-description__paragraph">We will act as your advisor, your project consultant and your single point of contact across each stage of the project.</p>
+                <a class="btn btn-contact" href="#contact"><span class="btn__text">Contact</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="img-wrapper activity-img -outer">
+          <img src="../img/activity2.jpg" alt="">
+        </div>
+      </div>
+    </section>
+
+
+    {#    ========== ABOUT ========== #}
+    <section class="section about -has-circle" id="about">
+      <div class="container-max">
+        <div class="section-inner">
+          <div class="section-text about-text" data-aos="fade-up" data-aos-duration="1500">
+            <div class="about-description">
+              <div class="section-header">
+                <h2 class="heading section-header__heading">Why Rebase?</h2>
+              </div>
+              <p class="paragraph about-description__paragraph">A combination of experience, creative thinking, latest technology, and an established network of landlords, opens up a unique variety of office solutions for our clients. We understand that satisfaction in people leads to higher productivity, performance and success.</p>
+              <p class="paragraph about-description__paragraph">Nick and Will have a broad and diverse track-record helping hundreds of office tenants get better spaces for their budget.</p>
+            </div>
+          </div>
+
+          <div class="slider-box" data-aos="fade-up" data-aos-duration="1500">
+            <div class="about-slider swiper-container">
+              <div class="card-wrapper swiper-wrapper">
+                <div class="card about-card swiper-slide">
+                  <div class="card__img">
+                    <img class="card__thumbnail" src="../img/slider/1.jpg" alt="">
+                  </div>
+                  <div class="card__header">
+                    <div class="card__heading">Short term <br>flex licenses</div>
+                    <div class="card__subheading">Proquo</div>
+                  </div>
+                  <div class="card__body">
+                    <p class="paragraph card__paragraph">Cost effective with flexibility 15 – 35 desks</p>
+                  </div>
+                </div>
+                <div class="card about-card swiper-slide">
+                  <div class="card__img">
+                    <img class="card__thumbnail" src="../img/slider/2.jpg" alt="">
+                  </div>
+                  <div class="card__header">
+                    <div class="card__heading">Landmark letting</div>
+                    <div class="card__subheading">Spotify</div>
+                  </div>
+                  <div class="card__body">
+                    <p class="paragraph card__paragraph">Rapid expansion From 10,000 – 100,000 sq ft</p>
+                  </div>
+                </div>
+                <div class="card about-card swiper-slide">
+                  <div class="card__img">
+                    <img class="card__thumbnail" src="../img/slider/3.jpg" alt="">
+                  </div>
+                  <div class="card__header">
+                    <div class="card__heading">Portfolio expansion</div>
+                    <div class="card__subheading">WeWork</div>
+                  </div>
+                  <div class="card__body">
+                    <p class="paragraph card__paragraph">Unprecedented expansion 600,000 sq ft</p>
+                  </div>
+                </div>
+                <div class="card about-card swiper-slide">
+                  <div class="card__img">
+                    <img class="card__thumbnail" src="../img/slider/4.jpg" alt="">
+                  </div>
+                  <div class="card__header">
+                    <div class="card__heading">New letting</div>
+                    <div class="card__subheading">Dodge & Cox</div>
+                  </div>
+                  <div class="card__body">
+                    <p class="paragraph card__paragraph">Upgraded office accommodation 5,000 sq ft</p>
+                  </div>
+                </div>
+                <div class="card about-card swiper-slide">
+                  <div class="card__img">
+                    <img class="card__thumbnail" src="../img/slider/5.jpg" alt="">
+                  </div>
+                  <div class="card__header">
+                    <div class="card__heading">Flagship letting</div>
+                    <div class="card__subheading">Convene</div>
+                  </div>
+                  <div class="card__body">
+                    <p class="paragraph card__paragraph">Competitive letting process 100,000 & 75,000 sq ft</p>
+                  </div>
+                </div>
+                <div class="card about-card swiper-slide">
+                  <div class="card__img">
+                    <img class="card__thumbnail" src="../img/slider/6.jpg" alt="">
+                  </div>
+                  <div class="card__header">
+                    <div class="card__heading">Portfolio <br>consolidation</div>
+                    <div class="card__subheading">MVF</div>
+                  </div>
+                  <div class="card__body">
+                    <p class="paragraph card__paragraph">Consolidated 5 office premises into a single premises 40,000 sq ft</p>
+                  </div>
+                </div>
+                <div class="card about-card swiper-slide">
+                  <div class="card__img">
+                    <img class="card__thumbnail" src="../img/slider/7.jpg" alt="">
+                  </div>
+                  <div class="card__header">
+                    <div class="card__heading">Rent review</div>
+                    <div class="card__subheading">Starwood</div>
+                  </div>
+                  <div class="card__body">
+                    <p class="paragraph card__paragraph">Settled rent in a rising market 6,000 sq ft</p>
+                  </div>
+                </div>
+                <div class="card about-card swiper-slide">
+                  <div class="card__img">
+                    <img class="card__thumbnail" src="../img/slider/8.jpg" alt="">
+                  </div>
+                  <div class="card__header">
+                    <div class="card__heading">Workplace & <br>new letting</div>
+                    <div class="card__subheading">Drax</div>
+                  </div>
+                  <div class="card__body">
+                    <p class="paragraph card__paragraph">Consolidated into a UK Hub 15,000 sq ft office</p>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+            <div class="slider__arrows about-slider__arrows">
+              <div class="swiper-button-prev slider__arrow about-slider__arrow prev"></div>
+              <div class="swiper-button-next slider__arrow about-slider__arrow next"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    {#    ========== TEAM ========== #}
+    <section class="section team -has-circle" id="team">
+      <div class="container">
+        <div class="section-inner">
+          <div class="section-text team-text" data-aos="fade-up" data-aos-duration="1500">
+            <div class="about-description">
+              <div class="section-header">
+                <h2 class="heading section-header__heading">Who we are</h2>
+              </div>
+            </div>
+          </div>
+          <div class="card team-card -left" data-aos="fade-up" data-aos-duration="1500">
+            <div class="card__img">
+              <img src="../img/team2.jpg" alt="">
+            </div>
+            <div class="card__header">
+              <div class="card__heading">Nick Brennan</div>
+              <div class="card__subheading">Founder</div>
+            </div>
+            <div class="card__body">
+              <p class="paragraph card__paragraph">I thrive on building relationships with new businesses and the people within them. I spent 4 years working in Hong Kong, more recently I was a Senior Director at CBRE focused on office tenants, before setting up Rebase.</p>
+              <p class="paragraph card__paragraph">My first deal remains my favourite - selling the Royal Hotel, Kirkby Lonsdale. Equally memorable was my first 100,000 sq ft deal on behalf of Spotify, London.</p>
+            </div>
+            <div class="social">
+              <a class="link social__link" href="tel:+447789514272">
+                <svg class="social__icon" height="28" width="28">
+                  <use xlink:href="#phone"></use>
+                </svg>
+              </a>
+              <a class="link social__link" href="mailto:will@rebasegroup.com">
+                <svg class="social__icon" height="28" width="28">
+                  <use xlink:href="#mail"></use>
+                </svg>
+              </a>
+              <a class="link social__link" href="http://www.linkedin.com/in/nickbrennan85" target="_blank">
+                <svg class="social__icon" height="28" width="28">
+                  <use xlink:href="#in"></use>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="card team-card -right" data-aos="fade-up" data-aos-duration="1500">
+            <div class="card__img">
+              <img src="../img/team1.jpg" alt="">
+            </div>
+            <div class="card__header">
+              <div class="card__heading">Will Frankland</div>
+              <div class="card__subheading">Founder</div>
+            </div>
+            <div class="card__body">
+              <p class="paragraph card__paragraph">I’ve been fortunate enough to have worked in multiple markets and advised some of the world’s most notable companies. However, my real passion is working with fast growth businesses, playing a part in their journey.</p>
+              <p class="paragraph card__paragraph">It has always been my ambition to start my own business and I am immensely proud to be a founder of Rebase.</p>
+            </div>
+            <div class="social">
+              <a class="link social__link" href="tel:+447789514272">
+                <svg class="social__icon" height="28" width="28">
+                  <use xlink:href="#phone"></use>
+                </svg>
+              </a>
+              <a class="link social__link" href="mailto:will@rebasegroup.com">
+                <svg class="social__icon" height="28" width="28">
+                  <use xlink:href="#mail"></use>
+                </svg>
+              </a>
+              <a class="link social__link" href="www.linkedin.com/in/william-frankland-84901b1b" target="_blank">
+                <svg class="social__icon" height="28" width="28">
+                  <use xlink:href="#in"></use>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="blockquote-wrapper">
+            <blockquote class="blockquote team__blockquote">
+              <div class="blockquote__content">
+                <div class="blockquote__text">Nick is a dedicated, client focused agent. Without his willingness to work outside of the brief and to use his influence to negotiate the transaction, we would not have secured our London flagship. This was a big moment for us - Nick earnt our trust and was able to secure a surprisingly good great deal, in the timeframe required we needed it.</div>
+              </div>
+              <div class="blockquote__author">
+                <div class="blockquote__name">Elliott Sparsis</div>
+                <div class="blockquote__source">Head of UK - Convene</div>
+              </div>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    {#    ========== ADVISORY ========== #}
+    <section class="section advisory" id="advisory">
+      <div class="container">
+        <div class="section-inner">
+          <div class="section-text advisory-text" data-aos="fade-up" data-aos-duration="1500">
+            <div class="about-description">
+              <div class="section-header">
+                <h2 class="heading section-header__heading">Advisors</h2>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-wrapper" data-aos="fade-up" data-aos-duration="1500">
+            <div class="card advisory-card">
+              <div class="card__img">
+                <img src="../img/advisory1.jpg" alt="">
+              </div>
+              <div class="card__header">
+                <div class="card__heading">Andrew Miles</div>
+                <div class="card__subheading">CEO & CO FOUNDER <br>OF REALLA</div>
+              </div>
+              <div class="card__body">
+                <p class="paragraph card__paragraph">Andy is CEO of Realla, the leading commercial property portal with over 1 million visits per month. He co-founded the business in 2014, and it 2018 it was acquired by the CoStar Group. Prior to Realla, Andy worked at British Land, and has broad property and 'proptech' experience.</p>
+              </div>
+            </div>
+            <div class="card advisory-card">
+              <div class="card__img">
+                <img src="../img/advisory2.jpg" alt="">
+              </div>
+              <div class="card__header">
+                <div class="card__heading">Ranjeev Kumar</div>
+                <div class="card__subheading">REAL ESTATE PARTNER - <br>INTERNATIONAL LAW FIRM</div>
+              </div>
+              <div class="card__body">
+                <p class="paragraph card__paragraph">Ranjeev Kumar is a solicitor with over 20 years' experience. He has been a Partner in an international law firm for the past 10 years. Ranjeev advises on all types of domestic and cross-border real estate transactions, including sales, purchases, lettings, developments, financings and joint ventures. His clients include occupiers, landlords, developers and investors.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    {#    ========== FORM ========== #}
+    <section class="section contact -has-circle" id="contact">
+      <div class="container">
+        <div class="section-inner">
+          <div class="section-text contact-text" data-aos="fade-up" data-aos-duration="1500">
+            <div class="form-description">
+              <div class="section-header">
+                <h2 class="heading section-header__heading">Contact us</h2>
+              </div>
+              <p class="paragraph about-description__paragraph">If you would like to contact us then please send us a message, call the office or email us. We look forward to hearing from you.</p>
+            </div>
+          </div>
+          <div class="contact-info" data-aos="fade-up" data-aos-duration="1500">
+            <form class="form contact-form">
+              <div class="form-col">
+                <div class="form-input">
+                  <input class="form-input__field" type="text" placeholder="First Name">
+                </div>
+                <div class="form-input">
+                  <input class="form-input__field" type="email" placeholder="Email">
+                </div>
+              </div>
+              <div class="form-col">
+                <div class="form-input">
+                  <input class="form-input__field" type="text" placeholder="Last Name">
+                </div>
+                <div class="form-input">
+                  <textarea class="form-input__field" placeholder="Message"></textarea>
+                </div>
+              </div>
+              <div class="form-col">
+                <div class="form-input">
+                  <div class="form-input__checkbox">
+                    <input class="form-input__check" id="checkbox" type="checkbox">
+                    <label class="form-input__label" for="checkbox">Tick here to stay in touch</label>
+                  </div>
+                </div>
+                <div class="form-input">
+                  <button class="btn btn-contact" type="button"><span class="btn__text">Contact</span></button>
+                </div>
+              </div>
+            </form>
+            <ul class="contacts">
+              <li class="contacts__item">
+                <a class="link contacts__link" href="tel:+447789514272">+44 7789 514 272</a>
+              </li>
+              <li class="contacts__item">
+                <span class="contacts__address">North West House</span>
+                <span class="contacts__address">119 Marylebone Rd</span>
+                <span class="contacts__address">Marylebone, London</span>
+                <span class="contacts__address">NW1 5PU</span>
+              </li>
+              <li class="contacts__item">
+                <a class="link contacts__link" href="mailto:hello@rebasegroup.com">hello@rebasegroup.com</a>
+              </li>
+              <li class="contacts__item">
+                <a class="link" href="#" target="_blank">
+                  <svg class="social__icon" height="28" width="28">
+                    <use xlink:href="#in-form"></use>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 {% endblock %}

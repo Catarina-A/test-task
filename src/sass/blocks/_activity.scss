@@ -1,0 +1,75 @@
+.activity {
+  padding-bottom: 76px;
+  @include tablet {
+    padding-bottom: 88px;
+  }
+  @include mobile {
+    padding-bottom: 72px;
+  }
+}
+
+.activity-text {
+  width: 390px;
+  @include tablet {
+    width: 220px;
+  }
+  @include mobile {
+    width: 100%;
+    margin-bottom: 46px;
+  }
+}
+
+.activity-description {
+  &__paragraph {
+    &:last-of-type {
+      margin-bottom: 45px;
+    }
+  }
+}
+
+.activity-img {
+  margin-top: -170px;
+  z-index: 1;
+  width: 488px;
+  height: 733px;
+  @include laptop {
+    width: 415px;
+    height: 623px;
+    margin-top: -160px;
+  }
+  @include tablet {
+    width: 315px;
+    height: 473px;
+    margin-top: -130px;
+  }
+  @include mobile {
+    width: 197px;
+    height: 297px;
+    margin-top: -100px;
+    margin-bottom: 25px;
+  }
+
+  &.-outer {
+    position: absolute;
+    margin-top: -160px;
+    width: 586px;
+    height: 372px;
+    @include laptop {
+      width: 415px;
+      height: 264px;
+      margin-top: -242px;
+    }
+    @include tablet {
+      width: 374px;
+      height: 237px;
+      margin-top: -342px;
+    }
+    @include mobile {
+      margin-top: 0;
+      margin-bottom: 0;
+      position: relative;
+      width: 266px;
+      height: 169px;
+    }
+  }
+}
