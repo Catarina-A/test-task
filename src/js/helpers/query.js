@@ -13,10 +13,8 @@ class Query {
     this.elems;
     if (typeof elems == 'string') {
       this.elems = getAll(elems, scope);
-    } else if (elems.forEach) {
-      this.elems = elems;
     } else if (elems.length) {
-      this.elems = toArray(elems);
+      this.elems = Array.from(elems);
     } else if (typeof elems == 'object' && "id" in elems) {
       this.elems = [elems];
     }
@@ -211,14 +209,6 @@ class Query {
     }
 
     if (trigger <= triggerPointNum) func(elem);
-  }
-
-  toArray(list) {
-    let array = [];
-    for (let i = 0; i < list.length; i++) {
-      array.push(list[i])
-    }
-    return array;
   }
 }
 
