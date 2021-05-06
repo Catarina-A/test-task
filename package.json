@@ -1,11 +1,11 @@
 {
-  "name": "trustunion",
+  "name": "PROJECTNAME",
   "version": "0.0.1",
   "scripts": {
     "build": "gulp build --production",
     "start": "gulp"
   },
-  "authors": "Popov, popovfreewind@gmail.com",
+  "authors": "labtop",
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
@@ -41,10 +41,10 @@
     "webpack-bundle-analyzer": "^3.4.1"
   },
   "dependencies": {
-    "@barba/core": "^2.4.0",
+    "@barba/core": "^2.9.7",
     "axios": "^0.18.1",
     "axios-jsonp": "^1.0.2",
-    "gsap": "^2.1.3",
+    "gsap": "^3.6.1",
     "lodash": "^4.17.15",
     "lottie-web": "^5.5.7",
     "object-fit-images": "^3.2.4",
@@ -53,6 +53,6 @@
     "qrcode": "^1.4.1",
     "qs": "^6.7.0",
     "regenerator-runtime": "^0.13.3",
-    "swiper": "^4.5.0"
+    "swiper": "^6.5.9"
   }
 }

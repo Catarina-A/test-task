@@ -1,20 +1,2 @@
-import {
-  Swiper,
-  //Navigation,
-  Pagination,
-  //Controller,
-  EffectFade,
-  Autoplay,
-  Parallax,
-} from 'swiper/dist/js/swiper.esm';
-
-Swiper.use([
-  //Navigation,
-  Pagination,
-  //Controller,
-  EffectFade,
-  Autoplay,
-  Parallax,
-]);
-
-export default Swiper;
+// this file is deprecated, use import bundle form npm instead
+// import Swiper from 'swiper/bundle';
