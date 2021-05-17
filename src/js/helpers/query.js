@@ -152,7 +152,21 @@ class Query {
     this.each((elem, i) => {
       for (let property in styles) {
         const originProperty = this.toCamelCase(property);
-        elem.style[originProperty] = styles[property];
+        let style = styles[property];
+        let originStyle;
+        if (typeof style == 'function') {
+          style = style();
+        }
+        if (typeof style == 'string') {
+          originStyle = style;
+        } else if (typeof style == 'number') {
+          originStyle = style + 'px';
+        } else if (style === null || style === undefined || style === false) {
+          originStyle = '';
+        } else {
+          originStyle = String(style);
+        }
+        elem.style[originProperty] = originStyle;
       }
     })
   }
