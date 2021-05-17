@@ -1,89 +1,41 @@
-export default watchActiveLinkOnScroll => {
+import { gsap } from 'gsap';
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
-  const attributeName = 'data-scroll-to';
-  const links = document.querySelectorAll(`[${attributeName}]`);
-  const offset = 0;
-  const active = 'active';
+/*
+props: {
+  selector: (String)
+  offset: (Number)
+  idAttr: (String)
+}
+*/
 
-  if (links.length === 0) return;
+export function scrollTo(props) {
+  gsap.registerPlugin(ScrollToPlugin);
 
-  const scrollToAnchor = anchor => {
-    TweenLite.to(window, 1, {
-      scrollTo: {
-        y: anchor,
-        offsetY: offset,
-        autoKill: false,
-      },
-      easy: Power2.easeInOut,
-    });
-  };
+  const selector = (props && props.selector) ? props.selector : 'a[href^="#"]';
+  const links = document.querySelectorAll(selector);
+  const idAttr = (props && props.idAttr) ? props.idAttr : 'href';
+  const offset = (props && props.offset) ? props.offset : 0;
 
-  links.forEach(item => {
-    const anchor = item.getAttribute(attributeName);
-    const domAnchor = document.querySelector(anchor);
-    if (!domAnchor) return;
-    item.addEventListener('click', e => {
+  if (!links.length) return;
+
+  links.forEach((link, i) => {
+
+    const id = link.getAttribute(idAttr);
+
+    link.addEventListener('click', e => {
       e.preventDefault();
-      if (document.activeElement) {
-        document.activeElement.blur();
-      }
-      /*if (domAnchor.hasAttribute('data-dropdown-container')) { // if scroll to dropdown list
-        domAnchor.classList.add('opened');
-      }*/
-      scrollToAnchor(anchor);
-    });
-  });
 
-  // watch for active link
-
-  const selectActiveLink = items => {
-    links.forEach(link => {
-      link.classList.remove(active);
-    });
-    if (items.length < 1) return;
-
-    let lowestItem = null;
-    let biggestOffsetTop = undefined;
-
-    items.forEach(item => {
-      if (biggestOffsetTop === undefined) {
-        biggestOffsetTop = item.offset;
-        lowestItem = item;
-      } else if (item.offset > biggestOffsetTop) {
-        biggestOffsetTop = item.offset;
-        lowestItem = item;
-      }
-    });
-    lowestItem.link.classList.add(active);
-  };
-
-  if (watchActiveLinkOnScroll) {
-    window.addEventListener('scroll', () => {
-      let items = [];
-
-      links.forEach(item => {
-        const anchor = item.getAttribute(attributeName);
-        const domAnchor = document.querySelector(anchor);
-        if (!domAnchor) return;
-        const rect = domAnchor.getBoundingClientRect();
-        const top = rect.top;
-        if (top < 20) {
-          const itemObj = {
-            link: item,
-            offset: top,
-          };
-          items.push(itemObj);
+      gsap.to(window, {
+        duration: 1,
+        ease: "power2.out",
+        scrollTo: {
+          y: id,
+          offsetY: offset,
         }
       });
+    })
 
-      selectActiveLink(items);
-    });
-  }
-
-  // scroll on hash
-
-  if (location.hash && document.querySelector(location.hash)) {
-    scrollToAnchor(location.hash);
-  }
+  });
 
 }
