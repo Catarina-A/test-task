@@ -18,6 +18,7 @@ class Query {
     } else if (typeof elems == 'object' && "id" in elems) {
       this.elems = [elems];
     }
+    this.elem = this.elems[0];
     this.length = this.elems.length;
   }
 
@@ -201,7 +202,7 @@ class Query {
     // props = {callback, triggerSel(optional), scrollWrapper(optional), triggerPoint(optional)}
     // props.triggerPoint(types): number, string(%)
     const wrapper = props.scrollWrapper ? props.scrollWrapper : document;
-    this.elems.each((elem, i) => {
+    this.each((elem, i) => {
       this.showElem(elem, props.triggerSel, props.triggerPoint, props.callback)
       wrapper.addEventListener('scroll', () => {
         this.showElem(elem, props.triggerSel, props.triggerPoint, props.callback)
