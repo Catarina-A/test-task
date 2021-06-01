@@ -11,6 +11,12 @@ $ss-standard-border: $ss-border-width solid #d0d0d0 !default;
 $ss-spacing-small: $ss-spacing / 2 !default;
 $ss-spacing-tiny: $ss-spacing / 4 !default;
 
+$color-1: #000 !default;
+$color-2: #fff !default;
+$color-3: #fff !default;
+
+$time-sm: 300ms !default;
+
 // Hide real select boxes which have seen styled.
 select[data-ss-uuid] {
   display: none;
