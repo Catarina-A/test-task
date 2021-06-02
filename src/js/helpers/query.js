@@ -20,19 +20,6 @@ class Query {
     }
     this.elem = this.elems[0];
     this.length = this.elems.length;
-    this.html = this.elem.innerHTML;
-    this.text = this.elem.textContent;
-    this.children = Array.from(this.elem.children);
-    this.firstChild = this.elem.firstElementChild;
-    this.lastChild = this.elem.lastElementChild;
-    this.prevSibling = this.elem.previousElementSibling;
-    this.nextSibling = this.elem.nextElementSibling;
-    this.parent = this.elem.parentElement;
-    this.width = this.elem.offsetWidth;
-    this.height = this.elem.offsetHeight;
-    this.scrollLeft = this.elem.scrollLeft;
-    this.scrollTop = this.elem.scrollTop;
-    this.coords = this.elem.getBoundingClientRect();
   }
 
   find(selector) {
@@ -55,16 +42,48 @@ class Query {
     }
   }
 
-  html(html) {
+  html() {
+    return this.elem.innerHTML;
+  }
+
+  setHTML(html) {
     this.each((elem, i) => {
       elem.innerHTML = html;
     })
   }
 
-  text(text) {
+  text() {
+    return this.elem.textContent;
+  }
+
+  setText(text) {
     this.each((elem, i) => {
       elem.textContent = text;
     })
+  }
+
+  children() {
+    return Array.from(this.elem.children);
+  }
+
+  firstChild() {
+    return this.elem.firstElementChild;
+  }
+
+  lastChild() {
+    return this.elem.lastElementChild;
+  }
+
+  prevSibling() {
+    return this.elem.previousElementSibling;
+  }
+
+  nextSibling() {
+    return this.elem.nextElementSibling;
+  }
+
+  parent() {
+    return this.elem.parentElement;
   }
 
   hasAttr(attr) {
@@ -229,6 +248,26 @@ class Query {
     this.each((elem, i) => {
       elem.classList.toggle(className)
     })
+  }
+
+  width() {
+    return this.elem.offsetWidth;
+  }
+
+  height() {
+    return this.elem.offsetHeight;
+  }
+
+  scrollLeft() {
+    return this.elem.scrollLeft;
+  }
+
+  scrollTop() {
+    return this.elem.scrollTop;
+  }
+
+  coords() {
+    return this.elem.getBoundingClientRect();
   }
 
   on(eventName, func) {
