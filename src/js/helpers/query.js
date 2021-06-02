@@ -20,6 +20,8 @@ class Query {
     }
     this.elem = this.elems[0];
     this.length = this.elems.length;
+    this.html = this.elem.innerHTML;
+    this.text = this.elem.textContent;
     this.children = Array.from(this.elem.children);
     this.firstChild = this.elem.firstElementChild;
     this.lastChild = this.elem.lastElementChild;
