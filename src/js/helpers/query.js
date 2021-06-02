@@ -20,6 +20,29 @@ class Query {
     }
     this.elem = this.elems[0];
     this.length = this.elems.length;
+    this.children = Array.from(this.elem.children);
+    this.firstChild = this.elem.firstElementChild;
+    this.lastChild = this.elem.lastElementChild;
+    this.prevSibling = this.elem.previousElementSibling;
+    this.nextSibling = this.elem.nextElementSibling;
+    this.parent = this.elem.parentElement;
+    this.width = this.elem.offsetWidth;
+    this.height = this.elem.offsetHeight;
+    this.scrollLeft = this.elem.scrollLeft;
+    this.scrollTop = this.elem.scrollTop;
+    this.coords = this.elem.getBoundingClientRect();
+  }
+
+  find(selector) {
+    return $(selector, this.elem);
+  }
+
+  is(selector) {
+    return this.elem.matches(selector);
+  }
+
+  closest(selector) {
+    return this.elem.closest(selector);
   }
 
   each(func) {
@@ -42,7 +65,15 @@ class Query {
     })
   }
 
-  attr(attr, value) {
+  hasAttr(attr) {
+    return this.elem.hasAttribute(attr);
+  }
+
+  getAttr(attr) {
+    return this.elem.getAttribute(attr);
+  }
+
+  setAttr(attr, value) {
     this.each((elem, i) => {
       elem.setAttribute(attr, value)
     })
@@ -170,6 +201,14 @@ class Query {
         elem.style[originProperty] = originStyle;
       }
     })
+  }
+
+  getCss(property, pseudo) {
+    if (property) {
+      return getComputedStyle(this.elem, pseudo)[property];
+    } else {
+      return getComputedStyle(this.elem, pseudo);
+    }
   }
 
   addClass(className) {
