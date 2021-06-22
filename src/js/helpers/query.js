@@ -13,9 +13,9 @@ class Query {
     this.elems;
     if (typeof elems == 'string') {
       this.elems = getAll(elems, scope);
-    } else if (elems.length) {
+    } else if (elems.length && !elems.tagName) {
       this.elems = Array.from(elems);
-    } else if (typeof elems == 'object' && "id" in elems) {
+    } else if (typeof elems == 'object' && "tagName" in elems) {
       this.elems = [elems];
     }
     this.elem = this.elems[0];
@@ -225,11 +225,11 @@ class Query {
   }
 
   getCss(property, pseudo) {
-    if (property) {
-      return getComputedStyle(this.elem, pseudo)[property];
-    } else {
-      return getComputedStyle(this.elem, pseudo);
+    let value = getComputedStyle(this.elem, pseudo)[this.toCamelCase(property)];
+    if (value.indexOf('px') == value.length - 2) {
+      value = parseFloat(value);
     }
+    return value;
   }
 
   addClass(className) {
@@ -248,6 +248,10 @@ class Query {
     this.each((elem, i) => {
       elem.classList.toggle(className)
     })
+  }
+
+  hasClass(className) {
+    return this.elem.classList.contains(className)
   }
 
   width() {
@@ -283,27 +287,27 @@ class Query {
     // props.triggerPoint(types): number, string(%)
     const wrapper = props.scrollWrapper ? props.scrollWrapper : document;
     this.each((elem, i) => {
-      this.showElem(elem, props.triggerSel, props.triggerPoint, props.callback)
+      showElem(elem, props.triggerSel, props.triggerPoint, props.callback)
       wrapper.addEventListener('scroll', () => {
-        this.showElem(elem, props.triggerSel, props.triggerPoint, props.callback)
+        showElem(elem, props.triggerSel, props.triggerPoint, props.callback)
       })
     });
-  }
 
-  showElem(elem, triggerSel, triggerPoint, func) {
-    const container = triggerSel ? elem.closest(triggerSel) : elem;
-    const trigger = container.getBoundingClientRect().top;
-    let triggerPointNum;
-    if (typeof triggerPoint == 'string' && triggerPoint.indexOf('%') != -1) {
-      const fraction = parseFloat(triggerPoint) / 100;
-      triggerPointNum = document.documentElement.clientHeight * fraction;
-    } else if (typeof parseFloat(triggerPoint) == 'number') {
-      triggerPointNum = triggerPoint;
-    } else {
-      triggerPointNum = document.documentElement.clientHeight;
+    function showElem(elem, triggerSel, triggerPoint, func) {
+      const container = triggerSel ? elem.closest(triggerSel) : elem;
+      const trigger = container.getBoundingClientRect().top;
+      let triggerPointNum;
+      if (typeof triggerPoint == 'string' && triggerPoint.indexOf('%') != -1) {
+        const fraction = parseFloat(triggerPoint) / 100;
+        triggerPointNum = document.documentElement.clientHeight * fraction;
+      } else if (typeof parseFloat(triggerPoint) == 'number') {
+        triggerPointNum = triggerPoint;
+      } else {
+        triggerPointNum = document.documentElement.clientHeight;
+      }
+
+      if (trigger <= triggerPointNum) func(elem);
     }
-
-    if (trigger <= triggerPointNum) func(elem);
   }
 }
 

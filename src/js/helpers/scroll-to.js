@@ -26,14 +26,16 @@ export function scrollTo(props) {
     link.addEventListener('click', e => {
       e.preventDefault();
 
-      gsap.to(window, {
-        duration: 1,
-        ease: "power2.out",
-        scrollTo: {
-          y: id,
-          offsetY: offset,
-        }
-      });
+      if (id.length > 1) {
+        gsap.to(window, {
+          duration: 1,
+          ease: "power2.out",
+          scrollTo: {
+            y: id,
+            offsetY: offset,
+          }
+        });
+      }
     })
 
   });
