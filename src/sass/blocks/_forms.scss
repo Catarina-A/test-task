@@ -8,20 +8,20 @@ input[type="month"], input[type="time"], input[type="week"], textarea';
   height: 48px;
   padding: 14px 26px;
   border-radius: 2px;
-  border: 1px solid rgba($color-4, .4);
-  font-family: $font-1;
+  border: 1px solid rgba($c-accent, .4);
+  font-family: $font-default;
   font-size: 16px;
   line-height: 1;
   letter-spacing: .25px;
   font-weight: 400;
-  color: $color-4;
+  color: $c-accent;
   @media (max-width: $sm) {
     padding: 14px 18px;
   }
 
   &[disabled] {
     border: none;
-    background-color: rgba($color-4, .1);
+    background-color: rgba($c-accent, .1);
     font-family: $font-2;
     font-size: 18px;
     font-weight: 500;
@@ -72,7 +72,7 @@ textarea {
       width: 18px;
       height: 18px;
       border-radius: 2px;
-      border: 1px solid $color-4;
+      border: 1px solid $c-accent;
     }
     &::after {
       content: "";
@@ -87,7 +87,7 @@ textarea {
 
   input:checked + label {
     &::after {
-      background-color: $color-3;
+      background-color: $c-accent;
     }
   }
 }
@@ -108,13 +108,13 @@ textarea {
     height: 48px;
     padding: 18px 28px;
     border-radius: 2px;
-    border: 1px solid rgba($color-4, .4);
-    font-family: $font-1;
+    border: 1px solid rgba($c-accent, .4);
+    font-family: $font-default;
     font-size: 14px;
     line-height: 1;
     letter-spacing: 0.25px;
     font-weight: 400;
-    color: $color-4;
+    color: $c-accent;
     cursor: pointer;
     transition: .2s ease-in-out;
     transition-property: border-color, background-color, color;
@@ -124,9 +124,9 @@ textarea {
   }
 
   input:checked + label {
-    border-color: $color-3;
-    background-color: $color-3;
-    color: $color-2;
+    border-color: $c-accent;
+    background-color: $c-accent;
+    color: $c-white;
   }
 }
 */
@@ -146,14 +146,14 @@ textarea {
   height: 16px;
   border: none;
   border-radius: 50%;
-  background-color: $color-3;
+  background-color: $c-accent;
   cursor: pointer;
 }
 
 @mixin rangeTrack {
   height: 3px;
   border-radius: 1px;
-  background-color: $color-4;
+  background-color: $c-accent;
 }
 
 .range-input {

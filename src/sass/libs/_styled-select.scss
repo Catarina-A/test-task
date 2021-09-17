@@ -11,9 +11,9 @@ $ss-standard-border: $ss-border-width solid #d0d0d0 !default;
 $ss-spacing-small: $ss-spacing / 2 !default;
 $ss-spacing-tiny: $ss-spacing / 4 !default;
 
-$color-1: #000 !default;
-$color-2: #fff !default;
-$color-3: #fff !default;
+$c-black: #000 !default;
+$c-white: #fff !default;
+$c-accent: #fff !default;
 
 $time-sm: 300ms !default;
 
@@ -27,7 +27,7 @@ select[data-ss-uuid] {
   position: relative;
   z-index: 3;
   user-select: none;
-  color: $color-1;
+  color: $c-black;
 
   .ss-selected-option {
     display: flex;
@@ -42,8 +42,8 @@ select[data-ss-uuid] {
       display: block;
       width: 8px;
       height: 8px;
-      border-left: 1px solid $color-1;
-      border-bottom: 1px solid $color-1;
+      border-left: 1px solid $c-black;
+      border-bottom: 1px solid $c-black;
       transform: rotate(-45deg);
 
       @media (max-width: $sm) {
@@ -61,15 +61,15 @@ select[data-ss-uuid] {
     position: absolute;
     float: left;
     display: none;
-    background: $color-3;
+    background: $c-accent;
     border-radius: 3px;
 
     .ss-option {
       width: 100%;
       padding: 0;
-      background-color: $color-3;
+      background-color: $c-accent;
       cursor: pointer;
-      font-family: $font-1;
+      font-family: $font-default;
       font-size: 14px;
       line-height: 30px;
       letter-spacing: 0.5px;
@@ -96,7 +96,7 @@ select[data-ss-uuid] {
       }
 
       &.ticked {
-        color: $color-2;
+        color: $c-white;
       }
     }
   }

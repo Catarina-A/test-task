@@ -25,6 +25,16 @@ $rem-base: 18px;
   @return $remValues;
 }
 
+@function vh($fraction) {
+  $percent: $fraction * 100vh;
+  @return $percent;
+}
+
+@function vw($fraction) {
+  $percent: $fraction * 100vw;
+  @return $percent;
+}
+
 @mixin target-ie11 {
   @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
     @content;
@@ -60,4 +70,27 @@ $rem-base: 18px;
   } @else {
   	font-family: 'object-fit: #{$fit}';
   }
+}
+
+@mixin absolute-full-width {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin absolute-background {
+  @include absolute-full-width;
+
+  img, svg, video {
+    width: 100%;
+    height: 100%;
+    @include object-fit(cover);
+  }
+}
+
+@mixin absolute-pseudo-full {
+  content: "";
+  @include absolute-full-width;
 }

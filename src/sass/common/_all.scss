@@ -1,0 +1,19 @@
+html, body {
+  font-family: $font-default;
+  font-weight: 400;
+  color: $c-black;
+}
+
+img, video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button, a, [class*=button], [class*=btn], [class*=link] {
+  cursor: pointer;
+}
+
+@import "typo";
+@import "grid";
+@import "buttons";

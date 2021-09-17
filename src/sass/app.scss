@@ -1,10 +1,8 @@
-@import "variables";
-@import "mixins";
-@import "fonts";
 @import "reset/all";
+@import "fonts";
+@import "variables";
+@import "mixins/all";
 @import "libs/all";
-@import "common";
-@import "responsive";
-@import "grid";
-@import "sections/all";
+@import "common/all";
 @import "blocks/all";
+@import "pages/all";

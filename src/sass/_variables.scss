@@ -1,24 +1,38 @@
 //grid
-$xxsm: 374px;
-$xsm: 459px;
+$xxs: 399px;
+$xs: 459px;
 $sm: 639px;
 $md: 767px;
 $lg: 1023px;
 $xl: 1199px;
 $xxl: 1399px;
+$x3l: 1769px;
+$x4l: 1999px;
 
 //fonts
-$font-1: Helvetica, Tahoma, Arial, sans-serif;
+$font-default: Helvetica, Tahoma, Arial, sans-serif;
+$font-accent: Helvetica, Tahoma, Arial, sans-serif;
 
 //colors
-$color-1: #000;
-$color-2: #fff;
-$color-3: #fff;
-$color-4: #fff;
-$color-5: #fff;
+$c-black: #000;
+$c-white: #fff;
+$c-accent: #fff;
 
 // timing
 $time-sm: 300ms;
 $time-md: 500ms;
 $time-lg: 800ms;
 $time-xl: 1100ms;
+
+// layout
+$container: 1180px;
+$wrap-lg: 60px;
+$wrap-md: 45px;
+$wrap-sm: 30px;
+
+// tags
+$h: 'h1, h2, h3, h4, h5, h6';
+$input-txt: 'input[type="email"], input[type="number"], input[type="password"], input[type="search"],
+input[type="tel"], input[type="text"], input[type="url"], input[type="color"],
+input[type="date"], input[type="datetime"], input[type="datetime-local"],
+input[type="month"], input[type="time"], input[type="week"], textarea';
