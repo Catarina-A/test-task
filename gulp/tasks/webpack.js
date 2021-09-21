@@ -1,13 +1,13 @@
-var gulp = require('gulp');
-var webpack = require('webpack');
-var gutil = require('gulp-util');
-var notify = require('gulp-notify');
-var server = require('./server');
-var config = require('../config');
-var webpackConfig = require('../../webpack.config').createConfig;
+let gulp = require('gulp');
+let webpack = require('webpack');
+let gutil = require('gulp-util');
+let notify = require('gulp-notify');
+let server = require('./server');
+let config = require('../config');
+let webpackConfig = require('../../webpack.config').createConfig;
 
 function handler(err, stats, cb) {
-  var errors = stats.compilation.errors;
+  let errors = stats.compilation.errors;
 
   if (err) throw new gutil.PluginError('webpack', err);
 
@@ -28,7 +28,7 @@ function handler(err, stats, cb) {
   if (typeof cb === 'function') cb();
 }
 
-gulp.task('webpack', function(cb) {
+gulp.task('webpack',function(cb) {
   webpack(webpackConfig(config.env)).run(function(err, stats) {
     handler(err, stats, cb);
   });

@@ -6,7 +6,7 @@ var config = require('../config');
 // in CL 'gulp server --open' to open current project in browser
 // in CL 'gulp server --tunnel siteName' to make project available over http://siteName.localtunnel.me
 
-gulp.task('server', function() {
+gulp.task('server', ()=>{
   server.init({
     server: {
       baseDir: !config.production ? [config.dest.root, config.src.root] : config.dest.root,
