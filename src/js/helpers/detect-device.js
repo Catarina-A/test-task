@@ -30,3 +30,16 @@ export function isTouch() {
 export function isIOS() {
   return navigator.userAgent.match(/iPad|iPhone/i);
 }
+
+export function isMobile() {
+    return window.innerWidth < 768
+}
+export function isTablet() {
+    return window.innerWidth < 1025 && window.innerWidth > 767
+}
+export function isDesktop() {
+    return window.innerWidth > 1024
+}
+export function isSafariMobile(){
+    return isIOS() && isMobile();
+}
