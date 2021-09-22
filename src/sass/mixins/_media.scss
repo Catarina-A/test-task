@@ -213,3 +213,27 @@
     @content;
   }
 }
+
+@mixin laptop {
+	@media (max-width: $xxl) {
+		@content;
+	}
+}
+
+@mixin miniLaptop {
+	@media (max-width: $xl) {
+		@content;
+	}
+}
+
+@mixin tablet {
+	@media (max-width: $lg+1px) {
+		@content;
+	}
+}
+
+@mixin mobile {
+	@media (max-width: $md) {
+		@content;
+	}
+}

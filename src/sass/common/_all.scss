@@ -4,16 +4,21 @@ html, body {
   color: $c-black;
 }
 
+main { 
+    width: 100%;
+}
+
 img, video {
   display: block;
   max-width: 100%;
   height: auto;
 }
 
-button, a, [class*=button], [class*=btn], [class*=link] {
+button, a, [class*=button], [class*=btn], [class*=link], [type*=submit] {
   cursor: pointer;
 }
 
 @import "typo";
 @import "grid";
 @import "buttons";
+@import "animations";
