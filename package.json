@@ -8,8 +8,8 @@
     "prepare": "husky install"
   },
   "lint-staged": {
-    "*.{pug,twig}": [
-      "prettier --write",
+    "*.twig": [
+      "prettier --write --parser html",
       "git add"
     ],
     "*.js": [
@@ -72,10 +72,5 @@
     "object-fit-images": "^3.2.4",
     "object-fit-videos": "^1.0.4",
     "swiper": "^7.0.7"
-  },
-  "husky": {
-     "hooks": {
-       "pre-commit": "lint-staged"
-     }
-   }
+  }
 }
