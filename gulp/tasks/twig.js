@@ -1,12 +1,13 @@
-var gulp = require('gulp');
-var replace = require('gulp-replace');
-var nunjucksRender = require('gulp-nunjucks-render');
-var plumber = require('gulp-plumber');
-var gulpif = require('gulp-if');
-var changed = require('gulp-changed');
-var prettify = require('gulp-prettify');
-var frontMatter = require('gulp-front-matter');
-var config = require('../config');
+const gulp = require('gulp');
+const {series, parallel, task} = require('gulp');
+const replace = require('gulp-replace');
+const nunjucksRender = require('gulp-nunjucks-render');
+const plumber = require('gulp-plumber');
+const gulpif = require('gulp-if');
+const changed = require('gulp-changed');
+const prettify = require('gulp-prettify');
+const frontMatter = require('gulp-front-matter');
+const config = require('../config');
 
 function renderHtml(onlyChanged) {
   nunjucksRender.nunjucks.configure({
@@ -37,20 +38,11 @@ function renderHtml(onlyChanged) {
     .pipe(gulp.dest(config.dest.html));
 }
 
-gulp.task('nunjucks', function() {
+
+function twig(cb) {
   return renderHtml();
-});
 
-gulp.task('nunjucks:changed', function() {
-  return renderHtml(true);
-});
+  cb();
+}
 
-gulp.task('nunjucks:watch', function() {
-  gulp.watch([
-    config.src.templates + '/**/*.twig'
-  ], ['nunjucks:changed']);
-
-  gulp.watch([
-    config.src.templates + '/**/*.twig'
-  ], ['nunjucks']);
-});
+module.exports = twig;

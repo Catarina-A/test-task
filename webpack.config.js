@@ -3,8 +3,7 @@ const path = require('path');
 const util = require('gulp-util');
 const config = require('./gulp/config');
 const Dotenv = require('dotenv-webpack');
-const BundleAnalyzerPlugin = require(
-    'webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 function createConfig(env) {
   if (env === undefined) {
@@ -24,22 +23,6 @@ function createConfig(env) {
   ];
   const resolve = {
     extensions: ['.js'],
-    // alias: {
-    //   TweenLite: path.resolve('node_modules',
-    //       'gsap/src/uncompressed/TweenLite.js'),
-    //   TweenMax: path.resolve('node_modules',
-    //       'gsap/src/uncompressed/TweenMax.js'),
-    //   TimelineLite: path.resolve('node_modules',
-    //       'gsap/src/uncompressed/TimelineLite.js'),
-    //   TimelineMax: path.resolve('node_modules',
-    //       'gsap/src/uncompressed/TimelineMax.js'),
-    //   ScrollMagic: path.resolve('node_modules',
-    //       'scrollmagic/scrollmagic/uncompressed/ScrollMagic.js'),
-    //   'animation.gsap': path.resolve('node_modules',
-    //       'scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js'),
-    //   'debug.addIndicators': path.resolve('node_modules',
-    //       'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators.js'),
-    // },
   };
   const optimization = {minimize: isProduction};
 
@@ -74,16 +57,16 @@ function createConfig(env) {
 
   if (isProduction) {
     webpackConfig.plugins.push(
-        new webpack.LoaderOptionsPlugin({
-          minimize: true,
-        }),
+      new webpack.LoaderOptionsPlugin({
+        minimize: true,
+      }),
     );
     webpackConfig.plugins.push(
-        new BundleAnalyzerPlugin({
-          analyzerMode: 'static',
-          analyzerPort: 4000,
-          openAnalyzer: false,
-        }),
+      new BundleAnalyzerPlugin({
+        analyzerMode: 'static',
+        analyzerPort: 4000,
+        openAnalyzer: false,
+      }),
     );
   }
 

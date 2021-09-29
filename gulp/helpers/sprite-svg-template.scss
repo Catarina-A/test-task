@@ -1,0 +1,18 @@
+// file is auto generated do not change contents
+
+.icon {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: middle;
+  color: inherit;
+  fill: currentColor;
+
+  {{#shapes}}
+  &--{{base}} {
+    width: {{width.inner}}px;
+    height: {{height.inner}}px;
+  }
+  {{/shapes}}
+}
+
