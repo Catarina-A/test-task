@@ -1,3 +1,4 @@
 export default () => {
-  alert("test");
+  alert('test');
+  alert('test2');
 }
