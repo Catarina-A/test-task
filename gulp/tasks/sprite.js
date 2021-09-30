@@ -1,19 +1,13 @@
 const gulp = require('gulp');
 const config = require('../config.js');
 const svgSprite = require('gulp-svg-sprite');
-const svgmin = require('gulp-svgmin');
+const svgo = require('gulp-svgo');
 const cheerio = require('gulp-cheerio');
 const replace = require('gulp-replace');
 
 function sprite (cb) {
   return gulp.src(config.src.img + '/sprite/*.svg')
-    // .pipe(
-    //   svgmin({
-    //     js2svg: {
-    //       pretty: true,
-    //     },
-    //   })
-    // )
+  .pipe(svgo())
     .pipe(
       cheerio({
         run: function ($) {
