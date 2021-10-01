@@ -6,7 +6,8 @@ const config = require('../config.js');
 
 function clean(cb) {
   return del([
-    config.dest.root
+    config.dest.root,
+    config.src.templates + '/svg',
   ]).then(function(paths) {
     util.log('Deleted:', util.colors.magenta(paths.join('\n')));
     cb();

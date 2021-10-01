@@ -44,8 +44,12 @@ task('watch', (cb)=>{
     tunnel: util.env.tunnel || null
   });
 
-  watch(config.src.img + '/*', series(tasks.copy));
+
+  watch(config.src.img + '/**/*.*', series(tasks.copy));
+
   watch(config.src.img + '/sprite/*', series(tasks.sprite, reload));
+
+  watch(config.src.img + '/inline/*', series(tasks.svgToTwig, tasks.twig));
 
   watch([config.src.templates + '/**/*.twig'], series(tasks.twig));
 
@@ -59,7 +63,7 @@ task('watch', (cb)=>{
 });
 
 
-const build = series(tasks.clean, tasks.sprite, parallel(tasks.scss, tasks.twig), tasks.copy)
+const build = series(tasks.clean, tasks.sprite, tasks.svgToTwig, parallel(tasks.scss, tasks.twig), tasks.copy)
 
 // exports.default = series(setEnv('development'), parallel(build, tasks.javascript), tasks.pages, tasks.sprite, 'watch');
 exports.default = series(setEnv('development'), parallel(build, tasks.javascript), tasks.pages, 'watch');

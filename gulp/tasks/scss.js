@@ -32,8 +32,6 @@ function scss(cb) {
     }))
     // .on('error', config.errorHandler)
     .on('error', function(err) {
-      // console.log('server');
-      // console.log(server);
       console.error(err.message);
       server.notify(err.message, 3000); // Display error in the browser
       this.emit('end'); // Prevent gulp from catching the error and exiting the watch process
@@ -48,13 +46,3 @@ function scss(cb) {
 }
 
 module.exports = scss;
-
-
-// task('sass', function() {
-  
-// });
-
-// task('sass:watch', function() {
-//     console.log('sass watch');
-//     watch(config.src.sass + '/**/*.{sass,scss}', parallel('sass'));
-// });

@@ -2,23 +2,12 @@ const gulp = require('gulp');
 const config = require('../config.js');
 const svgSprite = require('gulp-svg-sprite');
 const svgo = require('gulp-svgo');
-const cheerio = require('gulp-cheerio');
-const replace = require('gulp-replace');
 
 function sprite (cb) {
   return gulp.src(config.src.img + '/sprite/*.svg')
-  .pipe(svgo())
-    .pipe(
-      cheerio({
-        run: function ($) {
-          $('[fill]').removeAttr('fill');
-          $('[stroke]').removeAttr('stroke');
-          $('[style]').removeAttr('style');
-        },
-        parserOptions: { xmlMode: true },
-      })
-    )
-    .pipe(replace('&gt;', '>'))
+    .pipe(svgo({plugins: [
+        { removeAttrs: { attrs: '(data-name|id|fill|stroke|style|class)' } }
+      ]}))
     .pipe(svgSprite({
           mode: {
             symbol: {

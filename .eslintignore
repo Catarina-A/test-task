@@ -4,3 +4,4 @@ node_modules
 src/js/libs/**/*.*
 gulp/**/*.*
 **/*{.,-}min.js
+gulpfile.js

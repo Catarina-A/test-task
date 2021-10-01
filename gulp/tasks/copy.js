@@ -1,6 +1,9 @@
 const gulp = require('gulp');
 const {series, parallel, task, watch} = require('gulp');
-let config = require('../config.js');
+const rename = require("gulp-rename");
+const svgo = require('gulp-svgo');
+const config = require('../config.js');
+
 
 
 
@@ -32,7 +35,8 @@ function img() {
   return gulp
     .src([
       config.src.img + '/**/*.{jpg,png,jpeg,svg,gif,webp}',
-      '!' + config.src.img + '/sprite/**/*.*'
+      '!' + config.src.img + '/sprite/**/*.*',
+      '!' + config.src.img + '/inline/**/*.*',
     ])
     .pipe(gulp.dest(config.dest.img));
 };

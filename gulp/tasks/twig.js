@@ -17,7 +17,11 @@ function renderHtml(onlyChanged) {
   });
 
   return gulp
-    .src([config.src.templates + '/**/[^_]*.twig'])
+    .src(
+      [
+        config.src.templates + '/**/[^_]*.twig',
+        '!'+ config.src.templates + '/svg/*.twig'
+      ])
     .pipe(plumber({
       errorHandler: config.errorHandler
     }))
