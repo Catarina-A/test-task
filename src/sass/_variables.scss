@@ -36,3 +36,15 @@ $input-txt: 'input[type="email"], input[type="number"], input[type="password"], 
 input[type="tel"], input[type="text"], input[type="url"], input[type="color"],
 input[type="date"], input[type="datetime"], input[type="datetime-local"],
 input[type="month"], input[type="time"], input[type="week"], textarea';
+
+// z-index
+$z-index: (
+  modal     : 1200,
+  overlay   : 1100,
+  header    : 1000, 
+  footer    : 900,
+  dropdown  : 800
+);
+// .header {
+//     z-index: map-get($z-index, header);
+// }
