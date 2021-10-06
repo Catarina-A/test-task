@@ -115,3 +115,8 @@ $rem-base: 18px;
 @mixin anim($param: all, $dur: 0.2s, $type: ease-in-out, $delay: 0s) {
     transition: $param $dur $type $delay;
 }
+
+@mixin fullheight(){
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+}
