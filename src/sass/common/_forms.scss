@@ -11,7 +11,7 @@
   letter-spacing: .25px;
   font-weight: 400;
   color: $c-accent;
-  @media (max-width: $sm) {
+  @include mobile {
     padding: 14px 18px;
   }
 
@@ -98,7 +98,7 @@ textarea {
     cursor: pointer;
     transition: .2s ease-in-out;
     transition-property: border-color, background-color, color;
-    @media (max-width: $sm) {
+    @include mobile {
       padding: 18px 20px;
     }
   }
@@ -116,7 +116,7 @@ textarea {
   margin-right: 20px;
   width: 112px;
   text-align: center;
-  @media (max-width: $sm) {
+  @include mobile {
     width: 96px;
   }
 }
@@ -139,7 +139,7 @@ textarea {
 .range-input {
   width: calc(100% - 132px);
   -webkit-appearance: none;
-  @media (max-width: $sm) {
+  @include mobile {
     width: calc(100% - 116px);
   }
 
