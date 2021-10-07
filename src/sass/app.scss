@@ -1,8 +1,26 @@
-@import "reset/all";
-@import "fonts";
-@import "variables";
-@import "mixins/all";
-@import "libs/all";
-@import "common/all";
-@import "blocks/all";
-@import "pages/all";
+// Basic styles
+@import "reset";
+@import "common/fonts";
+@import "vars";
+@import "mixins/general";
+@import "mixins/media";
+@import "libs/swiper";
+
+// Common styles
+@import "common/general";
+@import "common/typo";
+@import "common/grid";
+@import "common/forms";
+@import "common/buttons";
+
+// Blocks styles
+@import "blocks/header";
+@import "blocks/footer";
+
+// Pages styles
+@import "pages/pages";
+// Home Page styles
+@import "pages/home/hero";
+
+// Animations styles
+@import "common/animations";

@@ -4,7 +4,7 @@ html, body {
   color: $c-black;
 }
 
-main { 
+main {
     width: 100%;
 }
 
@@ -17,8 +17,3 @@ img, video {
 button, a, [class*=button], [class*=btn], [class*=link], [type*=submit] {
   cursor: pointer;
 }
-
-@import "typo";
-@import "grid";
-@import "buttons";
-@import "animations";
