@@ -10,9 +10,8 @@
  * Released on: February 22, 2019
  */
 
-$color-2: #fff !default;
-$color-3: #fff !default;
-$color-5: #fff !default;
+$c-white: #fff !default;
+$c-accent: #fff !default;
 $time-sm: 300ms !default;
 
 .swiper-container {
@@ -323,14 +322,14 @@ $time-sm: 300ms !default;
   width: 5px;
   height: 5px;
   display: inline-block;
-  background: $color-5;
+  background: $c-accent;
   opacity: 0.2;
   margin: 10px;
   position: relative;
   transition: opacity $time-sm ,background $time-sm;
 
   &:hover:not(.swiper-pagination-bullet-active) {
-    background: $color-3;
+    background: $c-accent;
     opacity: 0.5;
   }
 
@@ -362,7 +361,7 @@ button.swiper-pagination-bullet {
 
 .swiper-pagination-bullet-active {
   opacity: 1;
-  background: $color-3;
+  background: $c-accent;
 }
 
 .swiper-pagination--blue {
@@ -378,7 +377,7 @@ button.swiper-pagination-bullet {
   }
 
   .swiper-pagination-bullet-active {
-    background: $color-2;
+    background: $c-white;
   }
 }
 

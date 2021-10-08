@@ -1,0 +1,29 @@
+.h1 {}
+
+.h2 {}
+
+.h3 {}
+
+.txt {
+  p, ul, ol, li {
+    &:not(:last-child) {
+      margin-bottom: 1em;
+    }
+  }
+
+  b, strong {
+    font-weight: 700;
+  }
+
+  i, em {
+    font-style: italic;
+  }
+
+  a {
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
