@@ -24,6 +24,7 @@ var config = {
     video: 'src/video',
     favicon: 'src/favicon',
     svg: 'src/img/svg',
+    sprite: 'src/img/sprite',
     icons: 'src/icons',
     // path to png sources for sprite:png task
     iconsPng: 'src/icons',
@@ -47,6 +48,9 @@ var config = {
     fonts: destPath + '/fonts',
     libs: destPath + '/js',
     data: destPath + '/'
+  },
+  server: {
+    notify: false
   },
 
   setEnv: function(env) {

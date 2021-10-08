@@ -1,12 +1,17 @@
-var gulp = require('gulp');
-var del = require('del');
-var util = require('gulp-util');
-var config = require('../config');
+const gulp = require('gulp');
+const {series, parallel, task, watch} = require('gulp');
+const del = require('del');
+const util = require('gulp-util');
+const config = require('../config.js');
 
-gulp.task('clean', function(cb) {
+function clean(cb) {
   return del([
-    config.dest.root
+    config.dest.root,
+    config.src.templates + '/svg',
   ]).then(function(paths) {
     util.log('Deleted:', util.colors.magenta(paths.join('\n')));
+    cb();
   });
-});
+}
+
+module.exports = clean;

@@ -1,0 +1,11 @@
+{% macro inline(filename) %}
+  {% set filename = "svg/_" + filename.replace(".svg", "") + ".svg.twig" %}
+  {% include filename %}
+{% endmacro %}
+
+{% macro svg(filename, class) %}
+  {% set filename = filename.replace(".svg", "") %}
+  <svg class="icon icon--{{filename}} {{class}}">
+    <use xlink:href="img/sprite.svg#{{filename}}"></use>
+  </svg>
+{% endmacro %}

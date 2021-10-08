@@ -1,68 +1,62 @@
-var gulp = require('gulp');
-var config = require('../config.js');
+const gulp = require('gulp');
+const {series, parallel, task, watch} = require('gulp');
+const rename = require("gulp-rename");
+const svgo = require('gulp-svgo');
+const config = require('../config.js');
 
-gulp.task('copy:fonts', function() {
+
+
+
+function fonts() {
   return gulp
     .src(config.src.fonts + '/*.{ttf,eot,woff,woff2}')
     .pipe(gulp.dest(config.dest.fonts));
-});
+};
 
-gulp.task('copy:data', function() {
+function data() {
   return gulp
     .src(config.src.data + '/**/*.*')
     .pipe(gulp.dest(config.dest.data));
-});
+};
 
-gulp.task('copy:libs', function() {
+function libs() {
   return gulp
     .src(config.src.libs + '/**/*.*')
     .pipe(gulp.dest(config.dest.libs));
-});
+};
 
-gulp.task('copy:rootfiles', function() {
+function rootfiles() {
   return gulp
     .src(config.src.root + '/*.*')
     .pipe(gulp.dest(config.dest.root));
-});
+};
 
-gulp.task('copy:img', function() {
+function img() {
   return gulp
     .src([
       config.src.img + '/**/*.{jpg,png,jpeg,svg,gif,webp}',
-      '!' + config.src.img + '/svgo/**/*.*'
+      '!' + config.src.img + '/sprite/**/*.*',
+      '!' + config.src.img + '/inline/**/*.*',
     ])
     .pipe(gulp.dest(config.dest.img));
-});
+};
 
-gulp.task('copy:assets', function() {
+function assets() {
   return gulp
     .src(config.src.assets + '/**/*')
     .pipe(gulp.dest(config.dest.assets));
-});
+};
 
-gulp.task('copy:video', function() {
+function video() {
   return gulp
     .src(config.src.video + '/**/*')
     .pipe(gulp.dest(config.dest.video));
-});
+};
 
-gulp.task('copy:favicon', function() {
+function favicon() {
   return gulp
     .src(config.src.favicon + '/**/*')
     .pipe(gulp.dest(config.dest.favicon));
-});
+};
 
-gulp.task('copy', [
-  'copy:img',
-  //'copy:assets',
-  'copy:video',
-  'copy:favicon',
-  //'copy:rootfiles',
-  //'copy:libs',
-  'copy:data',
-  'copy:fonts'
-]);
-gulp.task('copy:watch', function() {
-  gulp.watch(config.src.img + '/*', ['copy']);
-  gulp.watch(config.src.data + '/**/*.*', ['copy']);
-});
+module.exports = parallel(img, video, favicon, data, fonts);

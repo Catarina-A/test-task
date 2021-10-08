@@ -1,9 +1,6 @@
-var gulp = require('gulp');
-var config = require('../config');
+// const gulp = require('gulp');
+// const {series, parallel, task} = require('gulp');
 
-gulp.task('watch',
-  ['copy:watch',
-    'nunjucks:watch',
-    'webpack:watch',
-    'sass:watch'
-  ]);
+// // task('watch', series('copy', parallel('nunjucks:watch', 'webpack:watch', 'sass:watch')));
+
+// exports.watch = series('copy', parallel('nunjucks:watch', 'webpack:watch', 'sass:watch'))

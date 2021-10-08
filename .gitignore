@@ -31,4 +31,5 @@ _tmp
 node_modules
 bower_components
 dist
-
+src/sass/generated
+_sprite.scss

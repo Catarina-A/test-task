@@ -1,0 +1,8 @@
+/.git
+/.vscode
+node_modules
+src/js/libs/**/*.*
+gulp/**/*.*
+**/*{.,-}min.js
+gulpfile.js
+webpack.config.js
