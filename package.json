@@ -15,6 +15,10 @@
     "*.js": [
       "eslint --fix",
       "git add"
+    ],
+    "*.scss": [
+      "stylelint --fix",
+      "git add"
     ]
   },
   "authors": "labtop",
@@ -61,6 +65,11 @@
     "prettier": "^2.4.1",
     "require-dir": "^1.2.0",
     "run-sequence": "^2.2.1",
+    "stylelint": "^13.13.1",
+    "stylelint-config-recess-order": "^2.5.0",
+    "stylelint-config-standard": "^22.0.0",
+    "stylelint-order": "^4.1.0",
+    "stylelint-scss": "^3.21.0",
     "webpack": "^5.55.1",
     "webpack-bundle-analyzer": "^4.4.2",
     "webpack-stream": "^7.0.0"

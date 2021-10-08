@@ -16,7 +16,9 @@
     "comma-spacing": ["warn", { "before": false, "after": true }],
     "brace-style": ["warn", "stroustrup"],
     "space-before-blocks": ["warn", "always"],
-    "indent": ["warn", 2],
-    "no-template-curly-in-string": "error"
+    "indent": ["warn", "tab"],
+    "no-template-curly-in-string": "error",
+    "prefer-const": "error",
+    "semi": ["warn", "always"]
   }
 }

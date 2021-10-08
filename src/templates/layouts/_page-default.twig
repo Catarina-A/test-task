@@ -1,13 +1,18 @@
-{% import "mixins/_mixins.twig" as mixins %} {% set inline = mixins.inline %} {%
-set svg = mixins.svg %}
+<!-- prettier-ignore -->
+{% import "mixins/_mixins.twig" as mixins %}
+{% set inline = mixins.inline %}
+{% set svg = mixins.svg %}
 
 <!DOCTYPE html>
 <html lang="en">
-  {% include "./_head.twig" %}
+	{% include "./_head.twig" %}
 
-  <body data-page-name="{{ pageName }}">
-    {% include "blocks/_header.twig" %} {% block content %}{% endblock %}
+	<body data-page-name="{{ pageName }}">
+		{% include "blocks/_header.twig" %}
 
-    <script src="/js/app.js"></script>
-  </body>
+		<!-- prettier-ignore -->
+		{% block content %}{% endblock %}
+
+		<script src="/js/app.js"></script>
+	</body>
 </html>
