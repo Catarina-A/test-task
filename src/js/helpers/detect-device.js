@@ -1,11 +1,22 @@
+/**
+ * @return { boolean } true, if customer's OS is Macintosh.
+ */
 export function isMacintosh() {
   return navigator.platform.indexOf('Mac') > -1;
 }
 
+/**
+ * @return { boolean } true, if customer's OS is Windows.
+ */
 export function isWindows() {
   return navigator.platform.indexOf('Win') > -1;
 }
 
+/**
+ * @return { Object } browser - Details of customer's browser
+ * @return { string } browser.name - Can be: Opera, Chrome, Safari, Firefox, IE, Edge etc.
+ * @return { number } browser.version - Number of browser version
+ */
 export function detectBrowser(){
   let ua = navigator.userAgent, tem,
       M = ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];
@@ -23,23 +34,44 @@ export function detectBrowser(){
   return {name:M[0], version:M[1]};
 }
 
+/**
+ * @return { boolean } true, if customer's device is iPad, iPhone or Android
+ */
 export function isTouch() {
   return navigator.userAgent.match(/iPad|iPhone|Android/i);
 }
 
+/**
+ * @return { boolean } true, if customer's device is iPad or iPhone
+ */
 export function isIOS() {
   return navigator.userAgent.match(/iPad|iPhone/i);
 }
 
+/**
+ * @return { boolean } true, if viewport width is mobile
+ */
 export function isMobile() {
     return window.innerWidth < 768
 }
+
+/**
+ * @return { boolean } true, if viewport width is tablet
+ */
 export function isTablet() {
     return window.innerWidth < 1025 && window.innerWidth > 767
 }
+
+/**
+ * @return { boolean } true, if viewport width is desktop
+ */
 export function isDesktop() {
     return window.innerWidth > 1024
 }
+
+/**
+ * @return { boolean } true, if viewport width is mobile and device has IOS
+ */
 export function isSafariMobile(){
     return isIOS() && isMobile();
 }
