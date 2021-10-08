@@ -6,6 +6,12 @@
 @import "mixins/media";
 @import "generated/**/*";
 
+// Animations styles
+@import "common/animations";
+
+// Libs
+@import "../../node_modules/swiper/swiper";
+
 // Common styles
 @import "common/general";
 @import "common/typo";
@@ -17,10 +23,5 @@
 @import "blocks/header";
 @import "blocks/footer";
 
-// Pages styles
-@import "pages/pages";
 // Home Page styles
 @import "pages/home/hero";
-
-// Animations styles
-@import "common/animations";
