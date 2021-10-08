@@ -1,6 +1,7 @@
 const gulp = require('gulp');
 const {series, parallel, task, watch} = require('gulp');
 const sass = require('gulp-sass')(require('node-sass'));
+const sassGlob = require('gulp-sass-glob');
 const ns = require('node-sass');
 const rename = require('gulp-rename');
 const sourcemaps = require('gulp-sourcemaps');
@@ -26,6 +27,7 @@ function scss(cb) {
   return gulp
     .src(config.src.sass + '/*.{sass,scss}')
     .pipe(sourcemaps.init())
+    .pipe(sassGlob())
     .pipe(sass({
         outputStyle: config.production ? 'compact' : 'expanded', // nested, expanded, compact, compressed
         precision: 5
