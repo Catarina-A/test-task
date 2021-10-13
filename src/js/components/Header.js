@@ -1,9 +1,7 @@
 export default class {
   constructor() {
-    this.header = document.getElementById('header');
+    this.header = document.querySelector('.header');
   }
-
-  // mobile menu control
 
   openMobileMenu() {
   }

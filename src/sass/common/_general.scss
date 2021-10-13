@@ -1,0 +1,19 @@
+html, body {
+  font-family: $font-default;
+  font-weight: 400;
+  color: $c-black;
+}
+
+main {
+    width: 100%;
+}
+
+img, video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button, a, [class*=button], [class*=btn], [class*=link], [type*=submit] {
+  cursor: pointer;
+}

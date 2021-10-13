@@ -1,6 +1,7 @@
 export default class {
   constructor(props) {
     this.container = props.container;
+    this.fixedHeader = props.fixedHeader;
     this.aside = props.aside;
     this.navSticky = 'sticky';
     this.navBottom = 'bottom';
@@ -33,12 +34,14 @@ export default class {
     const containerRectTop = this.container.getBoundingClientRect().top;
     const asideHeight = this.aside.clientHeight;
     const containerHeight = this.container.clientHeight;
+    let headerHeight = 0;
+
+    this.fixedHeader?headerHeight = document.querySelector('.header').offsetHeight:false
 
     if (asideHeight >= containerHeight) {
       this.makeFree();
     } else {
-      if (containerRectTop <= this.asideCssTop) {
-
+      if (containerRectTop - headerHeight <= this.asideCssTop) {
         if (containerRectTop + containerHeight <= asideHeight) {
           this.makeBottom();
         } else {
