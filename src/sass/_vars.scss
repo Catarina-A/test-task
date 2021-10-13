@@ -2,8 +2,8 @@
 $b-mobile-mini: 479px;
 $b-mobile-midi: 639px;
 $b-mobile: 767px;
-$b-tablet: 895px;
-$b-tablet-maxi: 1055px;
+$b-tablet: 894px;
+$b-tablet-maxi: 1054px;
 $b-labtop-mini: 1299px;
 $b-laptop: 1439px;
 $b-desktop: 1899px;
@@ -39,9 +39,10 @@ input[type="month"], input[type="time"], input[type="week"], textarea';
 
 // z-index
 $z-index: (
+  cursor    : 100000000,
   modal     : 1200,
   overlay   : 1100,
-  header    : 1000, 
+  header    : 1000,
   footer    : 900,
   dropdown  : 800
 );
