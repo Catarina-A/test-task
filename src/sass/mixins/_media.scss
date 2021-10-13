@@ -30,6 +30,38 @@
   }
 }
 
+@mixin m-height($min: null, $max: null) {
+  @if $min == null {
+    @media (max-height: $max) {
+      @content;
+    }
+  } @else if $max == null {
+    @media (min-height: $min) {
+      @content;
+    }
+  } @else {
+    @media (min-height: $min) and (max-height: $max) {
+      @content;
+    }
+  }
+}
+
+@mixin m-ratio($min: null, $max: null) {
+  @if $min == null {
+    @media (max-aspect-ratio: $max) {
+      @content;
+    }
+  } @else if $max == null {
+    @media (min-aspect-ratio: $min) {
+      @content;
+    }
+  } @else {
+    @media (min-aspect-ratio: $min) and (max-aspect-ratio: $max) {
+      @content;
+    }
+  }
+}
+
 @mixin m-down($breakpoint) {
   @include media($max: $breakpoint) {
     @content;
