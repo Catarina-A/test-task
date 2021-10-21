@@ -44,16 +44,16 @@ export function isTouch() {
 /**
  * @return { boolean } true, if customer's device is iPad or iPhone
  */
-export function isIOS() {
-  return navigator.userAgent.match(/iPad|iPhone/i);
-}
+ export function isTouch() {
+   return navigator.userAgent.match(/iPad|iPhone|Android/i) || (navigator.userAgent.includes("Mac") && "ontouchend" in document);
+ }
 
-/**
- * @return { boolean } true, if viewport width is mobile
- */
-export function isMobile() {
-    return window.innerWidth < 768
-}
+ /**
+  * @return { boolean } true, if customer's device is iPad or iPhone
+  */
+ export function isIOS() {
+   return navigator.userAgent.match(/iPad|iPhone/i) || (navigator.userAgent.includes("Mac") && "ontouchend" in document);
+ }
 
 /**
  * @return { boolean } true, if viewport width is tablet
