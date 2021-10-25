@@ -6,6 +6,7 @@ props: {
   selector: (String)
   offset: (Number)
   idAttr: (String)
+  callback: (function)
 }
 */
 
@@ -33,7 +34,8 @@ export function scrollTo(props) {
           scrollTo: {
             y: id,
             offsetY: offset,
-          }
+          },
+          onComplete: props.callback
         });
       }
     })
