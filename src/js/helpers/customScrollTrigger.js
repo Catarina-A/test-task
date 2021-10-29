@@ -1,6 +1,15 @@
+/**
+ * @param { Object } props - Full list of parameters
+ * @param { HTMLElem[] } props.elems
+ * @param { string } [props.triggerSel=props.elems[i]] - Selector of element ancestor that will be trigger for run callback
+ * @param { HTMLElem } [props.scrollWrapper=document] = Container to track scrolling
+ * @param { (number|string) } [props.triggerPoint=document.documentElement.clientHeight] - Number of pixels or Number + '%' for percent of window height is point on window, upon reaching which callback is run
+ * @callback callback
+ */
+ /**
+ * @param { callback } props.callback - Function that is executed when scrolling past the trigger
+ */
 export default (props) => {
-  // props = {elems, callback, triggerSel(optional), scrollWrapper(optional), triggerPoint(optional)}
-  // props.triggerPoint(types): number, string(%)
   if (props.elems.length) {
     const wrapper = props.scrollWrapper ? props.scrollWrapper : document;
     props.elems.forEach((elem, i) => {
