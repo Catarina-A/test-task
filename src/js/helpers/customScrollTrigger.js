@@ -1,4 +1,5 @@
 /**
+ * Fire function with elem when scolling over trigger
  * @param { Object } props - Full list of parameters
  * @param { HTMLElem[] } props.elems
  * @param { string } [props.triggerSel=props.elems[i]] - Selector of element ancestor that will be trigger for run callback
