@@ -1,3 +1,6 @@
+/**
+* Remove hover effects on touch devices for elements with 'data-no-hover-on-touch' attribute. Add for this elements class 'no-hover'.
+*/
 export default function() {
 
   setTimeout(() => {

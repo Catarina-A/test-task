@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {getCookie, setCookie, deleteCookie, listCookies} from '../helpers/cookie-scripts'
+import {getCookie, setCookie, deleteCookie, listCookies} from './cookie-scripts'
 
 export default () => {
     const instaUser = 'georgesmithfurniture';

@@ -1,15 +1,17 @@
 import { gsap } from 'gsap';
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
-/*
-props: {
-  selector: (String)
-  offset: (Number)
-  idAttr: (String)
-  callback: (function)
-}
+/**
+* Animated scrolling to anchor
+* @param { Object } props - List of function parameters
+* @param { string } [props.selector='a[href^="#"]'] - Selector of anchor links
+* @param { number } [props.offset=0] - Offset (in pixels) that will be between the top border of the window and the target after scrolling is complete
+* @param { string } [props.idAttr='href'] - Attribute that contains id of target element
+* @callback callback
 */
-
+/**
+* @param { callback } props.callback - Function that will be executed when page scrolling finished
+*/
 export function scrollTo(props) {
   gsap.registerPlugin(ScrollToPlugin);
 

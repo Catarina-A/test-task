@@ -4,7 +4,6 @@
 @import "vars";
 @import "mixins/general";
 @import "mixins/media";
-@import "libs/swiper";
 
 // Common styles
 @import "common/default";
@@ -17,8 +16,6 @@
 @import "blocks/header";
 @import "blocks/footer";
 
-// Pages styles
-@import "pages/pages";
 // Home Page styles
 @import "pages/home/hero";
 

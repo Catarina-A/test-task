@@ -1,15 +1,24 @@
 import axios from 'axios';
-import serialize from '../helpers/form-serialaize';
-//import jsonpAdapter from 'axios-jsonp';
+import serialize from './form-serialaize';
 import qs from 'qs';
 //import jsonpAdapter from 'axios-jsonp';
 
+/**
+* Sending form
+* @class
+* @param { Object } props - List of parameters
+* @param { HTMLElement } props.form - Form that will be sending
+* @param { string } [props.actionAttr='data-action'] - Attribute that contains form url
+* @param { string } [props.processingClass='processing'] - Class form applying during form sending
+* @param { string } [props.successClass='success'] - Class for applying after success sending
+* @param { string } [props.errorClass='error'] - Class for applying after error sending
+*/
 export default class {
   constructor(props) {
-    this.ATTR = 'data-action';
-    this.ERROR = 'error';
-    this.SUCCESS = 'success';
-    this.PROCESSING = 'processing';
+    this.ATTR = props.actionAttr || 'data-action';
+    this.PROCESSING = props.processingClass || 'processing';
+    this.SUCCESS = props.successClass || 'success';
+    this.ERROR = props.errorClass || 'error';
     this.$form = props.$form;
     this.url = null;
     this.submitHandler = null;
@@ -52,7 +61,6 @@ export default class {
           'content-type': 'application/x-www-form-urlencoded',
         },
         url: this.url,
-        //params: this.formData,
         //adapter: jsonpAdapter,
         data: qs.stringify(this.formData),
       });
@@ -77,7 +85,7 @@ export default class {
   init() {
     try {
       this.url = this.$form.getAttribute(this.ATTR);
-      this.$form.removeAttribute('data-action');
+      this.$form.removeAttribute(this.ATTR);
       this.submitHandler = this.handleSubmit.bind(this);
       this.$form.addEventListener('submit', this.submitHandler);
     } catch (e) {
