@@ -1,3 +1,11 @@
+/**
+* Fire script in current time
+* @param { Object } props
+* @param { string } props.libraryName - ID of script
+* @param { string } props.url - URL of script
+* @param { string } [props.integrity] - Integrity attribute of script
+* @param { string } [props.crossorigin] - Crossorigin attribute of script
+*/
 export default (props) => {
   return new Promise((resolve, reject) => {
     const existingScript = document.getElementById(props.libraryName);

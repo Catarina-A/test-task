@@ -1,3 +1,10 @@
+/**
+* @class Made aside element sticky during scrolling its container
+* @param { Object } props - Full list of parameters
+* @param { HTMLElement } props.container - Element of static wrapper of fixed element
+* @param { boolean } props.fixedHeader - True if header is sticky
+* @param { HTMLElement } props.aside - Element that will be sticky
+*/
 export default class {
   constructor(props) {
     this.container = props.container;
@@ -59,7 +66,6 @@ export default class {
     this.checkAsidePosition();
     this.scrollHandler = this.checkAsidePosition.bind(this);
     window.addEventListener('scroll', this.scrollHandler);
-
   }
 
   destroy() {
