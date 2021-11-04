@@ -1,9 +1,13 @@
 import { gsap } from "gsap";
 
+/**
+* Function for Dropdown and Select. For full docs see link.
+* @see https://wiki.bsgdigital.com/ru/developer/dropdown-js
+*/
 export default ()=>{
 
     const selectArray = document.querySelectorAll('[data-select]');
-    
+
     const SHOW_ELEMENTS = 2;
     if(selectArray.length == 0) {return}
 
@@ -17,7 +21,7 @@ export default ()=>{
         const currentTitle = title.querySelector('span');
         const selectListEl = selectList.querySelectorAll('[data-select-item]');
         let maxHeight = 0;
-        
+
         selectListEl.forEach((element, index) => {
             //set max height to open list
             if(index <= (SHOW_ELEMENTS - 1)){
@@ -43,13 +47,13 @@ export default ()=>{
         document.addEventListener("click", toggleDropdown);
 
         //closes dropdown when click outside
-        function toggleDropdown(event) { 
+        function toggleDropdown(event) {
             if (select.contains(event.target)) return;
             hideFilter();
         }
 
         function showFilter(){
-            
+
             gsap.to(selectList,{
                 height: maxHeight>0?maxHeight: 'auto',
                 onStart: ()=>{
@@ -71,7 +75,7 @@ export default ()=>{
         function setTitle(el){
             currentTitle.innerHTML = el.closest('[data-select-item]').querySelector('span').innerHTML
         }
-        
+
         //If you need to add some functions after select item, please add here your code
         function callbackFunction(option,element){
         }

@@ -1,5 +1,10 @@
 import { gsap } from "gsap";
 
+/**
+* Function for Accordeon - block whose content can be expanded and hidden. For full docs see link.
+* @see https://wiki.bsgdigital.com/ru/developer/accordeon-js
+*/
+
 export default () =>{
 
     const accordeonArray = document.querySelectorAll('[data-accordeon-element]');
@@ -8,7 +13,7 @@ export default () =>{
     accordeonArray.forEach(element => {
         const button = element.querySelector('[data-accordeon-button]');
         const content = element.querySelector('[data-accordeon-content]');
-        
+
         gsap.set(content, {
             height: 0
         })
@@ -23,7 +28,7 @@ export default () =>{
             height: 'auto',
             onStart: ()=>{
                 element.classList.add('is-open');
-                //closeOther(element); 
+                //closeOther(element);
                 //Turn this on, when you need to close other opened accordeons
             }
         })
@@ -37,11 +42,11 @@ export default () =>{
             }
         })
     }
-    
+
     function closeOther(current){
         accordeonArray.forEach(element => {
             const content = element.querySelector('[data-accordeon-content]');
-            element != current? close(element, content): false 
+            element != current? close(element, content): false
         })
     }
 }

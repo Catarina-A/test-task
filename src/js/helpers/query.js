@@ -27,6 +27,7 @@ export function getAll(selector, scope) {
 * @class Made list of HTML-elements and basic functions for them
 * @param { (string|HTMLElement|HTMLElement[]) } elems - Selector, element or list of elements for creating class
 * @param { HTMLElement } [scope=document] - Element in which elements will be searched
+* @see https://wiki.bsgdigital.com/ru/developer/query-js
 */
 class Query {
   constructor(elems, scope) {
@@ -232,7 +233,8 @@ class Query {
 
     setAttr(attr, value) {
       this.each((elem, i) => {
-        elem.setAttribute(attr, value)
+        const val = value || '';
+        elem.setAttribute(attr, val)
       })
     }
 

@@ -1,3 +1,7 @@
+/**
+* Function return scrollbar width. For full docs see link.
+* @see https://wiki.bsgdigital.com/ru/developer/get-scrollbar-width-js
+*/
 export default () => {
   // Creating invisible container
   const outer = document.createElement('div');
