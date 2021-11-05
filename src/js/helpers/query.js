@@ -334,44 +334,6 @@ class Query {
     }
 
   //--> End Events
-
-  //--> Custom functions
-
-    scrollTrigger(props) {
-      customScrollTrigger({
-        elems: this.elems,
-        triggerSel: props.triggerSel,
-        scrollWrapper: props.scrollWrapper,
-        triggerPoint: props.triggerPoint,
-        callback: props.callback
-      });
-    }
-
-    scrollTriggerToggleClass(props) {
-      customScrollTrigger({
-        elems: this.elems,
-        triggerSel: props.triggerSel,
-        scrollWrapper: props.scrollWrapper,
-        triggerPoint: props.triggerPoint,
-        callback: elem => {
-          elem.classList.toggle(props.className);
-        }
-      });
-    }
-
-    scrollTriggerGsapTo(props) {
-      customScrollTrigger({
-        elems: this.elems,
-        triggerSel: props.triggerSel,
-        scrollWrapper: props.scrollWrapper,
-        triggerPoint: props.triggerPoint,
-        callback: elem => {
-          gsap.to(elem, props.animTo);
-        }
-      });
-    }
-
-  //--> End custom functions
 }
 
 /**

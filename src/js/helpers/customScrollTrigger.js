@@ -1,9 +1,10 @@
 /**
  * Fire function with elem when scolling over trigger
+ * @see https://wiki.bsgdigital.com/ru/developer/customScrollTrigger-js
  * @param { Object } props - Full list of parameters
- * @param { HTMLElem[] } props.elems
- * @param { string } [props.triggerSel=props.elems[i]] - Selector of element ancestor that will be trigger for run callback
- * @param { HTMLElem } [props.scrollWrapper=document] = Container to track scrolling
+ * @param { string|Dom7Array|HTMLElement[] } props.elements
+ * @param { string|HTMLElement } [props.trigger=props.elements] - Element or Selector of it ancestor that will be trigger for run callback
+ * @param { string|HTMLElement } [props.scrollWrapper=document] = Container to track scrolling
  * @param { (number|string) } [props.triggerPoint=document.documentElement.clientHeight] - Number of pixels or Number + '%' for percent of window height is point on window, upon reaching which callback is run
  * @callback callback
  */
@@ -11,19 +12,38 @@
  * @param { callback } props.callback - Function that is executed when scrolling past the trigger
  */
 export default (props) => {
-  if (props.elems.length) {
+  let elems;
+  if (typeof props.elements == 'string') {
+    elems = document.querySelectorAll(props.elements);
+  } else {
+    elems = props.elements;
+  }
+  if (elems.length) {
+    let scrollWrapper;
+    if (typeof props.scrollWrapper == 'string') {
+      scrollWrapper = document.querySelectorAll(props.scrollWrapper);
+    } else {
+      scrollWrapper = props.scrollWrapper;
+    }
     const wrapper = props.scrollWrapper ? props.scrollWrapper : document;
-    props.elems.forEach((elem, i) => {
-      showElem(elem, props.triggerSel, props.triggerPoint, props.callback)
+    elems.forEach((elem, i) => {
+      showElem(elem, props.trigger, props.triggerPoint, props.callback)
       wrapper.addEventListener('scroll', () => {
-        showElem(elem, props.triggerSel, props.triggerPoint, props.callback)
+        showElem(elem, props.trigger, props.triggerPoint, props.callback)
       })
     });
   }
 }
 
-function showElem(elem, triggerSel, triggerPoint, func) {
-  const container = triggerSel ? elem.closest(triggerSel) : elem;
+function showElem(elem, trigger, triggerPoint, func) {
+  let container;
+  if (trigger && typeof trigger == 'string') {
+    container = elem.closest(trigger);
+  } else if (trigger) {
+    container = trigger;
+  } else {
+    container = elem;
+  }
   const trigger = container.getBoundingClientRect().top;
   let triggerPointNum;
   if (typeof triggerPoint == 'string' && triggerPoint.indexOf('%') != -1) {
