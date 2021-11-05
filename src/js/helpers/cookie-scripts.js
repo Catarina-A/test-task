@@ -1,4 +1,9 @@
 /**
+ * Documents for all functions see on link
+ * @see https://wiki.bsgdigital.com/ru/developer/cookie-script-js
+ */
+
+/**
  * @return { string } Current host url
  */
 export function homeUrl() {

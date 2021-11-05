@@ -1,5 +1,6 @@
 /**
 * Remove hover effects on touch devices for elements with 'data-no-hover-on-touch' attribute. Add for this elements class 'no-hover'.
+* @see https://wiki.bsgdigital.com/ru/developer/disable-for-touch-devises-js
 */
 export default function() {
 

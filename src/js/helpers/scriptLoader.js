@@ -1,5 +1,6 @@
 /**
-* Fire script in current time
+* Fire new script
+* @see https://wiki.bsgdigital.com/ru/developer/scriptLoader-js
 * @param { Object } props
 * @param { string } props.libraryName - ID of script
 * @param { string } props.url - URL of script

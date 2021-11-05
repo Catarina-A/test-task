@@ -3,6 +3,7 @@ import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
 /**
 * Animated scrolling to anchor
+* @see https://wiki.bsgdigital.com/ru/developer/scroll-to-js
 * @param { Object } props - List of function parameters
 * @param { string } [props.selector='a[href^="#"]'] - Selector of anchor links
 * @param { number } [props.offset=0] - Offset (in pixels) that will be between the top border of the window and the target after scrolling is complete
@@ -11,6 +12,8 @@ import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 */
 /**
 * @param { callback } props.callback - Function that will be executed when page scrolling finished
+* @param { HTMLElement } props.callback.link - Link that fired script
+* @param { HTMLElement } props.callback.section - Target section
 */
 export function scrollTo(props) {
   gsap.registerPlugin(ScrollToPlugin);
@@ -37,7 +40,10 @@ export function scrollTo(props) {
             y: id,
             offsetY: offset,
           },
-          onComplete: props.callback
+          onComplete: () => {
+            const section = document.querySelector(id);
+            props.callback(link, section);
+          }
         });
       }
     })
