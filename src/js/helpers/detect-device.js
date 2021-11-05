@@ -1,4 +1,9 @@
 /**
+ * Description of all function see on link
+ * @see https://wiki.bsgdigital.com/ru/developer/detect-device-js
+ */
+
+/**
  * @return { boolean } true, if customer's OS is Macintosh.
  */
 export function isMacintosh() {
@@ -17,7 +22,7 @@ export function isWindows() {
  * @return { string } browser.name - Can be: Opera, Chrome, Safari, Firefox, IE, Edge etc.
  * @return { number } browser.version - Number of browser version
  */
-export function detectBrowser(){
+export function detectBrowser() {
   let ua = navigator.userAgent, tem,
       M = ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];
   if(/trident/i.test(M[1])){
@@ -38,40 +43,40 @@ export function detectBrowser(){
  * @return { boolean } true, if customer's device is iPad, iPhone or Android
  */
 export function isTouch() {
-  return navigator.userAgent.match(/iPad|iPhone|Android/i);
+  return navigator.userAgent.match(/iPad|iPhone|Android/i) || (navigator.userAgent.includes("Mac") && "ontouchend" in document);
 }
 
 /**
  * @return { boolean } true, if customer's device is iPad or iPhone
  */
- export function isTouch() {
-   return navigator.userAgent.match(/iPad|iPhone|Android/i) || (navigator.userAgent.includes("Mac") && "ontouchend" in document);
- }
-
- /**
-  * @return { boolean } true, if customer's device is iPad or iPhone
-  */
  export function isIOS() {
    return navigator.userAgent.match(/iPad|iPhone/i) || (navigator.userAgent.includes("Mac") && "ontouchend" in document);
  }
 
 /**
+ * @return { boolean } true, if viewport width is mobile
+ */
+export function isMobile() {
+    return window.innerWidth < 768;
+}
+
+/**
  * @return { boolean } true, if viewport width is tablet
  */
 export function isTablet() {
-    return window.innerWidth < 1025 && window.innerWidth > 767
+    return window.innerWidth < 1025 && window.innerWidth > 767;
 }
 
 /**
  * @return { boolean } true, if viewport width is desktop
  */
 export function isDesktop() {
-    return window.innerWidth > 1024
+    return window.innerWidth > 1024;
 }
 
 /**
  * @return { boolean } true, if viewport width is mobile and device has IOS
  */
-export function isSafariMobile(){
+export function isSafariMobile() {
     return isIOS() && isMobile();
 }
