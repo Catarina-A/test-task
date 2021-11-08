@@ -2,17 +2,21 @@
 * @class Made aside element sticky during scrolling its container
 * @param { Object } props - Full list of parameters
 * @param { HTMLElement } props.container - Element of static wrapper of fixed element
-* @param { boolean } props.fixedHeader - True if header is sticky
 * @param { HTMLElement } props.aside - Element that will be sticky
+* @param { HTMLElement } [props.fixedHeader] - Element of sticky header if exist
+* @param { string } [props.navSticky='sticky'] - Class that positions aside sticky
+* @param { string } [props.navBottom='bottom'] - Class that positions aside bottom
+* @param { number } [props.asideCssTop=0] - Vertical point from top of window when aside will be fixed
+* @see https://wiki.bsgdigital.com/ru/developer/fixed-aside-js
 */
 export default class {
   constructor(props) {
     this.container = props.container;
-    this.fixedHeader = props.fixedHeader;
     this.aside = props.aside;
-    this.navSticky = 'sticky';
-    this.navBottom = 'bottom';
-    this.asideCssTop = 0;
+    this.fixedHeader = props.fixedHeader;
+    this.navSticky = props.navSticky || 'sticky';
+    this.navBottom = props.navBottom || 'bottom';
+    this.asideCssTop = props.asideCssTop || 0;
     this.scrollHandler = null;
   }
 
@@ -43,7 +47,7 @@ export default class {
     const containerHeight = this.container.clientHeight;
     let headerHeight = 0;
 
-    this.fixedHeader?headerHeight = document.querySelector('.header').offsetHeight:false
+    this.fixedHeader?headerHeight = this.fixedHeader.offsetHeight:false
 
     if (asideHeight >= containerHeight) {
       this.makeFree();

@@ -12,6 +12,7 @@ import qs from 'qs';
 * @param { string } [props.processingClass='processing'] - Class form applying during form sending
 * @param { string } [props.successClass='success'] - Class for applying after success sending
 * @param { string } [props.errorClass='error'] - Class for applying after error sending
+* @see https://wiki.bsgdigital.com/ru/developer/form-js-form-serialaize-js
 */
 export default class {
   constructor(props) {
@@ -45,6 +46,7 @@ export default class {
   }
 
   handleReset() {
+    this.$form.classList.remove(this.ERROR);
     this.$form.classList.remove(this.SUCCESS);
   }
 
