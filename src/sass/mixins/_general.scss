@@ -129,7 +129,7 @@ $rem-base: 18px;
     height: calc(var(--vh, 1vh) * 100);
 }
 
-@mixin hover() {
+@mixin hover {
     @media not all and (hover: none) {
         &:hover {
             @content;
