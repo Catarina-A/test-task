@@ -67,7 +67,8 @@ export default (props) => {
     }
 
     function closeOther(current) {
-        accordeonArray.forEach(element => {
+		const group = current.closest('[data-accordeon-wrapper]');
+        group.querySelectorAll('[data-accordeon-element]').forEach(element => {
             const content = element.querySelector('[data-accordeon-content]');
             element != current ? close(element, content) : false
         })
