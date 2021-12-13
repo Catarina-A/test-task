@@ -17,3 +17,7 @@ img, video, svg {
 button, a, [class*=button], [class*=btn], [class*=link], [type*=submit] {
   cursor: pointer;
 }
+
+[data-accordeon-content] {
+  overflow: hidden;
+}
