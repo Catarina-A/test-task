@@ -2,7 +2,7 @@
 * Collecting form data
 * @param { HTMLElement } form - Form element for collecting data
 * @return { Object } Collection, where key is the name of the field and value is its value
-* @see https://wiki.bsgdigital.com/ru/developer/form-js-form-serialaize-js
+* @see https://wiki.bsgdigital.com/ru/onboarding/developer/front-end/template/form-js-form-serialaize-js
 */
 export default form => {
 

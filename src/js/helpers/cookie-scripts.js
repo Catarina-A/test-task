@@ -1,6 +1,6 @@
 /**
  * Documents for all functions see on link
- * @see https://wiki.bsgdigital.com/ru/developer/cookie-script-js
+ * @see hhttps://wiki.bsgdigital.com/ru/onboarding/developer/front-end/template/cookie-script-js
  */
 
 /**

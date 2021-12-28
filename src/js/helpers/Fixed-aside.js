@@ -7,7 +7,7 @@
 * @param { string } [props.navSticky='sticky'] - Class that positions aside sticky
 * @param { string } [props.navBottom='bottom'] - Class that positions aside bottom
 * @param { number } [props.asideCssTop=0] - Vertical point from top of window when aside will be fixed
-* @see https://wiki.bsgdigital.com/ru/developer/fixed-aside-js
+* @see https://wiki.bsgdigital.com/ru/onboarding/developer/front-end/template/fixed-aside-js
 */
 export default class {
   constructor(props) {

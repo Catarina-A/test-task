@@ -1,6 +1,6 @@
 /**
  * Description of all function see on link
- * @see https://wiki.bsgdigital.com/ru/developer/detect-device-js
+ * @see https://wiki.bsgdigital.com/ru/onboarding/developer/front-end/template/detect-device-js
  */
 
 /**

@@ -1,6 +1,6 @@
 /**
  * Fire function with elem when scolling over trigger
- * @see https://wiki.bsgdigital.com/ru/developer/customScrollTrigger-js
+ * @see https://wiki.bsgdigital.com/ru/onboarding/developer/front-end/template/customScrollTrigger-js
  * @param { Object } props - Full list of parameters
  * @param { string|Dom7Array|HTMLElement[] } props.elements
  * @param { string|HTMLElement } [props.trigger=props.elements] - Element or Selector of it ancestor that will be trigger for run callback

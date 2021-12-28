@@ -1,6 +1,6 @@
 /**
 * Function return scrollbar width. For full docs see link.
-* @see https://wiki.bsgdigital.com/ru/developer/get-scrollbar-width-js
+* @see https://wiki.bsgdigital.com/ru/onboarding/developer/front-end/template/get-scrollbar-width-js
 */
 export default () => {
   // Creating invisible container

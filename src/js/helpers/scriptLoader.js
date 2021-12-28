@@ -1,6 +1,6 @@
 /**
 * Fire new script
-* @see https://wiki.bsgdigital.com/ru/developer/scriptLoader-js
+* @see https://wiki.bsgdigital.com/ru/onboarding/developer/front-end/template/scriptLoader-js
 * @param { Object } props
 * @param { string } props.libraryName - ID of script
 * @param { string } props.url - URL of script

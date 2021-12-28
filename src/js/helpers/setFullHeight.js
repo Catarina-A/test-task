@@ -1,6 +1,6 @@
 /**
 * Set VH variable for mobile safari 100VH. Use scss mixin fullheight().
-* @see https://wiki.bsgdigital.com/ru/developer/setFullHeight-js
+* @see https://wiki.bsgdigital.com/ru/onboarding/developer/front-end/template/setFullHeight-js
 */
 export default () => {
 

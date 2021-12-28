@@ -2,7 +2,7 @@ import { gsap } from "gsap";
 
 /**
 * Function for Dropdown and Select. For full docs see link.
-* @see https://wiki.bsgdigital.com/ru/developer/dropdown-js
+* @see https://wiki.bsgdigital.com/ru/onboarding/developer/front-end/template/dropdown-js
 * @param { Object } [props] - Full list of properties
 * @param { number } [props.showElements=0] - How many elements show when dropdown is open. If 0 will show full list.
 * @param { number } [props.duration=0.5] - Dropdown animation duration in seconds
