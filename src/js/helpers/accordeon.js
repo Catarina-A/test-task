@@ -2,7 +2,7 @@ import { gsap } from "gsap";
 
 /**
 * Function for Accordeon - block whose content can be expanded and hidden. For full docs see link.
-* @see https://wiki.bsgdigital.com/ru/developer/accordeon-js
+* @see https://wiki.bsgdigital.com/ru/onboarding/developer/front-end/template/accordeon-js
 * @param { Object } [props] - Full list of properties
 * @param { boolean } [props.needCloseOther=true] - Set to true if you want close other accorders when current open
 * @param { number } [props.duration=0.5] - Accordeon animation duration in seconds

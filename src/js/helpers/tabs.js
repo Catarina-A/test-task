@@ -1,112 +1,107 @@
+import { gsap } from "gsap";
+
 /**
 * Function for Tabs - add and removes active buttons and contents classes, content tabs should be absolute. For full docs see link.
-* @param { string } butons - Buttons that select tabs
-* @param { string } tabs - Tabs
-* @param { string } wrapper - Tabs parent wrapper (need to set the height of biggest tab, optional) 
-* @see https://wiki.bsgdigital.com/ru/developer/tabs
+* @param { Object } props - Full list of properties
+* @param { boolean|Object } [animated=false] - If false tabs will change no-animated
+* @param { Object } [animated.open] - Object list with gsap properties for last stage of showing tab
+* @param { Object } [animated.close] - Object list with gsap properties for last stage of hidding tabs
+* @param { number } [props.duration=0.5] - Tabs animation duration in seconds
+* @param { string } [props.ease="power1.out"] - Name of gsap ease function for tabs animation
+* @param { number } [props.delay=0] - Tabs animation delay in seconds
+* @param { callback } [props.onComplete] - Callback when tabs animation completed
+* @see https://wiki.bsgdigital.com/ru/onboarding/developer/front-end/template/tabs
 */
+export default function (props) {
+	const tabWrappers = document.querySelectorAll('[data-tab-wrapper]');
 
-export function tabSimple(buttons, tabs, wrapper){
-    const tabButtons = document.querySelectorAll(buttons);
-    const tabContent = document.querySelectorAll(tabs);
-    const tabContentWrapper = document.querySelector(wrapper);
+	if (tabWrappers.length == 0) return;
 
-    let containerHeight = 0;
+	if (!props) props = {};
 
-    tabButtons.length > 0 && tabContent.length > 0 ? tabHandle():false;
+	const ANIM_PROP = props.animated || false;
+	const ANIM_DUR = props.duration || 0.5;
+	const ANIM_EASE = props.ease || "power1.out";
+	const ANIM_DELAY = props.delay || 0;
+	const onAnimComplete = props.onComplete;
 
-    function tabHandle(){
-        
-        tabContentWrapper? setWrapperHeight():false;
+	tabWrappers.forEach((tabWrapper, i) => {
 
-        setActiveAnchor(tabButtons[0].dataset.tabActive);
+		const tabButtons = tabWrapper.querySelectorAll('[data-tab-button]');
+		const tabContainer = tabWrapper.querySelector('[data-tab-container]');
+		const tabContents = tabWrapper.querySelectorAll('[data-tab-content]');
 
-        tabButtons.forEach(button =>{
-            button.addEventListener('click', ()=>{
-                const activeTab = button.dataset.tabActive;
+		tabButtons.length > 0 && tabContents.length > 0 ? tabHandle(tabButtons, tabContainer, tabContents) : false;
+
+	});
+
+    function tabHandle(tabButtons, tabContainer, tabContents) {
+
+		let containerHeight = 0;
+
+        tabContainer ? setWrapperHeight() : false;
+
+        setActiveAnchor(tabButtons[0].dataset.tabButton);
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const activeTab = button.dataset.tabButton;
                 setActiveAnchor(activeTab);
             })
         })
 
         function setWrapperHeight() {
-            tabContent.forEach(content =>{
-                content.scrollHeight> containerHeight? containerHeight = content.scrollHeight: false
-                tabContent[0].classList.add('is-active');
+            tabContents.forEach(content => {
+                content.scrollHeight> containerHeight ? containerHeight = content.scrollHeight : false
+                tabContents[0].classList.add('is-active');
             })
-            tabContentWrapper.style.height = containerHeight + 'px';
+            tabContainer.style.height = containerHeight + 'px';
         }
-        
-        function setActiveAnchor(anchor){
-            tabButtons.forEach(but =>{
+
+        function setActiveAnchor(anchor) {
+            tabButtons.forEach(but => {
                 but.classList.remove('is-active')
             })
-            tabContent.forEach((tab, ind) =>{
-                const tabName = tab.dataset.tabName;
-                if(tabName == anchor){
-                    tab.classList.add('is-active');
-                    tabButtons[ind].classList.add('is-active');
-                } else {
-                    tab.classList.remove('is-active');
-                }
-            })
-        }
-    }
-}
-
-import { gsap } from "gsap";
-export function tabAnimations(buttons, contents, wrapper){
-    const tabButtons = document.querySelectorAll(buttons);
-    const tabContent = document.querySelectorAll(contents);
-    const tabContentWrapper = document.querySelector(wrapper);
-
-    let containerHeight = 0;
-
-    tabButtons.length > 0 && tabContent.length > 0 ? tabHandle():false;
-
-    function tabHandle(){
-
-        tabContentWrapper? setWrapperHeight():false;
-
-        setActiveAnchor(tabButtons[0].dataset.tabActive);
-        
-        tabButtons.forEach(button =>{
-            button.addEventListener('click', ()=>{
-                const activeTab = button.dataset.tabActive;
-                setActiveAnchor(activeTab);
-            })
-        })
-
-        function setWrapperHeight() {
-            tabContent.forEach(content =>{
-                content.scrollHeight> containerHeight? containerHeight = content.scrollHeight: false
-                tabContent[0].classList.add('is-active');
-            })
-            tabContentWrapper.style.height = containerHeight + 'px';
-        }
-        
-        function setActiveAnchor(anchor){
-            tabButtons.forEach(but =>{
-                but.classList.remove('is-active')
-            })
-            tabContent.forEach((tab, ind) =>{
-                const tabName = tab.dataset.tabName;
-                if(tabName == anchor){
-                    gsap.to(tab, {
-                        y: 0,
-                        opacity: 1,
-                        onStart: ()=> {
-                            tab.classList.add('is-active');
-                            tabButtons[ind].classList.add('is-active')
-                        }
-                    })
-                    
-                } else {
-                    gsap.to(tab, {
-                        y: 50,
-                        opacity: 0,
-                        onComplete: ()=> tab.classList.remove('is-active')
-                    })
-                }
+            tabContents.forEach((tab, ind) => {
+                const tabContent = tab.dataset.tabContent;
+				if (!ANIM_PROP) {
+					if (tabContent == anchor) {
+	                    tab.classList.add('is-active');
+	                    tabButtons[ind].classList.add('is-active');
+	                } else {
+	                    tab.classList.remove('is-active');
+	                }
+				} else {
+					const animSettings = {
+						duration: ANIM_DUR,
+						ease: ANIM_EASE,
+						delay: ANIM_DELAY,
+					};
+					if (tabContent == anchor) {
+						let animTo = ANIM_PROP.open;
+						const callbacks = {
+							onStart: ()=> {
+	                            tab.classList.add('is-active');
+	                            tabButtons[ind].classList.add('is-active')
+	                        },
+							onComplete: () => {
+								if (onAnimComplete) onAnimComplete();
+							}
+						};
+						Object.assign(animTo, animSettings, callbacks)
+	                    gsap.to(tab, animTo)
+	                } else {
+						let animTo = ANIM_PROP.close;
+						const callbacks = {
+							onComplete: ()=> {
+								tab.classList.remove('is-active');
+								if (onAnimComplete) onAnimComplete();
+							}
+						};
+						Object.assign(animTo, animSettings, callbacks)
+	                    gsap.to(tab, animTo)
+	                }
+				}
             })
         }
     }
