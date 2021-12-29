@@ -1,0 +1,21 @@
+[data-tab-button] {
+	cursor: pointer;
+}
+
+[data-tab-container] {
+	position: relative;
+}
+
+[data-tab-content] {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	pointer-events: none;
+	opacity: 0;
+
+	&.is-active {
+		pointer-events: auto;
+		opacity: 1;
+	}
+}

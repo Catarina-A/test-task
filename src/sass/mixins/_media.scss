@@ -1,75 +1,143 @@
-@mixin media($min: null, $max: null) {
-  @if $min == null {
-    @media (max-width: $max) {
-      @content;
-    }
-  } @else if $max == null {
-    @media (min-width: $min) {
-      @content;
-    }
-  } @else {
-    @media (min-width: $min) and (max-width: $max) {
-      @content;
-    }
-  }
+@mixin media($min: null, $max: null, $orient: null) {
+	@if $min == null and $orient == null {
+		@media (max-width: $max) {
+			@content;
+		}
+	}
+
+	@else if $max == null and $orient == null {
+		@media (min-width: $min) {
+			@content;
+		}
+	}
+
+	@else if $min == null and $max == null {
+		@media (orientation: $orient) {
+			@content;
+		}
+	}
+
+	@else if $orient == null {
+		@media (min-width: $min) and (max-width: $max) {
+			@content;
+		}
+	}
+
+	@else if $min == null {
+		@media (max-width: $max) and (orientation: $orient) {
+			@content;
+		}
+	}
+
+	@else if $max == null {
+		@media (min-width: $min) and (orientation: $orient) {
+			@content;
+		}
+	}
+
+	@else {
+		@media (min-width: $min) and (max-width: $max) and (orientation: $orient) {
+			@content;
+		}
+	}
+}
+
+@mixin m-height($min: null, $max: null) {
+	@if $min == null {
+		@media (max-height: $max) {
+			@content;
+		}
+	}
+
+	@else if $max == null {
+		@media (min-height: $min) {
+			@content;
+		}
+	}
+
+	@else {
+		@media (min-height: $min) and (max-height: $max) {
+			@content;
+		}
+	}
+}
+
+@mixin m-ratio($min: null, $max: null) {
+	@if $min == null {
+		@media (max-aspect-ratio: $max) {
+			@content;
+		}
+	}
+
+	@else if $max == null {
+		@media (min-aspect-ratio: $min) {
+			@content;
+		}
+	}
+
+	@else {
+		@media (min-aspect-ratio: $min) and (max-aspect-ratio: $max) {
+			@content;
+		}
+	}
 }
 
 @mixin m-down($breakpoint) {
-  @include media($max: $breakpoint) {
-    @content;
-  }
+	@include media($max: $breakpoint) {
+		@content;
+	}
 }
 
 @mixin m-up($breakpoint) {
-  @include media($min: $breakpoint+1px) {
-    @content;
-  }
+	@include media($min: $breakpoint+1px) {
+		@content;
+	}
 }
 
 @mixin desktopMaxi {
 	@include m-up($b-desktop) {
-    @content;
-  }
+		@content;
+	}
 }
 
 @mixin laptop {
 	@include m-down($b-laptop) {
-    @content;
-  }
+		@content;
+	}
 }
 
 @mixin miniLaptop {
-  @include m-down($b-labtop-mini) {
-    @content;
-  }
+	@include m-down($b-labtop-mini) {
+		@content;
+	}
 }
 
 @mixin tabletMaxi {
-  @include m-down($b-tablet-maxi) {
-    @content;
-  }
+	@include m-down($b-tablet-maxi) {
+		@content;
+	}
 }
 
 @mixin tablet {
-  @include m-down($b-tablet) {
-    @content;
-  }
+	@include m-down($b-tablet) {
+		@content;
+	}
 }
 
 @mixin mobile {
-  @include m-down($b-mobile) {
-    @content;
-  }
+	@include m-down($b-mobile) {
+		@content;
+	}
 }
 
 @mixin portrait {
-  @media (orientation: portrait) {
-    @content;
-  }
+	@include media($orient: portrait) {
+		@content;
+	}
 }
 
 @mixin landscape {
-  @media (orientation: landscape) {
-    @content;
-  }
+	@include media($orient: landscape) {
+		@content;
+	}
 }

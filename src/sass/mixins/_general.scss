@@ -1,56 +1,62 @@
 $rem-base: 18px;
 
 @function strip-unit($num) {
-  @return $num / ($num * 0 + 1);
+	@return $num / ($num * 0 + 1);
 }
 
 @function convert-to-rem($value, $base-value: $rem-base) {
-  $value: strip-unit($value) / strip-unit($base-value) * 1rem;
-  @if ($value == 0rem) {
-    $value: 0;
-  }
-  // Turn 0rem into 0
-  @return $value;
+	$value: strip-unit($value) / strip-unit($base-value) * 1rem;
+
+	@if ($value == 0) {
+		$value: 0;
+	}
+	// Turn 0rem into 0
+	@return $value;
 }
 
 @function rem-calc($values, $base-value: $rem-base) {
-  $max: length($values);
-  @if $max == 1 {
-    @return convert-to-rem(nth($values, 1), $base-value);
-  }
-  $remValues: ();
-  @for $i from 1 through $max {
-    $remValues: append($remValues, convert-to-rem(nth($values, $i), $base-value));
-  }
-  @return $remValues;
+	$max: length($values);
+
+	@if $max == 1 {
+		@return convert-to-rem(nth($values, 1), $base-value);
+	}
+	$remValues: ();
+
+	@for $i from 1 through $max {
+		$remValues: append($remValues, convert-to-rem(nth($values, $i), $base-value));
+	}
+
+	@return $remValues;
 }
 
 @function vh($fraction) {
-  $percent: $fraction * 100vh;
-  @return $percent;
+	$percent: $fraction * 100vh;
+
+	@return $percent;
 }
 
 @function vw($fraction) {
-  $percent: $fraction * 100vw;
-  @return $percent;
+	$percent: $fraction * 100vw;
+
+	@return $percent;
 }
 
 @mixin target-ie11 {
-  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-    @content;
-  }
+	@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+		@content;
+	}
 }
 
 @mixin target-edge {
-  @supports (-ms-ime-align: auto) {
-    @content;
-  }
+	@supports (-ms-ime-align: auto) {
+		@content;
+	}
 }
 
 @mixin target-safari {
-  @media not all and (min-resolution: .001dpcm) {
-    @content;
-  }
+	@media not all and (min-resolution: .001dpcm) {
+		@content;
+	}
 }
 
 /*
@@ -60,63 +66,93 @@ $rem-base: 18px;
   or object-fit and object-position:
   @include object-fit(cover, top);
 */
-@mixin object-fit($fit: fill, $position: null){
-  -o-object-fit: $fit;
-     object-fit: $fit;
-  @if $position {
-	  -o-object-position: $position;
-	     object-position: $position;
-  	font-family: 'object-fit: #{$fit}; object-position: #{$position}';
-  } @else {
-  	font-family: 'object-fit: #{$fit}';
-  }
+@mixin object-fit($fit: fill, $position: null) {
+	-o-object-fit: $fit;
+	object-fit: $fit;
+
+	@if $position {
+		-o-object-position: $position;
+		object-position: $position;
+		font-family: "object-fit: #{$fit}; object-position: #{$position}";
+	}
+
+	@else {
+		font-family: "object-fit: #{$fit}";
+	}
 }
 
 @mixin absolute-full-width {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 }
 
 @mixin absolute-background {
-  @include absolute-full-width;
+	@include absolute-full-width;
 
-  img, svg, video {
-    width: 100%;
-    height: 100%;
-    @include object-fit(cover);
-  }
+	img,
+	svg,
+	video {
+		width: 100%;
+		height: 100%;
+
+		@include object-fit(cover);
+	}
 }
 
 @mixin absolute-pseudo-full {
-  content: "";
-  @include absolute-full-width;
+	content: "";
+
+	@include absolute-full-width;
 }
 
-@mixin aspect-ratio($arg) {
-    position: relative;
-  
-    &::before {
-      display: block;
-      width: 100%;
-      padding-top: percentage(1/$arg);
-      content: '';
-    }
+@mixin aspect-ratio($arg: 1, $arg2: null) {
+	position: relative;
+
+	&::before {
+		display: block;
+		width: 100%;
+
+		@if $arg2 == null {
+			@if unit($arg) == "%" {
+				padding-top: $arg;
+			}
+
+			@else {
+				padding-top: percentage(1/$arg);
+			}
+		}
+
+		@else {
+			padding-top: percentage(strip-unit($arg)/strip-unit($arg2));
+		}
+
+		content: "";
+	}
 }
 
-@mixin pseudo($display: block, $pos: absolute, $content: '') {
-    content: $content;
-    display: $display;
-    position: $pos;
+@mixin pseudo($display: block, $pos: absolute, $content: "") {
+	position: $pos;
+	display: $display;
+	content: $content;
 }
 
-@mixin anim($param: all, $dur: 0.2s, $type: ease-in-out, $delay: 0s) {
-    transition: $param $dur $type $delay;
+@mixin anim($param: all, $dur: .2s, $type: ease-in-out, $delay: 0s) {
+	transition: $param $dur $type $delay;
 }
 
-@mixin fullheight(){
-    height: 100vh;
-    height: calc(var(--vh, 1vh) * 100);
+@mixin fullheight() {
+	height: 100vh;
+	height: calc(var(--vh, 1vh) * 100);
+}
+
+@mixin hover {
+	@media not all and (hover: none) {
+
+		&:hover {
+			@content;
+		}
+	}
 }

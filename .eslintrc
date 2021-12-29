@@ -19,6 +19,8 @@
     "indent": ["warn", "tab"],
     "no-template-curly-in-string": "error",
     "prefer-const": "error",
-    "semi": ["warn", "always"]
+    "semi": ["warn", "always"],
+    "no-useless-escape": "off",
+    "no-undef": "off"
   }
 }
