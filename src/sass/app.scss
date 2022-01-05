@@ -11,8 +11,11 @@
 @import "common/layout";
 @import "common/forms";
 @import "common/buttons";
-@import "common/accordeon";
-@import "common/tabs";
+@import "common/states";
+
+// Styles for JS-helpers
+@import "helpers/accordeon";
+@import "helpers/tabs";
 
 // Blocks styles
 @import "blocks/header";
