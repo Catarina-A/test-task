@@ -1,0 +1,11 @@
+.custom-select {
+	&__name {}
+
+	&__list {}
+
+	&__item {
+		&--disabled {
+			display: none;
+		}
+	}
+}
