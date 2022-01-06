@@ -2,7 +2,7 @@ import dropdown from './dropdown'
 
 /**
 * Function for Custom Select. For full docs see link.
-* @see
+* @see https://wiki.bsgdigital.com/ru/onboarding/developer/front-end/template/custom-select-js
 * @param { Object } [props] - Full list of properties
 * @param { string|HTMLElement|HTMLElement[] } [props.select="select"] - Elements that will be styled
 * @param { string } [props.classPrefix="custom-select"] - Prefix for all styled classes
