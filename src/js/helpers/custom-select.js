@@ -16,8 +16,13 @@ import dropdown from './dropdown'
 * @param { string } [props.dropdownProps.ease="power1.out"] - Name of gsap ease function for dropdown animation
 * @param { number } [props.dropdownProps.delay=0] - Dropdown animation delay in seconds
 * @param { callback } [props.dropdownProps.onAnimComplete] - Callback function that is called after open or close dropdown animation completed
+* @param { callback } [props.dropdownProps.onOptionSelect(option,container)] - Callback function that is called after option is selected
 */
-
+/**
+* @callback props.dropdownProps.onOptionSelect
+* @param { HTMLElement } option - List element that was checked (corresponds to [data-select-item])
+* @param { HTMLElement } container - Container of full dropdown (corresponds to [data-select])
+*/
 export default (props) => {
 
 	if (!props) props = {};
@@ -97,6 +102,9 @@ export default (props) => {
 	function optionSelectCallback(option, container) {
 		const select = container.previousElementSibling;
 		select.value = option.getAttribute('data-select-item');
+		if (dropdownProps.onOptionSelect) {
+			dropdownProps.onOptionSelect(option, container)
+		}
 	}
 
 }
