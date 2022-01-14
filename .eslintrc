@@ -1,6 +1,6 @@
 {
   "extends": "eslint:recommended",
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "env": {
     "browser": true
   },
@@ -19,6 +19,8 @@
     "indent": ["warn", "tab"],
     "no-template-curly-in-string": "error",
     "prefer-const": "error",
+    "no-unused-vars": "warn",
+    "no-inner-declarations": "warn",
     "semi": ["warn", "always"]
   }
 }
