@@ -1,2 +1,3 @@
 _mixins.twig
 src/templates/*.twig
+src/templates/layouts/*.twig
