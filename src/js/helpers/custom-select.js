@@ -1,4 +1,4 @@
-import dropdown from './dropdown'
+import dropdown from './dropdown';
 
 /**
 * Function for Custom Select. For full docs see link.
@@ -30,34 +30,37 @@ export default (props) => {
 	let selects;
 	if (!props.select) {
 		selects = document.querySelectorAll('select');
-	} else if (typeof props.select == 'string') {
-	 	selects = document.querySelectorAll(props.select);
-	} else if (props.select.length && !props.select.tagName) {
-	 	selects = Array.from(props.select);
-	} else if (typeof props.select == 'object' && "tagName" in props.select) {
-	 	selects = [props.select];
+	}
+	else if (typeof props.select === 'string') {
+		selects = document.querySelectorAll(props.select);
+	}
+	else if (props.select.length && !props.select.tagName) {
+		selects = Array.from(props.select);
+	}
+	else if (typeof props.select === 'object' && 'tagName' in props.select) {
+		selects = [props.select];
 	}
 
 	if (!selects || selects.length == 0) return;
 
-	let dropdownProps = props.dropdownProps || {};
+	const dropdownProps = props.dropdownProps || {};
 
-	const dropdownJsSelector = dropdownProps.containers || "[data-form-select]";
-	const buttonJsSelector = dropdownProps.buttonSelector || "[data-select-name]";
-	const listJsSelector = dropdownProps.listSelector || "[data-select-list]";
-	const optionJsSelector = dropdownProps.optionSelector || "[data-select-item]";
+	const dropdownJsSelector = dropdownProps.containers || '[data-form-select]';
+	const buttonJsSelector = dropdownProps.buttonSelector || '[data-select-name]';
+	const listJsSelector = dropdownProps.listSelector || '[data-select-list]';
+	const optionJsSelector = dropdownProps.optionSelector || '[data-select-item]';
 
-	const classPrefix = props.classPrefix || "custom-select";
+	const classPrefix = props.classPrefix || 'custom-select';
 
-	selects.forEach((select, i) => {
-		createNewHTML(select)
+	selects.forEach((select) => {
+		createNewHTML(select);
 	});
 
 	function createNewHTML(select) {
 		const options = select.querySelectorAll('option');
 
 		let dropdownOptionsHTML = '';
-		options.forEach((option, i) => {
+		options.forEach((option) => {
 			const disabled = option.hasAttribute('disabled');
 
 			let additionalClasses = '';
@@ -79,16 +82,16 @@ export default (props) => {
 		}
 
 		const dropdownHTML = `<div class="${classPrefix}" ${dropdownJsSelector.slice(1, -1)}>
-		    <div class="${classPrefix}__name" ${buttonJsSelector.slice(1, -1)}>
-		        <span>${title}</span>
-		    </div>
-		    <div class="${classPrefix}__list" ${listJsSelector.slice(1, -1)}>
-		        ${dropdownOptionsHTML}
-		    </div>
+			<div class="${classPrefix}__name" ${buttonJsSelector.slice(1, -1)}>
+				<span>${title}</span>
+			</div>
+			<div class="${classPrefix}__list" ${listJsSelector.slice(1, -1)}>
+				${dropdownOptionsHTML}
+			</div>
 		</div>`;
 
-		select.classList.add('is-hidden')
-		select.insertAdjacentHTML("afterend", dropdownHTML)
+		select.classList.add('is-hidden');
+		select.insertAdjacentHTML('afterend', dropdownHTML);
 	}
 
 	const onOptionSelect = dropdownProps.onOptionSelect;
@@ -97,16 +100,16 @@ export default (props) => {
 		containers: dropdownJsSelector,
 		onOptionSelect: optionSelectCallback
 	};
-	Object.assign(dropdownProps, dropdownNewProps)
+	Object.assign(dropdownProps, dropdownNewProps);
 
-	dropdown(dropdownProps)
+	dropdown(dropdownProps);
 
 	function optionSelectCallback(option, container) {
 		const select = container.previousElementSibling;
 		select.value = option.getAttribute('data-select-item');
 		if (onOptionSelect) {
-			onOptionSelect(option, container)
+			onOptionSelect(option, container);
 		}
 	}
 
-}
+};
