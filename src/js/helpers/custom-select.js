@@ -91,6 +91,8 @@ export default (props) => {
 		select.insertAdjacentHTML("afterend", dropdownHTML)
 	}
 
+	const onOptionSelect = dropdownProps.onOptionSelect;
+
 	const dropdownNewProps = {
 		containers: dropdownJsSelector,
 		onOptionSelect: optionSelectCallback
@@ -102,8 +104,8 @@ export default (props) => {
 	function optionSelectCallback(option, container) {
 		const select = container.previousElementSibling;
 		select.value = option.getAttribute('data-select-item');
-		if (dropdownProps.onOptionSelect) {
-			dropdownProps.onOptionSelect(option, container)
+		if (onOptionSelect) {
+			onOptionSelect(option, container)
 		}
 	}
 
