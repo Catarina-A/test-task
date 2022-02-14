@@ -9,7 +9,8 @@ function svgToTwig(cb) {
       config.src.img + '/inline/*.svg'
     ], {base: '.'})
     .pipe(svgo({plugins: [
-        { removeAttrs: { attrs: '(data-name|id)' } }
+        { removeAttrs: { attrs: '(data-name|id)' }},
+        { removeViewBox: false }
       ]}))
     .pipe(rename(function (path) {
        path.dirname = './../../'+ config.src.templates + '/svg';

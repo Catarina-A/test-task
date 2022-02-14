@@ -7,12 +7,11 @@ const template = {
        <title># pages list</title>
        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
        <meta name="viewport" content="width=device-width, initial-scale=1" />
-       <link rel="stylesheet" href="/css/app.css" />
      </head>
      <body>
      <style>
        .pages {
-         padding: 50px;
+         padding: 50px 30px;
          font-size: 20px;
          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
          color: #000;
@@ -32,6 +31,13 @@ const template = {
          text-decoration: underline;
          opacity: 0.8;
        }
+       .pages__link {
+         color: #000;
+       }
+       .pages__link:visited {
+         color: #000;
+       }
+       
      </style>
 
        <main class="pages">
