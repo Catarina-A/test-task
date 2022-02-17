@@ -24,18 +24,18 @@ export default (props) => {
 
 	if (!props) props = {};
 
-    let selectArray;
+	let selectArray;
 	if (!props.containers) {
 		selectArray = document.querySelectorAll('[data-select]');
 	} else if (typeof props.containers == 'string') {
-	 	selectArray = document.querySelectorAll(props.containers);
+		selectArray = document.querySelectorAll(props.containers);
 	} else if (props.containers.length && !props.containers.tagName) {
-	 	selectArray = Array.from(props.containers);
+		selectArray = Array.from(props.containers);
 	} else if (typeof props.containers == 'object' && "tagName" in props.containers) {
-	 	selectArray = [props.containers];
+		selectArray = [props.containers];
 	}
 
-    if (!selectArray || selectArray.length == 0) return;
+	if (!selectArray || selectArray.length == 0) return;
 
 	const SHOW_ELEMENTS = props.showElements || 0;
 	const ANIM_DUR = props.duration || 0.5;
@@ -48,49 +48,49 @@ export default (props) => {
 		selectHandle(select);
 	});
 
-    function selectHandle(select) {
+	function selectHandle(select) {
 		const titleSelector = props.buttonSelector || '[data-select-name]';
 		const listSelector = props.listSelector || '[data-select-list]';
 		const optionSelector = props.optionSelector || '[data-select-item]';
 		const title = select.querySelector(titleSelector);
 		const currentTitle = title.querySelector('span');
-        const selectList = select.querySelector(listSelector);
-        const selectItems = selectList.querySelectorAll(optionSelector);
-        let maxHeight = 0;
-
-        selectItems.forEach((element, index) => {
-            if (index <= (SHOW_ELEMENTS - 1)) {
-                maxHeight += element.offsetHeight;
-            }
-        });
-
-        gsap.set(selectList, {
-            height: 0,
-            overflow: maxHeight > 0 ? 'auto' : 'hidden'
-        })
-
-        title.addEventListener('click', () => {
-            select.classList.contains('is-active') ? hideFilter() : showFilter();
-        })
+		const selectList = select.querySelector(listSelector);
+		const selectItems = selectList.querySelectorAll(optionSelector);
+		let maxHeight = 0;
 
 		selectItems.forEach((element, index) => {
-            element.addEventListener('click', event => {
-                setTitle(event.target);
-                onOptionSelect(element, select);
-                hideFilter();
-            })
-        });
+			if (index <= (SHOW_ELEMENTS - 1)) {
+				maxHeight += element.offsetHeight;
+			}
+		});
 
-        document.addEventListener("click", hideFilterOnOuterClick);
+		gsap.set(selectList, {
+			height: 0,
+			overflow: maxHeight > 0 ? 'auto' : 'hidden'
+		})
 
-        function hideFilterOnOuterClick(event) {
-            if (select.contains(event.target)) return;
-            hideFilter();
-        }
+		title.addEventListener('click', () => {
+			select.classList.contains('is-active') ? hideFilter() : showFilter();
+		})
 
-        function showFilter() {
-            gsap.to(selectList, {
-                height: maxHeight > 0 ? maxHeight : 'auto',
+		selectItems.forEach((element, index) => {
+			element.addEventListener('click', event => {
+				setTitle(event.target);
+				onOptionSelect(element, select);
+				hideFilter();
+			})
+		});
+
+		document.addEventListener("click", hideFilterOnOuterClick);
+
+		function hideFilterOnOuterClick(event) {
+			if (select.contains(event.target)) return;
+			hideFilter();
+		}
+
+		function showFilter() {
+			gsap.to(selectList, {
+				height: maxHeight > 0 ? maxHeight : 'auto',
 				duration: ANIM_DUR,
 				ease: ANIM_EASE,
 				delay: ANIM_DELAY,
@@ -112,12 +112,12 @@ export default (props) => {
 				onComplete: () => {
 					select.classList.remove('is-active');
 					if (onAnimComplete) onAnimComplete();
-                }
-            })
-        }
+				}
+			})
+		}
 
-        function setTitle(el) {
-            currentTitle.innerHTML = el.closest(optionSelector).querySelector('span').innerHTML
-        }
-    }
+		function setTitle(el) {
+			currentTitle.innerHTML = el.closest(optionSelector).querySelector('span').innerHTML
+		}
+	}
 }

@@ -22,10 +22,10 @@ export function homeUrl() {
  */
 export function setCookie(name, value, expires, path, domain, secure) {
 	const curCookie = name + '=' + escape(value) +
-        ((expires) ? '; expires=' + expires.toGMTString() : '') +
-        ((path) ? '; path=' + path : '') +
-        ((domain) ? '; domain=' + domain : '') +
-        ((secure) ? '; secure' : '');
+		((expires) ? '; expires=' + expires.toGMTString() : '') +
+		((path) ? '; path=' + path : '') +
+		((domain) ? '; domain=' + domain : '') +
+		((secure) ? '; secure' : '');
 	document.cookie = curCookie;
 }
 
