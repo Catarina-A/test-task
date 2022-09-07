@@ -108,29 +108,15 @@ $rem-base: 18px;
 	@include absolute-full-width;
 }
 
-@mixin aspect-ratio($arg: 1, $arg2: null) {
-	position: relative;
+@mixin aspect-ratio($arg) {
+  position: relative;
 
-	&::before {
-		display: block;
-		width: 100%;
-
-		@if $arg2 == null {
-			@if unit($arg) == "%" {
-				padding-top: $arg;
-			}
-
-			@else {
-				padding-top: percentage(1/$arg);
-			}
-		}
-
-		@else {
-			padding-top: percentage(strip-unit($arg)/strip-unit($arg2));
-		}
-
-		content: "";
-	}
+  &::before {
+    display: block;
+    width: 100%;
+    padding-top: percentage(1/$arg);
+    content: '';
+  }
 }
 
 @mixin pseudo($display: block, $pos: absolute, $content: "") {
